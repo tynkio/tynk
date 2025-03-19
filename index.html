@@ -131,9 +131,20 @@
             font-size: 40px;
             color: #f4b609;
         }
+        .nota{
+            display: none;
+        }
 
         /* Responsivo para telas pequenas */
         @media (max-width: 600px) {
+            .nota{
+                font-size: 10px;
+                font-weight: lighter;
+                background-color: white;
+                display: block;
+                text-align: center;
+                height: 30px;
+            }
             .navbar {
                 flex-direction: column;
                 text-align: center;
@@ -176,7 +187,7 @@
 
         }
     </style>
-<body>
+<body><div class="nota"><img src="whatslogo.png" width="80px"></h1></div>
     <!-- Menu --><nav class="navbar">
         <div class="logo">
             <img src="logovetorizado.svg" alt="Logo">
