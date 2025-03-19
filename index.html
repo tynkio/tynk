@@ -43,6 +43,7 @@
 
         body {
             font-family: "DM Sans", sans-serif;
+            background-color: black;
         }
 
         .navbar {
@@ -87,8 +88,10 @@
         .logo{
             display: flex;
             justify-content: center;
-            
-
+        }
+        .logomarca{
+            display: flex;
+            justify-content: center;
         }
         .sessao2{
             width:70%;
@@ -137,25 +140,56 @@
             }
 
             .navbar ul {
-                flex-direction: column;
                 padding-top: 10px;
             }
+            .logomarca{
+                display: none;
+            }
+            .txtmenu{
+                display: none;
+            }
+            .sessao1{
+                display: none;
+            }
+            .titulo1{
+                font-size: 80px;
+                color: white;
+                line-height: 0.75;
+            }
+            .aspas{
+                width: 25%;
+            }
+            .parargafo1{
+                font-size: 14px;
+            }
+            .titlo2{
+                font-size: 80px;
+                color: white;
+                line-height: 0.75;
+            } 
+            .subtitulo{
+                font-size: 30px;
+                color: #f4b609;
+                margin-top: 30px;
+                line-height: 1;
+            }
+
         }
     </style>
-<body style="background-color: black;">
+<body>
     <!-- Menu --><nav class="navbar">
         <div class="logo">
             <img src="logovetorizado.svg" alt="Logo">
         </div>
         <ul>
-            <li><a href="#" style="font-weight: bold;">Quem somos?</a></li>
-            <li><a href="#" style="font-weight: bold;">Nossos Serviços</a></li>
-            <li><a href="#" style="font-weight: bold;">Ferramentas</a></li>
-            <li><a href="#" style="font-weight: bold;">Contato</a></li>
+            <li><a href="#" class="txtmenu">Quem somos?</a></li>
+            <li><a href="#" class="txtmenu">Nossos Serviços</a></li>
+            <li><a href="#"titulo1 class="txtmenu">Ferramentas</a></li>
+            <li><a href="#" class="txtmenu">Contato</a></li>
         </ul>
     </nav>
     <div class="sessao1">
-    <div class="logo"><img src="logovetorizado.svg" width="50%">
+    <div class="logomarca"><img src="logovetorizado.svg" width="50%">
     </div></div>
 
     <div class="sessao2">
