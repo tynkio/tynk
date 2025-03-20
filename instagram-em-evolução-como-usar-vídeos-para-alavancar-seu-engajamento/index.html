@@ -38,10 +38,14 @@
     <title>TynkMarketing - Instagram em Evolução: Como Usar Vídeos para Alavancar Seu Engajamento</title>
 </head>
   <style>
-        * {
+       * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+        .linha{
+            width: 70%;
+            margin: auto;
         }
 
         body {
@@ -118,7 +122,6 @@
         .foto{
             width: 50px;
             border-radius: 50px;
-            
         }
         .texto{
             display: flex;
@@ -132,7 +135,106 @@
             justify-content: center;
             align-items: center;
            }
-        
+
+
+
+
+           .outros{
+            margin: auto;
+            margin-top: 120px;
+            align-items: center;
+            width: 75%;
+           }
+           .menuop{
+            display: flex;
+            gap: 30px;
+            list-style-type: none;
+           }
+           .titulomenu{
+            font-size: 30px;
+           }
+           .quadro1{
+            width: 50%;
+           }
+           .quadro2{
+            width: 50%;
+           }
+           .subtitulomenu{
+            display: flex;
+            font-size: 14px;
+            align-items: center;
+            gap: 10px;
+            color: #ff0000;
+           }
+           .fotomenu{
+            width: 25px;
+            border-radius: 50px;
+           }
+           .link {
+            color: #4b0082;
+            text-decoration: none;
+            opacity: 1; /* Opacidade total */
+            transition: opacity 0.3s ease-in-out; /* Animação suave */
+            }
+            .link:hover {
+            opacity: 0.5; /* Reduz a opacidade ao passar o mouse */
+            }
+
+
+
+
+           .rodape{
+            align-items: center;
+            justify-content: center;
+            background-color: #4b0082;
+            height: 250px;
+            margin: auto;
+           }
+           .logorodape{
+            width: 25%;
+           }
+           .logorape{
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            width: 50%;
+            margin: auto;
+            gap: 100px;
+            height: 180px;
+           }
+           .submenuli{
+            list-style: none;
+           }
+           .linksubmenu{
+            text-decoration: none;
+            color: white;
+            position: relative; /* Permite manipular a linha */
+           }
+           .linksubmenu::after {
+            content: ''; /* Elemento vazio para a linha */
+            position: absolute;
+            left: 0;
+            bottom: -2px; /* Ajuste a posição da linha */
+            width: 0;
+            height: 2px; /* Espessura da linha */
+            background-color: currentColor; /* Usa a cor do texto */
+            transition: width 0.3s ease-in-out;
+            }
+            .linksubmenu:hover::after {
+             width: 100%; /* Faz a linha aparecer ao passar o mouse */
+            }
+
+           .notarodape{
+            color: white;
+            font-size: 12px;
+            width: 70%;
+            margin: auto;
+            text-align: center;
+           }
+           .notalink{
+            color: white;
+           }
+
 
         /* Responsivo para telas pequenas */
         @media (max-width: 600px) {
@@ -165,7 +267,7 @@
             margin: auto;
             text-align: center;
             color: rgb(0, 0, 0);
-            font-size: 18px;
+            font-size: 16px;
             text-align: justify;
             width: 90%;
             margin-top: 25px;
@@ -183,7 +285,23 @@
             gap: 10px;
             color: #ff0000;
            }
-          
+           .titulomenu{
+            font-size: 18px;
+            line-height: 1;
+           }
+           .subtitulomenu{
+            font-size: 10px;
+            margin-top: 20px;
+           }
+           .logorape{
+            gap:20%;
+           }
+           .rodape{
+            height:300px;
+           }
+           .logorodape{
+            width: 80%;
+           }
         }
     </style>
 <body>
@@ -275,8 +393,32 @@
     Entre em contato e descubra como podemos transformar seguidores em clientes.<br><br>
 </p></div>
  
-    </div>
-   
+<div class="outros"><hr class="linha"><br>
+    <ul class="menuop">
+        <li class="quadro1"><a href="https://www.tynk.io/como-calcular-engajamen/" class="link"><h1 class="titulomenu">Como Calcular Engajamento no Marketing Digital: O Que os Números Realmente Dizem?</h1></a>
+            <h2 class="subtitulomenu"> <img class="fotomenu" src="fotoperfil.jpg">por: Fabio Ricardo Pereira</h2></li>
+        <li class="quadro2"><a href="https://www.tynk.io/engajamento-importa-mais-do-que-seguidores/" class="link"><h1 class="titulomenu">Engajamento Importa Mais do Que Seguidores: O Erro Que Está Matando Seu Marketing</h1></a>
+            <h2 class="subtitulomenu"> <img class="fotomenu" src="fotoperfil.jpg">por: Fabio Ricardo Pereira</h2></li>
+    </ul>
+</div>
+
+</div>
+<br><br><br>
 </body>
+
+<footer class="rodape">
+<div class="logorape"><img class="logorodape" src="logovetorizado.svg">
+<div class="submenu">
+<ul class="submenuul">
+    <li class="submenuli"><a href="https://tynk.io" class="linksubmenu">Quem somos?</a></li>
+    <li class="submenuli"><a href="https://tynk.io" class="linksubmenu">Nossos Serviços</a></li>
+    <li class="submenuli"><a href="https://tynk.io/insights"titulo1 class="linksubmenu">Insights</a></li>
+    <li class="submenuli"><a href="https://wa.me/554796711909" class="linksubmenu">Contato</a></li>
+</ul></div>
+</div>
+<p class="notarodape">© 2025 Tynk Marketing™. Todos os direitos reservados.</p>
+<p class="notarodape">Tynk Marketing™ está em processo de registro no INPI.</p>
+<p class="notarodape"><a href="/termos-de-uso" class="notalink">Termos de Uso</a> | <a href="/politica-de-privacidade" class="notalink">Política de Privacidade</a></p>
+</footer>
 
 </html>
