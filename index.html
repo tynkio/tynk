@@ -50,7 +50,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         body {
             font-family: "DM Sans", sans-serif;
-            background-color: black;
+            background-color: rgb(255, 255, 255);
         }
 
         .navbar {
@@ -58,6 +58,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             align-items: center;
             justify-content: space-between;
             padding: 15px 30px;
+            background-color: black;
         }
 
         .navbar .logo img {
@@ -90,7 +91,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .sessao1{
             height: 500px;
-            margin-top: 80px;
+         
         }
         .logo{
             display: flex;
@@ -104,12 +105,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             width:70%;
             margin: auto;
             height: 720px;
+            margin-top: 120px;
            
         }
         .titulo1{
             text-align: center;
-            color: white;
-            font-size: 80px;
+            color: #4b0082;
+            font-size: 60px;
             font-weight: bold;
         }
         .parargafo1{
@@ -120,7 +122,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             
         }
         .aspas{
-            width: 15%;
+            width: 40%;
         }
         .bloco{
             background-color: #4b0082;
@@ -138,7 +140,62 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-size: 40px;
             color: #f4b609;
         }
-        
+        .listservicos{
+            display:inline;
+
+        }
+        .rodape{
+         align-items: center;
+         justify-content: center;
+         background-color: #4b0082;
+         height: 250px;
+         margin: auto;
+        }
+        .logorodape{
+         width: 25%;
+        }
+        .logorape{
+         display: flex;
+         justify-content: center; /* Centraliza horizontalmente */
+         align-items: center; /* Centraliza verticalmente */
+         width: 50%;
+         margin: auto;
+         gap: 100px;
+         height: 180px;
+        }
+        .submenuli{
+         list-style: none;
+        }
+        .linksubmenu{
+         text-decoration: none;
+         color: white;
+         position: relative; /* Permite manipular a linha */
+        }
+        .linksubmenu::after {
+         content: ''; /* Elemento vazio para a linha */
+         position: absolute;
+         left: 0;
+         bottom: -2px; /* Ajuste a posição da linha */
+         width: 0;
+         height: 2px; /* Espessura da linha */
+         background-color: currentColor; /* Usa a cor do texto */
+         transition: width 0.3s ease-in-out;
+         }
+         .linksubmenu:hover::after {
+          width: 100%; /* Faz a linha aparecer ao passar o mouse */
+         }
+
+        .notarodape{
+         color: white;
+         font-size: 12px;
+         width: 70%;
+         margin: auto;
+         text-align: center;
+        }
+        .notalink{
+         color: white;
+        }
+
 
         /* Responsivo para telas pequenas */
         @media (max-width: 600px) {
@@ -152,21 +209,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 padding-top: 10px;
             }
             .logomarca{
-                display: none;
+                width: 100%;
             }
             .txtmenu{
                 display: none;
             }
             .sessao1{
-                display: none;
+                height: 80px;
+                justify-content: center;
+                align-items: center;
+                line-height: 0.8;
+            }
+            .sessao2{
+                width: 80%;
             }
             .titulo1{
-                font-size: 80px;
-                color: white;
-                line-height: 0.75;
+                font-size: 45px;
+                color: #4b0082;
             }
             .aspas{
-                width: 25%;
+                width: 50%;
             }
             .parargafo1{
                 font-size: 14px;
@@ -202,30 +264,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
     </nav>
     <div class="sessao1">
-    <div class="logomarca"><img src="logovetorizado.svg" width="50%">
+    <div class="logomarca"><img src="Prancheta.webp" width="80%">
     </div></div>
 
     <div class="sessao2">
-        <h1 class="titulo1">Quem Somos?<img class="aspas" src="aspas.svg"></h1><br><br>
+        <h1 class="titulo1">NÃO? A TynkMarketing é pra você.<br><img class="aspas" src="logomarca.svg"></h1><br><br>
       <div class="bloco">
-        <p class="parargafo1">A Tynk.io é uma agência de marketing e publicidade full-service, especializada em estratégia, criatividade e tecnologia para fortalecer marcas e ampliar sua presença no mercado.<br><br>
+        <p class="parargafo1">A Tynk Marketing é uma agência de marketing e publicidade full-service, especializada em estratégia, criatividade e tecnologia para fortalecer marcas e ampliar sua presença no mercado.<br><br>
 
             Nossos serviços incluem planejamento estratégico de marketing, produção audiovisual profissional, desenvolvimento web avançado, automação com inteligência artificial e design digital e físico.<br><br>
             
-            Com uma abordagem inovadora e orientada por dados, a Tynk.io entrega soluções personalizadas para empresas que buscam autoridade, engajamento e crescimento sustentável.
+            Com uma abordagem inovadora e orientada por dados, a Tynk Marketing entrega soluções personalizadas para empresas que buscam autoridade, engajamento e crescimento sustentável.
             </p>
       </div>
     </div>
     <div class="sessao3">
         <h1 class="titlo2">Nossos Serviços</h1>
         <h2 class="subtitulo">Marketing, Tecnologia e Design em um Só Lugar</h2>
-    </div>
-    <div class="content">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+        <div class="container">
+            <div class="grid">
+                <div class="service">
+                    <h2>Produção Audiovisual</h2>
+                    <p>Criação de vídeos institucionais, comerciais e videoclipes.</p>
+                </div>
+                <div class="service">
+                    <h2>Filmagem com Drone</h2>
+                    <p>Captação de imagens aéreas com qualidade cinematográfica.</p>
+                </div>
+                <div class="service">
+                    <h2>Fotografia Profissional</h2>
+                    <p>Ensaios fotográficos para eventos, publicidade e corporativos.</p>
+                </div>
+                <div class="service">
+                    <h2>Edição de Vídeo</h2>
+                    <p>Montagem e pós-produção com efeitos especiais e color grading.</p>
+                </div>
+                <div class="service">
+                    <h2>Gestão de Tráfego</h2>
+                    <p>Criação e otimização de campanhas para redes sociais e Google Ads.</p>
+                </div>
+                <div class="service">
+                    <h2>Criação de Websites</h2>
+                    <p>Desenvolvimento de sites responsivos e otimizados para SEO.</p>
+                </div>
+            </div>
+        </div>
 
+</div>
 </body>
+<footer class="rodape">
+    <div class="logorape"><img class="logorodape" src="logovetorizado.svg">
+    <div class="submenu">
+    <ul class="submenuul">
+        <li class="submenuli"><a href="https://tynk.io" class="linksubmenu">Quem somos?</a></li>
+        <li class="submenuli"><a href="https://tynk.io" class="linksubmenu">Nossos Serviços</a></li>
+        <li class="submenuli"><a href="https://tynk.io/insights"titulo1 class="linksubmenu">Insights</a></li>
+        <li class="submenuli"><a href="https://wa.me/554796711909" class="linksubmenu">Contato</a></li>
+    </ul></div>
+    </div>
+    <p class="notarodape">© 2025 Tynk Marketing™. Todos os direitos reservados.</p>
+    <p class="notarodape">Tynk Marketing™ está em processo de registro no INPI.</p>
+    <p class="notarodape"><a href="/termos-de-uso" class="notalink">Termos de Uso</a> | <a href="/politica-de-privacidade" class="notalink">Política de Privacidade</a></p>
+    </footer>
 </html>
