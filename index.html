@@ -127,10 +127,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .bloco{
             background-color: #4b0082;
             border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
+            outline: none;
+            height: 380px;
+        }
+
+        .bloco:hover{
+            transform: scale(1.02);
         }
         .sessao3{
             text-align: center;
             height: 540px;
+            margin-top: 80px;
         }
         .titlo2{
             font-size: 80px;
@@ -143,6 +153,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .listservicos{
             display:inline;
 
+        }
+        .quemsomos{
+            margin: auto;
+            text-align: center;
+        }
+        .botao{
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
+            outline: none;
+            background-color: #f4b609;
+            border-radius: 60px;
+            width: 30%;
+            height: 60px;
+            margin: auto;
+            text-align: center;
+        }
+        .botao:hover{
+            transform: scale(1.05);
+        }
+        .txtbuton{
+            color: white;
         }
         .rodape{
          align-items: center;
@@ -232,13 +265,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .aspas{
                 width: 50%;
             }
+            .botao{
+                width: 70%;
+            }
             .parargafo1{
                 font-size: 14px;
             }
             .titlo2{
-                font-size: 80px;
-                color: white;
-                line-height: 0.75;
+                font-size: 45px;
+                color: #4b0082;
+                line-height: 0.90;
             } 
             .subtitulo{
                 font-size: 30px;
@@ -246,6 +282,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 margin-top: 30px;
                 line-height: 1;
             }
+            .logorape{
+         gap:20%;
+        }
+        .rodape{
+         height:300px;
+        }
+        .logorodape{
+         width: 80%;
+        }
 
         }
     </style>
@@ -278,10 +323,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             Com uma abordagem inovadora e orientada por dados, a Tynk Marketing entrega soluções personalizadas para empresas que buscam autoridade, engajamento e crescimento sustentável.
             </p>
+            <div class="quemsomos"><button class="botao"><h1 class="txtbuton">Quem Somos?</h1></button></div>
       </div>
     </div>
     <div class="sessao3">
-        <h1 class="titlo2">Nossos Serviços</h1>
+
         <h2 class="subtitulo">Marketing, Tecnologia e Design em um Só Lugar</h2>
         <div class="container">
             <div class="grid">
