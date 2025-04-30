@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <style>
+    /* Estilos Globais */
     :root {
       --primary: #0b6cff;
       --secondary: #ff9f1c;
@@ -28,7 +29,7 @@
       background: var(--gray);
       color: var(--dark);
       line-height: 1.6;
-      overflow-x: hidden;
+      overflow-x: hidden; /* Previne scroll horizontal */
     }
 
     html {
@@ -40,9 +41,10 @@
       color: inherit;
     }
 
-    img {
+    img, svg { /* Aplicar a SVG também */
       max-width: 100%;
       height: auto;
+      display: block; /* Evita espaços extras abaixo da imagem */
     }
 
     /* ----------  Utilidades  ---------- */
@@ -120,15 +122,9 @@
     }
 
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.05);
-      }
-      100% {
-        transform: scale(1);
-      }
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
     /* ----------  Header  ---------- */
@@ -145,11 +141,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 5%;
+      padding: 0 5%; /* Usa padding para espaçamento lateral */
+      max-width: 1200px; /* Limita largura máxima do conteúdo do header */
+      margin: 0 auto; /* Centraliza o conteúdo */
     }
 
     .logo {
       height: 60px;
+      flex-shrink: 0; /* Impede que o logo encolha */
     }
 
     .logo img {
@@ -158,7 +157,7 @@
     }
 
     .menu-toggle {
-      display: none;
+      display: none; /* Escondido por padrão */
       background: none;
       border: none;
       font-size: 1.8rem;
@@ -177,6 +176,7 @@
       font-size: 1.1rem;
       position: relative;
       padding: 0.5rem 0;
+      white-space: nowrap; /* Impede quebra de linha nos links */
     }
 
     .nav-links a::after {
@@ -196,11 +196,12 @@
 
     /* ----------  Hero Section  ---------- */
     .hero {
-      background: linear-gradient(rgba(11, 108, 255, 0.9), rgba(11, 108, 255, 0.9)),
-                  url('https://images.unsplash.com/photo-1484981184820-2e84ea0dfa3f?auto=format&fit=crop&w=1920&q=80') center/cover;
+      /* Imagem de fundo com gradiente sobreposto */
+      background: linear-gradient(rgba(11, 108, 255, 0.85), rgba(11, 108, 255, 0.85)),
+                  url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80') center/cover no-repeat fixed; /* Imagem mais corporativa e 'fixed' para efeito parallax */
       color: var(--white);
       text-align: center;
-      padding: 8rem 5% 6rem;
+      padding: 8rem 5% 6rem; /* Padding responsivo */
     }
 
     .hero-content {
@@ -213,6 +214,7 @@
       font-weight: 700;
       margin-bottom: 2rem;
       line-height: 1.2;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Sombra leve no texto */
     }
 
     .hero p {
@@ -227,16 +229,17 @@
       justify-content: center;
       gap: 2rem;
       margin-top: 4rem;
-      flex-wrap: wrap;
+      flex-wrap: wrap; /* Permite que os stats quebrem linha */
     }
 
     .hero-stat {
       background: rgba(255, 255, 255, 0.2);
       padding: 1.2rem 2rem;
-      border-radius: 50px;
+      border-radius: 50px; /* Bordas totalmente arredondadas */
       font-weight: 600;
       font-size: 1.2rem;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
+      border: 1px solid rgba(255, 255, 255, 0.3); /* Borda sutil */
     }
 
     /* ----------  About Us Section  ---------- */
@@ -260,8 +263,8 @@
 
     .about-image img {
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%; /* Garante que a imagem preencha o container */
+      object-fit: cover; /* Cobre o espaço sem distorcer */
     }
 
     .about-content {
@@ -278,6 +281,7 @@
       font-size: 1.1rem;
       line-height: 1.8;
       margin-bottom: 1.5rem;
+      color: #555; /* Cor de texto mais suave */
     }
 
     /* ----------  Services Section  ---------- */
@@ -288,7 +292,7 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo */
       gap: 2rem;
     }
 
@@ -297,12 +301,14 @@
       border-radius: 16px;
       padding: 2.5rem;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+      display: flex; /* Usar flexbox para alinhar conteúdo */
+      flex-direction: column; /* Empilhar conteúdo verticalmente */
     }
 
     .service-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 15px 35px rgba(11, 108, 255, 0.15); /* Sombra azul no hover */
     }
 
     .service-card h3 {
@@ -314,6 +320,8 @@
     .service-card p {
       font-size: 1.1rem;
       line-height: 1.6;
+      color: #555;
+      flex-grow: 1; /* Faz o parágrafo ocupar espaço disponível */
     }
 
     /* ----------  Benefits Section  ---------- */
@@ -329,20 +337,34 @@
       padding: 2.5rem;
       text-align: center;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centraliza itens horizontalmente */
     }
 
     .benefit-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 15px 35px rgba(255, 159, 28, 0.15); /* Sombra laranja no hover */
     }
 
-    .benefit-card img {
+    .benefit-icon-container { /* Container para o ícone SVG */
       width: 80px;
       height: 80px;
-      margin: 0 auto 1.5rem;
-      object-fit: contain;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(11, 108, 255, 0.1); /* Fundo azul claro */
+      border-radius: 50%; /* Círculo */
     }
+
+    .benefit-icon-container svg {
+      width: 45px; /* Tamanho do ícone SVG */
+      height: 45px;
+      fill: var(--primary); /* Cor do ícone */
+    }
+
 
     .benefit-card h3 {
       font-size: 1.5rem;
@@ -353,6 +375,8 @@
     .benefit-card p {
       font-size: 1.1rem;
       line-height: 1.6;
+      color: #555;
+      flex-grow: 1;
     }
 
     /* ----------  Programs Section  ---------- */
@@ -373,24 +397,29 @@
     .program-card {
       background: var(--white);
       border-radius: 16px;
-      overflow: hidden;
+      overflow: hidden; /* Garante que a imagem não ultrapasse */
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column; /* Estrutura vertical */
     }
 
     .program-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 15px 35px rgba(11, 108, 255, 0.12); /* Sombra azul no hover */
     }
 
     .program-card img {
       width: 100%;
-      height: 220px;
-      object-fit: cover;
+      height: 220px; /* Altura fixa para a imagem */
+      object-fit: cover; /* Garante que a imagem cubra a área */
     }
 
     .program-content {
       padding: 2rem;
+      flex-grow: 1; /* Ocupa espaço restante */
+      display: flex;
+      flex-direction: column;
     }
 
     .program-card h3 {
@@ -402,11 +431,13 @@
     .program-card p {
       font-size: 1.1rem;
       line-height: 1.6;
+      color: #555;
+      flex-grow: 1; /* Ocupa espaço */
     }
 
     /* ----------  Stats Section  ---------- */
     .stats-section {
-      background: linear-gradient(135deg, var(--primary), #0047b3);
+      background: linear-gradient(135deg, var(--primary), #0047b3); /* Gradiente azul */
       color: var(--white);
       padding: 5rem 0;
       text-align: center;
@@ -424,13 +455,16 @@
       padding: 2rem;
       border-radius: 16px;
       backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2); /* Borda sutil */
     }
 
     .stat-number {
       font-size: 3rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
-      color: var(--secondary);
+      color: var(--secondary); /* Laranja para destaque */
+      min-height: 48px; /* Garante altura mínima para evitar pulos */
+      line-height: 1; /* Ajusta linha para contadores */
     }
 
     .stat-label {
@@ -442,7 +476,7 @@
       display: grid;
       gap: 2rem;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      counter-reset: methodology;
+      counter-reset: methodology; /* Reseta o contador */
     }
 
     .methodology-card {
@@ -450,39 +484,57 @@
       border-radius: 16px;
       padding: 2.5rem 2rem;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
-      overflow: hidden;
+      overflow: hidden; /* Para o número não vazar */
+      display: flex;
+      flex-direction: column;
     }
 
     .methodology-card::before {
-      counter-increment: methodology;
-      content: counter(methodology);
+      counter-increment: methodology; /* Incrementa o contador */
+      content: counter(methodology); /* Exibe o número */
       position: absolute;
       top: 1rem;
       left: 1rem;
       font-size: 3rem;
       font-weight: 700;
-      color: rgba(11, 108, 255, 0.1);
+      color: rgba(11, 108, 255, 0.1); /* Cor suave para o número */
+      line-height: 1;
+      z-index: 0;
     }
 
     .methodology-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 15px 35px rgba(11, 108, 255, 0.12);
     }
 
     .methodology-card h3 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
       color: var(--primary);
+      position: relative; /* Para ficar acima do ::before */
+      z-index: 1;
     }
 
     .methodology-card p {
       font-size: 1.1rem;
       line-height: 1.6;
+      color: #555;
+      position: relative;
+      z-index: 1;
+      flex-grow: 1;
     }
 
     /* ----------  Testimonials Section  ---------- */
+    #depoimentos.container { /* Estilo específico para o container de depoimentos */
+       background: var(--white);
+       border-radius: 16px;
+       padding-top: 4rem;
+       padding-bottom: 4rem;
+       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
     .testimonials {
       display: grid;
       gap: 2rem;
@@ -490,28 +542,31 @@
     }
 
     .testimonial-card {
-      background: var(--white);
+      background: #f0f4ff; /* Fundo levemente azulado */
       border-radius: 16px;
       padding: 2.5rem;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
       position: relative;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 5px solid var(--secondary); /* Borda lateral laranja */
     }
 
     .testimonial-card::before {
-      content: '"';
+      content: '\f10d'; /* Ícone de aspas Font Awesome */
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
       position: absolute;
-      top: 1rem;
+      top: 1.5rem;
       left: 1.5rem;
-      font-size: 5rem;
+      font-size: 2.5rem; /* Tamanho ajustado */
       color: var(--secondary);
-      opacity: 0.1;
+      opacity: 0.2; /* Opacidade ajustada */
       line-height: 1;
     }
 
     .testimonial-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     }
 
     .testimonial-card p {
@@ -520,12 +575,15 @@
       line-height: 1.6;
       margin-bottom: 1.5rem;
       position: relative;
+      color: #333; /* Cor de texto mais escura */
+      padding-left: 1rem; /* Espaço para a aspa não sobrepor */
     }
 
     .testimonial-card strong {
       display: block;
       font-weight: 600;
       color: var(--primary);
+      margin-top: 1rem; /* Espaço acima do nome */
     }
 
     /* ----------  Clients Section  ---------- */
@@ -537,7 +595,7 @@
 
     .clients-slider {
       margin-top: 3rem;
-      padding: 0 2rem;
+      padding: 0 2rem; /* Espaço lateral para o slider */
     }
 
     .client-logo {
@@ -553,7 +611,7 @@
       width: auto;
       filter: grayscale(100%);
       opacity: 0.7;
-      transition: all 0.3s ease;
+      transition: filter 0.3s ease, opacity 0.3s ease; /* Transição suave */
     }
 
     .client-logo:hover img {
@@ -589,10 +647,10 @@
       color: var(--dark);
     }
 
-    /* ----------  Contact Section  ---------- */
+    /* ---------- Contact Section ---------- */
     .contact-form {
       max-width: 600px;
-      margin: 0 auto;
+      margin: 3rem auto 0;
       background: var(--white);
       padding: 3rem;
       border-radius: 16px;
@@ -607,6 +665,7 @@
       display: block;
       margin-bottom: 0.5rem;
       font-weight: 600;
+      color: #333;
     }
 
     .form-group input,
@@ -617,28 +676,133 @@
       border: 1px solid #ddd;
       border-radius: 8px;
       font-size: 1rem;
+      transition: border-color 0.3s ease;
     }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+        border-color: var(--primary); /* Destaca campo ao focar */
+        outline: none; /* Remove outline padrão */
+        box-shadow: 0 0 0 3px rgba(11, 108, 255, 0.2); /* Adiciona um brilho suave */
+    }
+
 
     .form-group textarea {
       min-height: 150px;
+      resize: vertical; /* Permite redimensionar verticalmente */
     }
 
-    /* ----------  Footer  ---------- */
+    /* ---------- Urgency Section ---------- */
+    .urgency-section {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      background: #ffeeda;
+      padding: 2rem;
+      border-radius: 16px;
+      border: 2px solid var(--secondary);
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(255, 159, 28, 0.2);
+    }
+
+    .urgency-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #c77700;
+      margin-bottom: 1rem;
+    }
+    .urgency-title i { /* Estilo para o ícone */
+        margin-right: 0.5rem;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      background-color: #ffc994;
+      border-radius: 25px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      height: 25px;
+      border: 1px solid #f0a549;
+      position: relative; /* Para o texto absoluto */
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%; /* Começa em 0% para animação */
+      background: linear-gradient(90deg, var(--secondary), #ff7b00);
+      border-radius: 25px;
+      text-align: right; /* Alinha texto à direita */
+      line-height: 25px;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.9rem;
+      position: relative;
+      animation: progressBarAnimation 2s 0.5s ease-out forwards, pulseBar 2.5s infinite ease-in-out 2.5s; /* Delay na animação inicial */
+      overflow: hidden;
+      padding-right: 10px; /* Espaço para o texto não colar na borda */
+    }
+
+    .progress-bar-fill::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        background-image: linear-gradient( -45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent );
+        z-index: 1;
+        background-size: 50px 50px;
+        animation: moveStripes 2s linear infinite;
+        opacity: 0; /* Começa invisível */
+        animation: fadeInStripes 0.5s 2s forwards; /* Aparece depois da barra carregar */
+    }
+
+    @keyframes progressBarAnimation {
+      from { width: 0%; }
+      to { width: 85%; } /* Anima até 85% */
+    }
+
+    @keyframes pulseBar {
+      0% { box-shadow: 0 0 5px rgba(255, 159, 28, 0.5); }
+      50% { box-shadow: 0 0 15px rgba(255, 159, 28, 0.8); }
+      100% { box-shadow: 0 0 5px rgba(255, 159, 28, 0.5); }
+    }
+
+    @keyframes moveStripes {
+      from { background-position: 0 0; }
+      to { background-position: 50px 50px; }
+    }
+    @keyframes fadeInStripes {
+        to { opacity: 1; }
+    }
+
+    .urgency-section .btn { /* Estilo específico para o botão de urgência */
+         margin-top: 1.5rem;
+         background-color: #e63946; /* Cor vermelha para urgência */
+         box-shadow: 0 4px 20px rgba(230, 57, 70, 0.4);
+    }
+    .urgency-section .btn:hover {
+         box-shadow: 0 8px 25px rgba(230, 57, 70, 0.6);
+         background-color: #d62828; /* Vermelho mais escuro no hover */
+    }
+     .urgency-section .btn i { /* Ícone dentro do botão */
+        margin-right: 0.5rem;
+     }
+
+    /* ---------- Footer ---------- */
     footer {
       background: var(--dark);
-      color: var(--white);
+      color: rgba(255, 255, 255, 0.8); /* Cor de texto ligeiramente transparente */
       text-align: center;
-      padding: 3rem 0;
+      padding: 3rem 0 1rem; /* Padding ajustado */
     }
 
     .footer-content {
       max-width: 600px;
       margin: 0 auto;
+      padding: 0 5%; /* Padding lateral */
     }
 
     .footer-logo {
       height: 60px;
       margin-bottom: 1.5rem;
+      opacity: 0.9; /* Leve transparência no logo */
     }
 
     .social-links {
@@ -656,7 +820,11 @@
       height: 50px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
-      transition: all 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      color: var(--white); /* Garante cor branca do ícone */
+    }
+    .social-links a i {
+        font-size: 1.2rem; /* Tamanho dos ícones sociais */
     }
 
     .social-links a:hover {
@@ -675,6 +843,7 @@
     .footer-links a {
       font-weight: 600;
       transition: color 0.3s;
+      color: rgba(255, 255, 255, 0.7); /* Cor mais suave para links */
     }
 
     .footer-links a:hover {
@@ -683,44 +852,27 @@
 
     .copyright {
       margin-top: 2rem;
-      opacity: 0.8;
+      font-size: 0.9rem; /* Tamanho menor para copyright */
+      opacity: 0.6; /* Mais transparente */
     }
 
-    /* ----------  Responsividade  ---------- */
+    /* ---------- Responsividade ---------- */
     @media (max-width: 1024px) {
-      .hero h1 {
-        font-size: 3rem;
-      }
-      
-      .hero p {
-        font-size: 1.4rem;
-      }
-      
-      .section-title {
-        font-size: 2.5rem;
-      }
-      
-      .about-container {
-        flex-direction: column;
-      }
-      
-      .about-image {
-        margin-bottom: 2rem;
-      }
+      .hero h1 { font-size: 3rem; }
+      .hero p { font-size: 1.4rem; }
+      .section-title { font-size: 2.5rem; }
+      .about-container { flex-direction: column; text-align: center; } /* Centraliza texto no mobile */
+      .about-image { margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;} /* Limita largura da imagem */
+      .programs-container { padding: 3rem; }
     }
 
     @media (max-width: 768px) {
-      .container {
-        padding: 3rem 0;
-      }
-      
-      .menu-toggle {
-        display: block;
-      }
-      
+      .container { padding: 3rem 0; width: 95%;} /* Aumenta largura do container */
+      .navbar { padding: 0 5%; } /* Ajusta padding navbar */
+      .menu-toggle { display: block; } /* Mostra botão do menu */
       .nav-links {
-        position: fixed;
-        top: 80px;
+        position: fixed; /* Menu fixo */
+        top: 76px; /* Altura do header - ajustar se necessário */
         left: 0;
         width: 100%;
         background: var(--white);
@@ -729,109 +881,57 @@
         padding: 2rem 0;
         gap: 1.5rem;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        transform: translateY(-150%);
-        transition: transform 0.4s ease;
+        transform: translateY(-150%); /* Escondido fora da tela */
+        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Transição suave */
+        z-index: 999;
+        height: calc(100vh - 76px); /* Ocupa altura restante */
+        overflow-y: auto; /* Permite scroll se necessário */
       }
-      
-      .nav-links.active {
-        transform: translateY(0);
-      }
-      
-      .hero {
-        padding: 6rem 5% 4rem;
-      }
-      
-      .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-      }
-      
-      .hero p {
-        font-size: 1.3rem;
-        margin-bottom: 3rem;
-      }
-      
-      .btn {
-        font-size: 1.2rem;
-        padding: 1.3rem 2.5rem;
-        min-width: 240px;
-      }
-      
-      .section-title {
-        font-size: 2.3rem;
-      }
-      
-      .subtitle {
-        font-size: 1.2rem;
-      }
-      
-      .programs-container,
-      .contact-form {
-        padding: 2rem;
-      }
+      .nav-links.active { transform: translateY(0); } /* Mostra menu */
+      .hero { padding: 6rem 5% 4rem; background-attachment: scroll; } /* Remove fixed background */
+      .hero h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+      .hero p { font-size: 1.3rem; margin-bottom: 3rem; }
+      .btn { font-size: 1.2rem; padding: 1.3rem 2.5rem; min-width: 0; width: auto; } /* Ajusta botão */
+      .hero .btn { width: 80%; max-width: 300px;} /* Botão hero maior */
+      .section-title { font-size: 2.3rem; }
+      .subtitle { font-size: 1.2rem; }
+      .programs-container, .contact-form, .urgency-section { padding: 2rem; }
+      .stats-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;} /* Ajusta grid stats */
+      .stat-number { font-size: 2.5rem; }
+      .stat-label { font-size: 1rem; }
+      .footer-content { padding: 0 5%;}
     }
 
     @media (max-width: 480px) {
-      .hero {
-        padding: 5rem 5% 3rem;
-      }
-      
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-      
-      .hero p {
-        font-size: 1.1rem;
-      }
-      
-      .hero-stat {
-        width: 100%;
-        text-align: center;
-      }
-      
-      .hero-stats {
-        gap: 1rem;
-      }
-      
-      .btn {
-        width: 100%;
-        padding: 1.2rem;
-        font-size: 1.1rem;
-      }
-      
-      .section-title {
-        font-size: 2rem;
-      }
-      
-      .section-tag {
-        font-size: 1rem;
-      }
-      
-      .stats-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .methodology,
-      .testimonials {
-        grid-template-columns: 1fr;
-      }
-      
-      .client-logo {
-        height: 60px;
-      }
+      .hero { padding: 5rem 5% 3rem; }
+      .hero h1 { font-size: 2rem; } /* Tamanho menor */
+      .hero p { font-size: 1.1rem; }
+      .hero-stat { width: calc(50% - 1rem); font-size: 1rem; padding: 1rem 1.5rem;} /* 2 stats por linha */
+      .hero-stats { gap: 1rem; justify-content: center;}
+      .btn { width: 100%; padding: 1.2rem; font-size: 1.1rem; } /* Botão ocupa largura total */
+      .section-title { font-size: 2rem; }
+      .section-tag { font-size: 1rem; }
+      .stats-grid { grid-template-columns: 1fr 1fr; } /* 2 colunas stats */
+      .methodology, .testimonials, .services-grid, .benefits, .programs { grid-template-columns: 1fr; } /* 1 coluna */
+      .client-logo { height: 50px; } /* Logos menores */
+      .urgency-title { font-size: 1.4rem; }
+      .progress-bar-fill { font-size: 0.8rem; }
+      .contact-form { padding: 1.5rem; }
+      .footer-links { gap: 1rem; }
+      .social-links a { width: 45px; height: 45px;}
+      .social-links a i { font-size: 1rem;}
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="navbar">
       <a class="logo" href="#">
         <img src="https://conectaempresarial.com.br/wp-content/uploads/2021/11/logotipo-conecta-empresarial-1024x239.png" alt="Conecta Empresarial">
       </a>
-      
-      <button class="menu-toggle" id="menuToggle">☰</button>
-      
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
       <nav>
         <ul class="nav-links" id="navLinks">
           <li><a href="#quem-somos">Quem Somos</a></li>
@@ -845,481 +945,464 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
       <h1>Transforme Sua Equipe de Vendas em Máquinas de Alta Performance</h1>
       <p>Nossos treinamentos já geraram <strong>+37% de aumento na receita</strong> em média para empresas como a sua.</p>
       <a class="btn pulse" href="https://api.whatsapp.com/send?phone=5511998195907&text=Olá%20Conecta%20Empresarial!%20Quero%20aumentar%20minhas%20vendas%20com%20os%20treinamentos." target="_blank">QUERO AUMENTAR AS VENDAS AGORA</a>
-      
       <div class="hero-stats">
-        <div class="hero-stat"><strong>98%</strong> Satisfação dos Clientes</div>
-        <div class="hero-stat"><strong>+50.000</strong> Profissionais Treinados</div>
-        <div class="hero-stat"><strong>+400</strong> Empresas Atendidas</div>
-      </div>
+        <div class="hero-stat"><strong>98%</strong> Satisfação</div> <div class="hero-stat"><strong>50k+</strong> Profissionais</div> <div class="hero-stat"><strong>+400</strong> Empresas</div> </div>
     </div>
   </section>
 
-  <!-- About Us Section -->
   <section id="quem-somos" class="about-section">
     <div class="container">
       <div class="about-container">
         <div class="about-image">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Equipe Conecta Empresarial">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Equipe de vendas colaborando em reunião moderna">
         </div>
         <div class="about-content">
-          <h2>Quem Somos</h2>
-          <p>A Conecta Empresarial é uma empresa especializada em treinamentos e consultorias para desenvolvimento de equipes comerciais. Com mais de 20 anos de experiência, ajudamos empresas a transformar seus resultados através de metodologias comprovadas e conteúdo prático.</p>
-          <p>Nossa missão é conectar estratégias inovadoras com a realidade do mercado, proporcionando aos nossos clientes ferramentas eficazes para aumentar suas vendas e melhorar o desempenho de suas equipes.</p>
-          <p>Contamos com uma equipe multidisciplinar de especialistas em vendas, psicologia organizacional e desenvolvimento humano, garantindo uma abordagem completa para o sucesso comercial.</p>
+          <span class="section-tag">Quem Somos</span>
+          <h2>Especialistas em Impulsionar Resultados de Vendas</h2>
+          <p>A Conecta Empresarial é líder em treinamentos de vendas B2B e B2C, focada em metodologias práticas e resultados mensuráveis. Nossa paixão é transformar potencial em performance, equipando equipes com as ferramentas e a mentalidade necessárias para superar metas consistentemente.</p>
+          <p>Com anos de experiência e um histórico comprovado, entendemos os desafios do mercado atual e adaptamos nossos programas para atender às necessidades específicas de cada cliente.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
   <section id="servicos" class="services-section">
     <div class="container">
       <span class="section-tag">Nossos Serviços</span>
-      <h2 class="section-title">Soluções Completas para Sua Empresa</h2>
-      <p class="subtitle">Além dos treinamentos de vendas, oferecemos diversas soluções para o desenvolvimento do seu negócio</p>
-      
+      <h2 class="section-title">Soluções Completas para Sua Força de Vendas</h2>
+      <p class="subtitle">Oferecemos uma gama de serviços projetados para elevar a performance da sua equipe em todas as etapas do processo de vendas.</p>
       <div class="services-grid">
         <div class="service-card">
-          <h3>Consultoria em Gestão Comercial</h3>
-          <p>Diagnóstico completo e plano de ação para reestruturação da área comercial, com definição de processos, métricas e estratégias de vendas.</p>
+          <h3>Treinamentos Presenciais e Online</h3>
+          <p>Programas imersivos e interativos, adaptados à sua realidade, disponíveis tanto presencialmente quanto em plataformas digitais.</p>
         </div>
         <div class="service-card">
-          <h3>Recrutamento e Seleção</h3>
-          <p>Processos seletivos especializados para contratação de talentos comerciais, com avaliação de competências técnicas e comportamentais.</p>
+          <h3>Consultoria Estratégica de Vendas</h3>
+          <p>Análise profunda do seu processo comercial e desenvolvimento de estratégias personalizadas para otimizar resultados.</p>
         </div>
         <div class="service-card">
-          <h3>Desenvolvimento de Liderança</h3>
-          <p>Programas específicos para gestores e líderes de equipes comerciais, com foco em gestão de pessoas e alta performance.</p>
-        </div>
-        <div class="service-card">
-          <h3>Customer Success</h3>
-          <p>Treinamentos e consultoria para equipes de pós-venda, garantindo a satisfação e retenção de clientes.</p>
-        </div>
-        <div class="service-card">
-          <h3>Planejamento Estratégico</h3>
-          <p>Elaboração de planos estratégicos comerciais com definição de metas, ações e indicadores de desempenho.</p>
-        </div>
-        <div class="service-card">
-          <h3>Assessoria Contínua</h3>
-          <p>Acompanhamento mensal para implementação das estratégias e ajustes necessários conforme a evolução do negócio.</p>
+          <h3>Desenvolvimento de Liderança Comercial</h3>
+          <p>Capacitação de gestores para liderar, motivar e extrair o melhor de suas equipes de vendas.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Benefits Section -->
   <section id="beneficios" class="container">
-    <span class="section-tag">Por que escolher a Conecta?</span>
-    <h2 class="section-title">Vantagens Exclusivas</h2>
-    <p class="subtitle">Metodologia que une ciência do comportamento, neurovendas e coaching de performance</p>
-    
+    <span class="section-tag">Benefícios</span>
+    <h2 class="section-title">Por Que Escolher a Conecta Empresarial?</h2>
+    <p class="subtitle">Veja como nossos treinamentos podem impactar diretamente o crescimento do seu negócio.</p>
     <div class="benefits">
       <div class="benefit-card">
-        <img src="https://img.icons8.com/fluency/96/0b6cff/bar-chart.png" alt="Resultados">
+        <div class="benefit-icon-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.66 1.905H6.44l4.5 4.5c.945.945 2.56.276 2.56-1.06V4.06zM18.584 5.106a.75.75 0 011.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 11-1.06-1.06 8.25 8.25 0 000-11.668.75.75 0 010-1.06z" />
+            <path d="M15.932 7.757a.75.75 0 011.061 0 6 6 0 010 8.486.75.75 0 01-1.06-1.061 4.5 4.5 0 000-6.364.75.75 0 010-1.06z" />
+          </svg>
+        </div>
+        <h3>Aumento de Receita</h3>
+        <p>Nossas metodologias comprovadas levam a um aumento significativo nas taxas de conversão e no ticket médio.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon-container">
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.53 1.466 15.59 15.59 0 01-3.422 2.182.75.75 0 01-.256.061 4.5 4.5 0 01-1.74-.194.75.75 0 01-.5-.693v-.004c0-1.061.074-2.098.224-3.105.19-1.25.514-2.453.954-3.597.44-.114.9-.227 1.38-.338 1.21-.28 2.48-.43 3.78-.43 1.36 0 2.69.16 3.95.454.25.058.49.117.72.178.24.062.47.128.69.198.22.07.43.145.63.223.19.076.38.152.55.23.08.038.16.074.24.108.08.036.15.07.22.102a.75.75 0 01.16.75v.004a7.11 7.11 0 01-2.878 5.645 15.588 15.588 0 01-3.421 2.182.75.75 0 01-.257.06z" />
+          </svg>
+        </div>
+        <h3>Equipe Motivada</h3>
+        <p>Desenvolvemos habilidades e confiança, resultando em vendedores mais engajados e produtivos.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path fill-rule="evenodd" d="M12.963 2.286a.75.75 0 00-1.071-.136 9.742 9.742 0 00-3.539 6.177A.75.75 0 008.38 8.38a8.242 8.242 0 013.04-5.22.75.75 0 00.136-1.071zm1.071.136a.75.75 0 00-1.36 1.071 8.242 8.242 0 01-5.22 3.04.75.75 0 00-.136 1.071 9.742 9.742 0 006.177-3.539.75.75 0 00-1.071-1.36zM12 21a9 9 0 100-18 9 9 0 000 18zm0-2.25a6.75 6.75 0 100-13.5 6.75 6.75 0 000 13.5zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z" clip-rule="evenodd" />
+            <path d="M11.15 12.85a.75.75 0 001.06 1.06l3-3a.75.75 0 00-1.06-1.06l-3 3z" />
+            <path d="M8.845 12.146a.75.75 0 00-1.06 1.06l-.75.75a.75.75 0 101.06 1.06l.75-.75a.75.75 0 00-1.06-1.06z" />
+          </svg>
+        </div>
         <h3>Resultados Mensuráveis</h3>
-        <p>KPIs definidos antes do treinamento e relatórios claros de evolução com métricas precisas para acompanhar seu progresso.</p>
-      </div>
-      <div class="benefit-card">
-        <img src="https://img.icons8.com/fluency/96/0b6cff/settings.png" alt="Customizado">
-        <h3>Conteúdo Customizado</h3>
-        <p>Cada módulo é adaptado à realidade do seu produto, mercado e equipe para maximizar a aplicabilidade.</p>
-      </div>
-      <div class="benefit-card">
-        <img src="https://img.icons8.com/fluency/96/0b6cff/online-support.png" alt="Flexível">
-        <h3>On & Off-line</h3>
-        <p>Formatos presenciais, ao vivo e gravados para garantir aprendizado contínuo e flexibilidade para sua equipe.</p>
+        <p>Focamos em métricas claras e acompanhamento contínuo para garantir o retorno sobre o investimento.</p>
       </div>
     </div>
   </section>
 
-  <!-- Programs Section -->
   <section id="programas" class="container">
     <div class="programs-container">
-      <span class="section-tag">Nossas Soluções</span>
-      <h2 class="section-title">Programas de Treinamento</h2>
-      <p class="subtitle">Desenvolvemos programas sob medida para cada necessidade</p>
-      
+      <span class="section-tag">Nossos Programas</span>
+      <h2 class="section-title">Treinamentos Sob Medida para o Sucesso</h2>
+      <p class="subtitle">Explore nossos principais programas de treinamento, desenhados para diferentes necessidades e níveis de experiência.</p>
       <div class="programs">
         <div class="program-card">
-          <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=80" alt="Bootcamp Intensivo">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Duas pessoas discutindo um gráfico em um tablet">
           <div class="program-content">
-            <h3>Bootcamp Intensivo</h3>
-            <p>Imersão presencial de 2 dias com técnicas avançadas de prospecção e negociação, incluindo simulações reais de vendas.</p>
+            <h3>Vendas Consultivas de Alto Impacto</h3>
+            <p>Domine a arte de entender as necessidades do cliente e apresentar soluções que geram valor real.</p>
           </div>
         </div>
         <div class="program-card">
-          <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=800&q=80" alt="Série Online">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Apertos de mão em um ambiente de negócios">
           <div class="program-content">
-            <h3>Série Online Ao Vivo</h3>
-            <p>4 semanas de aulas interativas com desafios práticos semanais para aplicar imediatamente e vender mais desde o primeiro dia.</p>
+            <h3>Negociação e Fechamento</h3>
+            <p>Aprenda técnicas avançadas para superar objeções e fechar mais negócios de forma eficaz.</p>
           </div>
         </div>
         <div class="program-card">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Mentoria">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" alt="Pessoa usando laptop com gráficos e dados na tela">
           <div class="program-content">
-            <h3>Mentoria 1:1</h3>
-            <p>Acompanhamento personalizado por 90 dias para líderes de vendas implantarem cultura de alta performance em suas equipes.</p>
+            <h3>Prospecção Ativa e Inteligente</h3>
+            <p>Descubra como encontrar e qualificar leads de forma eficiente, enchendo seu funil de vendas.</p>
           </div>
         </div>
-      </div>
-      
-      <div class="text-center" style="margin-top: 3rem;">
-        <a class="btn btn-primary pulse" href="https://api.whatsapp.com/send?phone=5511998195907&text=Olá!%20Quero%20saber%20mais%20sobre%20os%20programas%20de%20treinamento%20de%20vendas." target="_blank">SOLICITAR PROPOSTA</a>
       </div>
     </div>
   </section>
 
-  <!-- Stats Section -->
   <section id="stats" class="stats-section">
     <div class="container">
-      <span class="section-tag" style="color: var(--white);">Nossa História</span>
-      <h2 class="section-title" style="color: var(--white);">Resultados que Contam</h2>
-      
+      <h2 class="section-title" style="color: var(--white);">Resultados que Falam por Si</h2>
+      <p class="subtitle" style="color: rgba(255,255,255,0.8);">Números que comprovam o impacto dos nossos treinamentos.</p>
       <div class="stats-grid">
         <div class="stat-item">
-          <div class="stat-number" data-count="98">98%</div>
-          <div class="stat-label">Clientes Satisfeitos</div>
+          <div class="stat-number" data-target="37" data-suffix="%">+0%</div>
+          <div class="stat-label">Aumento Médio na Receita</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number" data-count="50">50k</div>
+          <div class="stat-number" data-target="50" data-suffix="k+">0k+</div>
           <div class="stat-label">Profissionais Treinados</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number" data-count="20">20</div>
-          <div class="stat-label">Anos de Experiência</div>
+          <div class="stat-number" data-target="98" data-suffix="%">0%</div>
+          <div class="stat-label">Índice de Satisfação</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number" data-count="400">400+</div>
-          <div class="stat-label">Empresas Atendidas</div>
+          <div class="stat-number" data-target="400" data-suffix="+">+0</div>
+          <div class="stat-label">Empresas Impactadas</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Methodology Section -->
   <section id="metodologia" class="container">
-    <span class="section-tag">Como Fazemos</span>
-    <h2 class="section-title">Metodologia Comprovada</h2>
-    <p class="subtitle">Um processo científico para elevar sua equipe ao próximo nível de performance</p>
-    
+    <span class="section-tag">Nossa Metodologia</span>
+    <h2 class="section-title">Aprendizado Prático e Focado em Ação</h2>
+    <p class="subtitle">Nossa abordagem combina teoria sólida com aplicação prática imediata para garantir a retenção e a implementação do conhecimento.</p>
     <div class="methodology">
       <div class="methodology-card">
-        <h3>Diagnóstico 360º</h3>
-        <p>Mapeamos processos, competências e metas através de avaliações detalhadas para estruturar um plano de ação sob medida para sua realidade.</p>
+        <h3>Diagnóstico Preciso</h3>
+        <p>Analisamos seus desafios e objetivos para personalizar o treinamento.</p>
       </div>
       <div class="methodology-card">
-        <h3>Conteúdo Hands-On</h3>
-        <p>Zero teoria vazia. Focamos em exercícios práticos, role-plays e simulações reais de vendas para aprendizagem acelerada.</p>
+        <h3>Conteúdo Relevante</h3>
+        <p>Focamos em técnicas e estratégias aplicáveis ao seu mercado e público.</p>
       </div>
       <div class="methodology-card">
-        <h3>Gamificação</h3>
-        <p>Pontuação, rankings e recompensas para estimular engajamento e espírito competitivo saudável entre os participantes.</p>
+        <h3>Dinâmicas e Simulações</h3>
+        <p>Os participantes praticam as habilidades em cenários realistas.</p>
       </div>
       <div class="methodology-card">
-        <h3>Follow-Up Estratégico</h3>
-        <p>Reuniões de checkpoint e ajustes finos para garantir adoção total das técnicas e correção de rotas quando necessário.</p>
+        <h3>Acompanhamento Pós-Treinamento</h3>
+        <p>Oferecemos suporte para garantir a aplicação e medir os resultados.</p>
       </div>
     </div>
   </section>
 
-  <!-- Clients Section -->
-  <section class="clients-section">
-    <div class="container">
-
-      <h2 class="section-title">Cursos com Grande Grau de Aprovação</h2>
-      
-      <div class="clients-slider swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="client-logo">
-              <img src="https://conectaempresarial.com.br/wp-content/uploads/2023/07/Client-6.png" alt="Cliente 1">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="client-logo">
-              <img src="https://conectaempresarial.com.br/wp-content/uploads/2023/07/Client-7.png" alt="Cliente 2">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="client-logo">
-              <img src="https://conectaempresarial.com.br/wp-content/uploads/2023/07/Client-8.png" alt="Cliente 3">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="client-logo">
-              <img src="https://conectaempresarial.com.br/wp-content/uploads/2023/07/Client-9.png" alt="Cliente 4">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="client-logo">
-              <img src="https://conectaempresarial.com.br/wp-content/uploads/2023/07/Client-10.png" alt="Cliente 5">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="client-logo">
-              <img src="https://conectaempresarial.com.br/wp-content/uploads/2023/07/Client-11.png" alt="Cliente 6">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Ratings Section -->
-  <section class="ratings-section">
-    <div class="container">
-      <div class="rating-container">
-        <div class="star-rating">
-          ★ ★ ★ ★ ☆
-        </div>
-        <div class="rating-text">4.7 (587 Reviews)</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
   <section id="depoimentos" class="container">
-    <span class="section-tag">Quem Confia</span>
-    <h2 class="section-title">Depoimentos</h2>
-    <p class="subtitle">Veja o que nossos clientes dizem sobre os resultados alcançados</p>
-    
+    <span class="section-tag">Depoimentos</span>
+    <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+    <p class="subtitle">Histórias de sucesso de empresas que confiaram na Conecta Empresarial.</p>
     <div class="testimonials">
       <div class="testimonial-card">
-        <p>"Em 60 dias, nossa taxa de conversão saltou de 18% para 29%. O treinamento da Conecta valeu cada centavo. O ROI foi imediato e os resultados permaneceram."</p>
-        <strong>— Ana Silva, Head de Vendas (Tech SaaS)</strong>
+        <p>"O treinamento da Conecta foi um divisor de águas para nossa equipe. Vimos um aumento de 45% nas vendas em apenas um trimestre!"</p>
+        <strong>- João Silva, Diretor Comercial | Tech Solutions</strong>
       </div>
       <div class="testimonial-card">
-        <p>"Não é palestra motivacional. É processo. Saímos com roteiro de call, e-mail e playbook pronto para implementar imediatamente. Transformou nosso comercial."</p>
-        <strong>— João Pereira, Diretor Comercial (Distribuidora B2B)</strong>
+        <p>"A abordagem prática e a energia do instrutor mantiveram todos engajados. As técnicas de negociação foram especialmente úteis."</p>
+        <strong>- Maria Oliveira, Gerente de Vendas | Inova Corp</strong>
       </div>
       <div class="testimonial-card">
-        <p>"A mentoria foi game-changer: viramos o trimestre com 42% acima da meta. A equipe nunca esteve tão alinhada e motivada. Superou todas expectativas."</p>
-        <strong>— Camila Costa, Gerente de Contas (Saúde)</strong>
+        <p>"Finalmente encontramos um treinamento que realmente entende os desafios do B2B complexo. Recomendo fortemente!"</p>
+        <strong>- Carlos Pereira, CEO | Alpha Industrial</strong>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <section class="clients-section">
+    <div class="container">
+      <h2 class="section-title">Empresas que Confiam na Gente</h2>
+      <div class="clients-slider swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide client-logo"><img src="https://placehold.co/150x60/cccccc/999999?text=Cliente+A" alt="Logotipo Cliente A"></div>
+          <div class="swiper-slide client-logo"><img src="https://placehold.co/150x60/cccccc/999999?text=Cliente+B" alt="Logotipo Cliente B"></div>
+          <div class="swiper-slide client-logo"><img src="https://placehold.co/150x60/cccccc/999999?text=Cliente+C" alt="Logotipo Cliente C"></div>
+          <div class="swiper-slide client-logo"><img src="https://placehold.co/150x60/cccccc/999999?text=Cliente+D" alt="Logotipo Cliente D"></div>
+          <div class="swiper-slide client-logo"><img src="https://placehold.co/150x60/cccccc/999999?text=Cliente+E" alt="Logotipo Cliente E"></div>
+          <div class="swiper-slide client-logo"><img src="https://placehold.co/150x60/cccccc/999999?text=Cliente+F" alt="Logotipo Cliente F"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <section class="ratings-section">
+     <div class="container">
+       <div class="rating-container">
+         <div class="star-rating">
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star-half-alt"></i> </div>
+         <div class="rating-text">Avaliação Média: 4.8 / 5.0</div>
+       </div>
+     </div>
+   </section>
+
   <section id="contato" class="container">
-    <span class="section-tag">Próximo Passo</span>
-    <h2 class="section-title">Pronto para Bater Recordes?</h2>
-    <p class="subtitle">Fale com nossos especialistas e receba um plano personalizado</p>
-    
-    <div class="contact-form">
-      <form id="contactForm">
-        <div class="form-group">
-          <label for="name">Nome Completo</label>
-          <input type="text" id="name" name="name" required>
+    <span class="section-tag">Fale Conosco</span>
+    <h2 class="section-title">Pronto para Transformar Sua Equipe?</h2>
+    <p class="subtitle">Entre em contato para saber mais sobre nossos treinamentos e como podemos ajudar sua empresa a alcançar novos patamares.</p>
+
+    <div class="urgency-section">
+      <h3 class="urgency-title"><i class="fas fa-exclamation-triangle"></i> ÚLTIMAS VAGAS DISPONÍVEIS!</h3>
+      <p style="margin-bottom: 1rem; font-weight: 600;">Nossas próximas turmas estão quase completas. Não perca a chance!</p>
+      <div class="progress-bar-container" aria-label="Progresso de preenchimento da turma">
+        <div class="progress-bar-fill" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+          85% Preenchido
         </div>
-        <div class="form-group">
-          <label for="email">E-mail Corporativo</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="phone">Telefone</label>
-          <input type="tel" id="phone" name="phone" required>
-        </div>
-        <div class="form-group">
-          <label for="company">Empresa</label>
-          <input type="text" id="company" name="company" required>
-        </div>
-        <div class="form-group">
-          <label for="employees">Número de Vendedores</label>
-          <select id="employees" name="employees" required>
-            <option value="">Selecione</option>
-            <option value="1-5">1-5</option>
-            <option value="6-10">6-10</option>
-            <option value="11-20">11-20</option>
-            <option value="21+">21+</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Como podemos ajudar?</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">ENVIAR MENSAGEM</button>
-      </form>
+      </div>
+       <a class="btn pulse" href="https://api.whatsapp.com/send?phone=5511998195907&text=Olá!%20Vi%20que%20as%20turmas%20estão%20quase%20cheias.%20Quero%20garantir%20minha%20vaga!" target="_blank">
+         <i class="fas fa-lock"></i> GARANTA SUA VAGA AGORA!
+       </a>
     </div>
+    <form id="contactForm" class="contact-form" novalidate> <div class="form-group">
+        <label for="name">Nome Completo:</label>
+        <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail Corporativo:</label>
+        <input type="email" id="email" name="email" required placeholder="seuemail@suaempresa.com.br">
+      </div>
+      <div class="form-group">
+        <label for="phone">Telefone / WhatsApp:</label>
+        <input type="tel" id="phone" name="phone" required placeholder="(XX) XXXXX-XXXX">
+      </div>
+      <div class="form-group">
+        <label for="company">Empresa:</label>
+        <input type="text" id="company" name="company" placeholder="Nome da sua empresa">
+      </div>
+       <div class="form-group">
+        <label for="interest">Tenho interesse em:</label>
+        <select id="interest" name="interest" required> <option value="" disabled selected>Selecione uma opção...</option> <option value="Treinamento Vendas Consultivas">Treinamento Vendas Consultivas</option>
+            <option value="Treinamento Negociação">Treinamento Negociação e Fechamento</option>
+            <option value="Treinamento Prospecção">Treinamento Prospecção Ativa</option>
+            <option value="Consultoria Estratégica">Consultoria Estratégica</option>
+            <option value="Liderança Comercial">Desenvolvimento de Liderança</option>
+            <option value="Outro">Outro (descreva na mensagem)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Mensagem:</label>
+        <textarea id="message" name="message" required placeholder="Como podemos ajudar?"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 100%;">ENVIAR MENSAGEM</button>
+      <div id="formFeedback" style="margin-top: 1rem; padding: 1rem; border-radius: 8px; text-align: center; display: none;"></div>
+    </form>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-content">
-        <img src="https://conectaempresarial.com.br/wp-content/uploads/2021/11/logotipo-conecta-empresarial-1024x239.png" alt="Conecta Empresarial" class="footer-logo">
-        
+        <a href="#">
+          <img class="footer-logo" src="https://conectaempresarial.com.br/wp-content/uploads/2021/11/logotipo-conecta-empresarial-1024x239.png" alt="Conecta Empresarial">
+        </a>
+        <p>Transformando potencial em performance de vendas.</p>
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://api.whatsapp.com/send?phone=5511998195907" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
         <div class="footer-links">
           <a href="#quem-somos">Quem Somos</a>
           <a href="#servicos">Serviços</a>
-          <a href="#beneficios">Benefícios</a>
           <a href="#programas">Programas</a>
-          <a href="#depoimentos">Depoimentos</a>
           <a href="#contato">Contato</a>
+          <a href="#">Política de Privacidade</a>
         </div>
-        
-        <div class="social-links">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://api.whatsapp.com/send?phone=5511998195907" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-        
-        <p class="copyright">© 2025 Conecta Empresarial — Todos os direitos reservados<br>
-        Portal do Morumbi – São Paulo – SP | WhatsApp: (11) 99819‑5907</p>
+        <p class="copyright">&copy; 2024 Conecta Empresarial. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Floating CTA -->
-  <a class="btn cta-fixed pulse" href="https://api.whatsapp.com/send?phone=5511998195907&text=Quero%20mais%20informações%20sobre%20o%20treinamento%20de%20vendas" target="_blank" style="position: fixed; bottom: 30px; right: 30px; z-index: 1000;">
-    <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> FALE CONOSCO
-  </a>
-
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
-    // Menu Mobile
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-    
-    // Fechar menu ao clicar em um link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-      });
-    });
-    
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-    
-    // Animate elements on scroll
-    const animateOnScroll = () => {
-      const elements = document.querySelectorAll('.benefit-card, .program-card, .methodology-card, .testimonial-card, .stat-item, .service-card');
-      
-      elements.forEach(el => {
-        const elementPosition = el.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (elementPosition < screenPosition) {
-          el.style.opacity = '1';
-          el.style.transform = 'translateY(0)';
-        }
-      });
-    };
-    
-    // Set initial state
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.benefit-card, .program-card, .methodology-card, .testimonial-card, .stat-item, .service-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease';
-      });
-      
-      animateOnScroll();
-    });
-    
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Animate stats counting
-    const animateStats = () => {
-      const statNumbers = document.querySelectorAll('.stat-number');
-      
-      statNumbers.forEach(stat => {
-        const target = parseInt(stat.getAttribute('data-count'));
-        const suffix = stat.textContent.match(/\D+$/) ? stat.textContent.match(/\D+$/)[0] : '';
-        let current = 0;
-        const increment = target / 30;
-        
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            clearInterval(timer);
-            current = target;
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- Mobile Menu Toggle ---
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+          const isActive = navLinks.classList.toggle('active');
+          menuToggle.setAttribute('aria-expanded', isActive);
+          const icon = menuToggle.querySelector('i');
+          if (isActive) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+            menuToggle.setAttribute('aria-label', 'Fechar menu');
+          } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+            menuToggle.setAttribute('aria-label', 'Abrir menu');
           }
-          stat.textContent = Math.floor(current) + suffix;
-        }, 30);
-      });
-    };
-    
-    // Observe when stats section comes into view
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateStats();
-          statsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    
-    const statsSection = document.querySelector('#stats');
-    if (statsSection) {
-      statsObserver.observe(statsSection);
-    }
-    
-    // Form submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Simulate form submission
-        const submitBtn = this.querySelector('button[type="submit"]');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Enviando...';
-        
-        setTimeout(() => {
-          alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-          contactForm.reset();
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'ENVIAR MENSAGEM';
-        }, 1500);
-      });
-    }
-    
-    // Initialize Swiper
-    const swiper = new Swiper('.swiper-container', {
-      slidesPerView: 'auto',
-      spaceBetween: 25,
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      breakpoints: {
-        480: {
-          slidesPerView: 2,
-        },
-        768: {
-          slidesPerView: 3,
-        },
-        1024: {
-          slidesPerView: 4,
-        },
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+              navLinks.classList.remove('active');
+              menuToggle.setAttribute('aria-expanded', 'false');
+              const icon = menuToggle.querySelector('i');
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+              menuToggle.setAttribute('aria-label', 'Abrir menu');
+            }
+          });
+        });
+
+        // Close menu if clicking outside of it
+        document.addEventListener('click', (event) => {
+            if (navLinks.classList.contains('active') && !navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                menuToggle.setAttribute('aria-label', 'Abrir menu');
+            }
+        });
       }
-    });
+
+
+      // --- Animate Stats on Scroll ---
+      function animateStats() {
+        const stats = document.querySelectorAll('.stat-number');
+        stats.forEach(stat => {
+          const target = +stat.dataset.target; // Get target number
+          const suffix = stat.dataset.suffix || ''; // Get suffix (like 'k+' or '%')
+          const prefix = stat.textContent.startsWith('+') ? '+' : ''; // Check for '+' prefix
+
+          // Prevent re-animating if already done
+          if (stat.dataset.animated) return;
+          stat.dataset.animated = true; // Mark as animated
+
+          let start = 0;
+          const duration = 1500; // Animation duration in ms
+
+          // Calculate step time, ensuring it's reasonable
+          let stepTime = Math.abs(Math.floor(duration / target));
+          stepTime = Math.max(stepTime, 10); // Minimum step time 10ms
+          stepTime = Math.min(stepTime, 50); // Maximum step time 50ms (prevents slow animation for small numbers)
+
+          // Set initial text correctly
+          stat.textContent = prefix + start + suffix;
+
+          const timer = setInterval(() => {
+            start += 1;
+            stat.textContent = prefix + start + suffix;
+            if (start >= target) { // Use >= to ensure target is reached
+              clearInterval(timer);
+              stat.textContent = prefix + target + suffix; // Ensure final value is exact
+            }
+          }, stepTime);
+        });
+      }
+
+      // Intersection Observer for Stats Animation
+      const statsSection = document.querySelector('#stats');
+      if (statsSection) {
+          const statsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              // Check if intersecting and not already animated
+              if (entry.isIntersecting && !entry.target.dataset.observerTriggered) {
+                animateStats();
+                entry.target.dataset.observerTriggered = true; // Mark that observer triggered animation
+                // Optional: unobserve after animating once if desired
+                // observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.3 }); // Trigger when 30% visible
+
+          statsObserver.observe(statsSection);
+      }
+
+
+      // --- Form Submission Handling ---
+      const contactForm = document.getElementById('contactForm');
+      const formFeedback = document.getElementById('formFeedback'); // Get feedback element
+
+      if (contactForm && formFeedback) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault(); // Prevent default form submission
+
+          const submitBtn = this.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Enviando...';
+          formFeedback.style.display = 'none'; // Hide previous feedback
+
+          // Simulate network delay
+          setTimeout(() => {
+            // --- Display success message ---
+            formFeedback.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
+            formFeedback.style.backgroundColor = '#d4edda'; // Green background
+            formFeedback.style.color = '#155724'; // Dark green text
+            formFeedback.style.display = 'block'; // Show feedback
+
+            contactForm.reset(); // Clear the form
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+
+            // Optional: Hide the success message after a few seconds
+            setTimeout(() => {
+              formFeedback.style.display = 'none';
+            }, 5000);
+            // --------------------------------
+
+          }, 1500); // 1.5 second delay simulation
+        });
+      }
+
+      // --- Initialize Swiper for Clients ---
+      try {
+          const swiper = new Swiper('.clients-slider', { // Target the specific class
+            slidesPerView: 2,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+              delay: 2500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true, // Pausa ao passar o mouse
+            },
+            breakpoints: {
+              480: { slidesPerView: 3, spaceBetween: 25 },
+              768: { slidesPerView: 4, spaceBetween: 30 },
+              1024: { slidesPerView: 5, spaceBetween: 40 }
+            },
+            grabCursor: true, // Mostra cursor de "agarrar"
+          });
+      } catch (error) {
+          console.error("Swiper initialization failed:", error);
+          // Handle error, maybe hide the slider or show a message
+      }
+
+    }); // End DOMContentLoaded
   </script>
 </body>
 </html>
