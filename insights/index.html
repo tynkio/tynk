@@ -1,1408 +1,335 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Conecta Empresarial | Treinamento de Vendas de Alta Performance</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <style>
-    /* Estilos Globais */
-    :root {
-      --primary: #0b6cff;
-      --secondary: #ff9f1c;
-      --dark: #1c1c1e;
-      --gray: #f5f7fa;
-      --white: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    body {
-      background: var(--gray);
-      color: var(--dark);
-      line-height: 1.6;
-      overflow-x: hidden; /* Previne scroll horizontal */
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img, svg { /* Aplicar a SVG também */
-      max-width: 100%;
-      height: auto;
-      display: block; /* Evita espaços extras abaixo da imagem */
-    }
-
-    /* ----------  Utilidades  ---------- */
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 4rem 0;
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    .section-tag {
-      display: block;
-      color: var(--primary);
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-      color: var(--dark);
-    }
-
-    .subtitle {
-      text-align: center;
-      font-size: 1.4rem;
-      max-width: 700px;
-      margin: 0 auto 3rem;
-      color: #555;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 1.5rem 3rem;
-      background: var(--secondary);
-      color: var(--white);
-      font-weight: 700;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      font-size: 1.3rem;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 20px rgba(255, 159, 28, 0.4);
-      text-align: center;
-      min-width: 280px;
-    }
-
-    .btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(255, 159, 28, 0.5);
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      box-shadow: 0 4px 20px rgba(11, 108, 255, 0.4);
-    }
-
-    .btn-primary:hover {
-      box-shadow: 0 8px 25px rgba(11, 108, 255, 0.5);
-    }
-
-    .pulse {
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    /* ----------  Header  ---------- */
-    header {
-      background: var(--white);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-      padding: 1rem 0;
-    }
-
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5%; /* Usa padding para espaçamento lateral */
-      max-width: 1200px; /* Limita largura máxima do conteúdo do header */
-      margin: 0 auto; /* Centraliza o conteúdo */
-    }
-
-    .logo {
-      height: 60px;
-      flex-shrink: 0; /* Impede que o logo encolha */
-    }
-
-    .logo img {
-      height: 100%;
-      width: auto;
-    }
-
-    .menu-toggle {
-      display: none; /* Escondido por padrão */
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      color: var(--dark);
-      cursor: pointer;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      font-weight: 600;
-      font-size: 1.1rem;
-      position: relative;
-      padding: 0.5rem 0;
-      white-space: nowrap; /* Impede quebra de linha nos links */
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background: var(--primary);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    /* ----------  Hero Section  ---------- */
-    .hero {
-      /* Imagem de fundo com gradiente sobreposto */
-      background: linear-gradient(rgba(11, 108, 255, 0.85), rgba(11, 108, 255, 0.85)),
-                  url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80') center/cover no-repeat fixed; /* Imagem mais corporativa e 'fixed' para efeito parallax */
-      color: var(--white);
-      text-align: center;
-      padding: 8rem 5% 6rem; /* Padding responsivo */
-    }
-
-    .hero-content {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      line-height: 1.2;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Sombra leve no texto */
-    }
-
-    .hero p {
-      font-size: 1.6rem;
-      max-width: 800px;
-      margin: 0 auto 4rem;
-      line-height: 1.6;
-    }
-
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 4rem;
-      flex-wrap: wrap; /* Permite que os stats quebrem linha */
-    }
-
-    .hero-stat {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 1.2rem 2rem;
-      border-radius: 50px; /* Bordas totalmente arredondadas */
-      font-weight: 600;
-      font-size: 1.2rem;
-      backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
-      border: 1px solid rgba(255, 255, 255, 0.3); /* Borda sutil */
-    }
-
-    /* ----------  About Us Section  ---------- */
-    .about-section {
-      background: var(--white);
-      padding: 5rem 0;
-    }
-
-    .about-container {
-      display: flex;
-      align-items: center;
-      gap: 4rem;
-    }
-
-    .about-image {
-      flex: 1;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .about-image img {
-      width: 100%;
-      height: 100%; /* Garante que a imagem preencha o container */
-      object-fit: cover; /* Cobre o espaço sem distorcer */
-    }
-
-    .about-content {
-      flex: 1;
-    }
-
-    .about-content h2 {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-    }
-
-    .about-content p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      color: #555; /* Cor de texto mais suave */
-    }
-
-    /* ----------  Services Section  ---------- */
-    .services-section {
-      background: var(--gray);
-      padding: 5rem 0;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo */
-      gap: 2rem;
-    }
-
-    .service-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 2.5rem;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
-      display: flex; /* Usar flexbox para alinhar conteúdo */
-      flex-direction: column; /* Empilhar conteúdo verticalmente */
-    }
-
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(11, 108, 255, 0.15); /* Sombra azul no hover */
-    }
-
-    .service-card h3 {
-      font-size: 1.5rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .service-card p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #555;
-      flex-grow: 1; /* Faz o parágrafo ocupar espaço disponível */
-    }
-
-    /* ----------  Benefits Section  ---------- */
-    .benefits {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-
-    .benefit-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 2.5rem;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Centraliza itens horizontalmente */
-    }
-
-    .benefit-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(255, 159, 28, 0.15); /* Sombra laranja no hover */
-    }
-
-    .benefit-icon-container { /* Container para o ícone SVG */
-      width: 80px;
-      height: 80px;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: rgba(11, 108, 255, 0.1); /* Fundo azul claro */
-      border-radius: 50%; /* Círculo */
-    }
-
-    .benefit-icon-container svg {
-      width: 45px; /* Tamanho do ícone SVG */
-      height: 45px;
-      fill: var(--primary); /* Cor do ícone */
-    }
-
-
-    .benefit-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
-    }
-
-    .benefit-card p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #555;
-      flex-grow: 1;
-    }
-
-    /* ----------  Programs Section  ---------- */
-    .programs-container {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 4rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    }
-
-    .programs {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      margin-top: 3rem;
-    }
-
-    .program-card {
-      background: var(--white);
-      border-radius: 16px;
-      overflow: hidden; /* Garante que a imagem não ultrapasse */
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column; /* Estrutura vertical */
-    }
-
-    .program-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(11, 108, 255, 0.12); /* Sombra azul no hover */
-    }
-
-    .program-card img {
-      width: 100%;
-      height: 220px; /* Altura fixa para a imagem */
-      object-fit: cover; /* Garante que a imagem cubra a área */
-    }
-
-    .program-content {
-      padding: 2rem;
-      flex-grow: 1; /* Ocupa espaço restante */
-      display: flex;
-      flex-direction: column;
-    }
-
-    .program-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
-    }
-
-    .program-card p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #555;
-      flex-grow: 1; /* Ocupa espaço */
-    }
-
-    /* ----------  Stats Section  ---------- */
-    .stats-section {
-      background: linear-gradient(135deg, var(--primary), #0047b3); /* Gradiente azul */
-      color: var(--white);
-      padding: 5rem 0;
-      text-align: center;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .stat-item {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 2rem;
-      border-radius: 16px;
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 255, 255, 0.2); /* Borda sutil */
-    }
-
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--secondary); /* Laranja para destaque */
-      min-height: 48px; /* Garante altura mínima para evitar pulos */
-      line-height: 1; /* Ajusta linha para contadores */
-    }
-
-    .stat-label {
-      font-size: 1.2rem;
-    }
-
-    /* ----------  Methodology Section  ---------- */
-    .methodology {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      counter-reset: methodology; /* Reseta o contador */
-    }
-
-    .methodology-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden; /* Para o número não vazar */
-      display: flex;
-      flex-direction: column;
-    }
-
-    .methodology-card::before {
-      counter-increment: methodology; /* Incrementa o contador */
-      content: counter(methodology); /* Exibe o número */
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      font-size: 3rem;
-      font-weight: 700;
-      color: rgba(11, 108, 255, 0.1); /* Cor suave para o número */
-      line-height: 1;
-      z-index: 0;
-    }
-
-    .methodology-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(11, 108, 255, 0.12);
-    }
-
-    .methodology-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
-      position: relative; /* Para ficar acima do ::before */
-      z-index: 1;
-    }
-
-    .methodology-card p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #555;
-      position: relative;
-      z-index: 1;
-      flex-grow: 1;
-    }
-
-    /* ----------  Testimonials Section  ---------- */
-    #depoimentos.container { /* Estilo específico para o container de depoimentos */
-       background: var(--white);
-       border-radius: 16px;
-       padding-top: 4rem;
-       padding-bottom: 4rem;
-       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .testimonials {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-
-    .testimonial-card {
-      background: #f0f4ff; /* Fundo levemente azulado */
-      border-radius: 16px;
-      padding: 2.5rem;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-      position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-left: 5px solid var(--secondary); /* Borda lateral laranja */
-    }
-
-    .testimonial-card::before {
-      content: '\f10d'; /* Ícone de aspas Font Awesome */
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      position: absolute;
-      top: 1.5rem;
-      left: 1.5rem;
-      font-size: 2.5rem; /* Tamanho ajustado */
-      color: var(--secondary);
-      opacity: 0.2; /* Opacidade ajustada */
-      line-height: 1;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    }
-
-    .testimonial-card p {
-      font-style: italic;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      position: relative;
-      color: #333; /* Cor de texto mais escura */
-      padding-left: 1rem; /* Espaço para a aspa não sobrepor */
-    }
-
-    .testimonial-card strong {
-      display: block;
-      font-weight: 600;
-      color: var(--primary);
-      margin-top: 1rem; /* Espaço acima do nome */
-    }
-
-    /* ----------  Clients Section  ---------- */
-    .clients-section {
-      background: var(--white);
-      padding: 5rem 0;
-      text-align: center;
-    }
-
-    .clients-slider {
-      margin-top: 3rem;
-      padding: 0 2rem; /* Espaço lateral para o slider */
-    }
-
-    .client-logo {
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 1rem;
-    }
-
-    .client-logo img {
-      max-height: 100%;
-      width: auto;
-      filter: grayscale(100%);
-      opacity: 0.7;
-      transition: filter 0.3s ease, opacity 0.3s ease; /* Transição suave */
-    }
-
-    .client-logo:hover img {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-
-    /* ----------  Ratings Section  ---------- */
-    .ratings-section {
-      background: var(--gray);
-      padding: 4rem 0;
-      text-align: center;
-    }
-
-    .rating-container {
-      display: inline-block;
-      background: var(--white);
-      padding: 2rem 3rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-    }
-
-    .star-rating {
-      color: var(--secondary);
-      font-size: 2rem;
-      letter-spacing: 5px;
-      margin-bottom: 1rem;
-    }
-
-    .rating-text {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--dark);
-    }
-
-    /* ---------- Contact Section ---------- */
-    .contact-form {
-      max-width: 600px;
-      margin: 3rem auto 0;
-      background: var(--white);
-      padding: 3rem;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-      color: #333;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-        border-color: var(--primary); /* Destaca campo ao focar */
-        outline: none; /* Remove outline padrão */
-        box-shadow: 0 0 0 3px rgba(11, 108, 255, 0.2); /* Adiciona um brilho suave */
-    }
-
-
-    .form-group textarea {
-      min-height: 150px;
-      resize: vertical; /* Permite redimensionar verticalmente */
-    }
-
-    /* ---------- Urgency Section ---------- */
-    .urgency-section {
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      background: #ffeeda;
-      padding: 2rem;
-      border-radius: 16px;
-      border: 2px solid var(--secondary);
-      text-align: center;
-      box-shadow: 0 5px 15px rgba(255, 159, 28, 0.2);
-    }
-
-    .urgency-title {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #c77700;
-      margin-bottom: 1rem;
-    }
-    .urgency-title i { /* Estilo para o ícone */
-        margin-right: 0.5rem;
-    }
-
-    .progress-bar-container {
-      width: 100%;
-      background-color: #ffc994;
-      border-radius: 25px;
-      margin-bottom: 1rem;
-      overflow: hidden;
-      height: 25px;
-      border: 1px solid #f0a549;
-      position: relative; /* Para o texto absoluto */
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      width: 0%; /* Começa em 0% para animação */
-      background: linear-gradient(90deg, var(--secondary), #ff7b00);
-      border-radius: 25px;
-      text-align: right; /* Alinha texto à direita */
-      line-height: 25px;
-      color: var(--white);
-      font-weight: 600;
-      font-size: 0.9rem;
-      position: relative;
-      animation: progressBarAnimation 2s 0.5s ease-out forwards, pulseBar 2.5s infinite ease-in-out 2.5s; /* Delay na animação inicial */
-      overflow: hidden;
-      padding-right: 10px; /* Espaço para o texto não colar na borda */
-    }
-
-    .progress-bar-fill::after {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; bottom: 0; right: 0;
-        background-image: linear-gradient( -45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent );
-        z-index: 1;
-        background-size: 50px 50px;
-        animation: moveStripes 2s linear infinite;
-        opacity: 0; /* Começa invisível */
-        animation: fadeInStripes 0.5s 2s forwards; /* Aparece depois da barra carregar */
-    }
-
-    @keyframes progressBarAnimation {
-      from { width: 0%; }
-      to { width: 85%; } /* Anima até 85% */
-    }
-
-    @keyframes pulseBar {
-      0% { box-shadow: 0 0 5px rgba(255, 159, 28, 0.5); }
-      50% { box-shadow: 0 0 15px rgba(255, 159, 28, 0.8); }
-      100% { box-shadow: 0 0 5px rgba(255, 159, 28, 0.5); }
-    }
-
-    @keyframes moveStripes {
-      from { background-position: 0 0; }
-      to { background-position: 50px 50px; }
-    }
-    @keyframes fadeInStripes {
-        to { opacity: 1; }
-    }
-
-    .urgency-section .btn { /* Estilo específico para o botão de urgência */
-         margin-top: 1.5rem;
-         background-color: #e63946; /* Cor vermelha para urgência */
-         box-shadow: 0 4px 20px rgba(230, 57, 70, 0.4);
-    }
-    .urgency-section .btn:hover {
-         box-shadow: 0 8px 25px rgba(230, 57, 70, 0.6);
-         background-color: #d62828; /* Vermelho mais escuro no hover */
-    }
-     .urgency-section .btn i { /* Ícone dentro do botão */
-        margin-right: 0.5rem;
-     }
-
-    /* ---------- Footer ---------- */
-    footer {
-      background: var(--dark);
-      color: rgba(255, 255, 255, 0.8); /* Cor de texto ligeiramente transparente */
-      text-align: center;
-      padding: 3rem 0 1rem; /* Padding ajustado */
-    }
-
-    .footer-content {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 0 5%; /* Padding lateral */
-    }
-
-    .footer-logo {
-      height: 60px;
-      margin-bottom: 1.5rem;
-      opacity: 0.9; /* Leve transparência no logo */
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .social-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      color: var(--white); /* Garante cor branca do ícone */
-    }
-    .social-links a i {
-        font-size: 1.2rem; /* Tamanho dos ícones sociais */
-    }
-
-    .social-links a:hover {
-      background: var(--secondary);
-      transform: translateY(-5px);
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-    }
-
-    .footer-links a {
-      font-weight: 600;
-      transition: color 0.3s;
-      color: rgba(255, 255, 255, 0.7); /* Cor mais suave para links */
-    }
-
-    .footer-links a:hover {
-      color: var(--secondary);
-    }
-
-    .copyright {
-      margin-top: 2rem;
-      font-size: 0.9rem; /* Tamanho menor para copyright */
-      opacity: 0.6; /* Mais transparente */
-    }
-
-    /* ---------- Responsividade ---------- */
-    @media (max-width: 1024px) {
-      .hero h1 { font-size: 3rem; }
-      .hero p { font-size: 1.4rem; }
-      .section-title { font-size: 2.5rem; }
-      .about-container { flex-direction: column; text-align: center; } /* Centraliza texto no mobile */
-      .about-image { margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;} /* Limita largura da imagem */
-      .programs-container { padding: 3rem; }
-    }
-
-    @media (max-width: 768px) {
-      .container { padding: 3rem 0; width: 95%;} /* Aumenta largura do container */
-      .navbar { padding: 0 5%; } /* Ajusta padding navbar */
-      .menu-toggle { display: block; } /* Mostra botão do menu */
-      .nav-links {
-        position: fixed; /* Menu fixo */
-        top: 76px; /* Altura do header - ajustar se necessário */
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem 0;
-        gap: 1.5rem;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        transform: translateY(-150%); /* Escondido fora da tela */
-        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Transição suave */
-        z-index: 999;
-        height: calc(100vh - 76px); /* Ocupa altura restante */
-        overflow-y: auto; /* Permite scroll se necessário */
-      }
-      .nav-links.active { transform: translateY(0); } /* Mostra menu */
-      .hero { padding: 6rem 5% 4rem; background-attachment: scroll; } /* Remove fixed background */
-      .hero h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
-      .hero p { font-size: 1.3rem; margin-bottom: 3rem; }
-      .btn { font-size: 1.2rem; padding: 1.3rem 2.5rem; min-width: 0; width: auto; } /* Ajusta botão */
-      .hero .btn { width: 80%; max-width: 300px;} /* Botão hero maior */
-      .section-title { font-size: 2.3rem; }
-      .subtitle { font-size: 1.2rem; }
-      .programs-container, .contact-form, .urgency-section { padding: 2rem; }
-      .stats-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;} /* Ajusta grid stats */
-      .stat-number { font-size: 2.5rem; }
-      .stat-label { font-size: 1rem; }
-      .footer-content { padding: 0 5%;}
-    }
-
-    @media (max-width: 480px) {
-      .hero { padding: 5rem 5% 3rem; }
-      .hero h1 { font-size: 2rem; } /* Tamanho menor */
-      .hero p { font-size: 1.1rem; }
-      .hero-stat { width: calc(50% - 1rem); font-size: 1rem; padding: 1rem 1.5rem;} /* 2 stats por linha */
-      .hero-stats { gap: 1rem; justify-content: center;}
-      .btn { width: 100%; padding: 1.2rem; font-size: 1.1rem; } /* Botão ocupa largura total */
-      .section-title { font-size: 2rem; }
-      .section-tag { font-size: 1rem; }
-      .stats-grid { grid-template-columns: 1fr 1fr; } /* 2 colunas stats */
-      .methodology, .testimonials, .services-grid, .benefits, .programs { grid-template-columns: 1fr; } /* 1 coluna */
-      .client-logo { height: 50px; } /* Logos menores */
-      .urgency-title { font-size: 1.4rem; }
-      .progress-bar-fill { font-size: 0.8rem; }
-      .contact-form { padding: 1.5rem; }
-      .footer-links { gap: 1rem; }
-      .social-links a { width: 45px; height: 45px;}
-      .social-links a i { font-size: 1rem;}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pré-Lançamento: Treinamento Mente de Dono</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1a1a1a; /* Cinza escuro/Preto */
+            color: #f0f0f0;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.95)), url('https://placehold.co/1920x1080/2d3748/718096?text=Imagem+Abstrata+Tecnologia') no-repeat center center;
+            background-size: cover;
+        }
+        .btn-primary {
+            background-color: #e53e3e; /* Vermelho */
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #c53030; /* Vermelho mais escuro */
+        }
+        .btn-secondary {
+            background-color: #dd6b20; /* Laranja */
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #c05621; /* Laranja mais escuro */
+        }
+        .highlight-red {
+            color: #e53e3e;
+        }
+        .highlight-orange {
+            color: #dd6b20;
+        }
+        .progress-bar-container {
+            background-color: #4a5568; /* Cinza médio */
+            border-radius: 0.5rem;
+            overflow: hidden;
+            height: 20px;
+        }
+        .progress-bar {
+            background-color: #e53e3e; /* Vermelho */
+            height: 100%;
+            transition: width 0.5s ease-in-out;
+            text-align: center;
+            line-height: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: white;
+        }
+        .card {
+            background-color: #2d3748; /* Cinza azulado escuro */
+            border: 1px solid #4a5568;
+        }
+        /* Para o scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="navbar">
-      <a class="logo" href="#">
-        <img src="https://conectaempresarial.com.br/wp-content/uploads/2021/11/logotipo-conecta-empresarial-1024x239.png" alt="Conecta Empresarial">
-      </a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
-        <i class="fas fa-bars"></i>
-      </button>
-      <nav>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#quem-somos">Quem Somos</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#beneficios">Benefícios</a></li>
-          <li><a href="#programas">Programas</a></li>
-          <li><a href="#depoimentos">Depoimentos</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body class="antialiased">
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Transforme Sua Equipe de Vendas em Máquinas de Alta Performance</h1>
-      <p>Nossos treinamentos já geraram <strong>+37% de aumento na receita</strong> em média para empresas como a sua.</p>
-      <a class="btn pulse" href="https://api.whatsapp.com/send?phone=5511998195907&text=Olá%20Conecta%20Empresarial!%20Quero%20aumentar%20minhas%20vendas%20com%20os%20treinamentos." target="_blank">QUERO AUMENTAR AS VENDAS AGORA</a>
-      <div class="hero-stats">
-        <div class="hero-stat"><strong>98%</strong> Satisfação</div> <div class="hero-stat"><strong>50k+</strong> Profissionais</div> <div class="hero-stat"><strong>+400</strong> Empresas</div> </div>
-    </div>
-  </section>
+    <section id="hero" class="hero-bg min-h-screen flex flex-col items-center justify-center text-center p-6">
+        <div class="max-w-3xl">
+            <div class="mb-8">
+                 <svg class="w-24 h-24 mx-auto text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <p class="font-montserrat text-xl mt-2">Mente de Dono</p>
+            </div>
 
-  <section id="quem-somos" class="about-section">
-    <div class="container">
-      <div class="about-container">
-        <div class="about-image">
-          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Equipe de vendas colaborando em reunião moderna">
-        </div>
-        <div class="about-content">
-          <span class="section-tag">Quem Somos</span>
-          <h2>Especialistas em Impulsionar Resultados de Vendas</h2>
-          <p>A Conecta Empresarial é líder em treinamentos de vendas B2B e B2C, focada em metodologias práticas e resultados mensuráveis. Nossa paixão é transformar potencial em performance, equipando equipes com as ferramentas e a mentalidade necessárias para superar metas consistentemente.</p>
-          <p>Com anos de experiência e um histórico comprovado, entendemos os desafios do mercado atual e adaptamos nossos programas para atender às necessidades específicas de cada cliente.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+            <h1 class="font-montserrat text-5xl md:text-7xl font-black mb-4 leading-tight">
+                Transforme sua Carreira com a <span class="highlight-red">Mente de Dono</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8">
+                Desenvolva proatividade, visão estratégica e assuma o protagonismo do seu sucesso profissional.
+            </p>
 
-  <section id="servicos" class="services-section">
-    <div class="container">
-      <span class="section-tag">Nossos Serviços</span>
-      <h2 class="section-title">Soluções Completas para Sua Força de Vendas</h2>
-      <p class="subtitle">Oferecemos uma gama de serviços projetados para elevar a performance da sua equipe em todas as etapas do processo de vendas.</p>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Treinamentos Presenciais e Online</h3>
-          <p>Programas imersivos e interativos, adaptados à sua realidade, disponíveis tanto presencialmente quanto em plataformas digitais.</p>
-        </div>
-        <div class="service-card">
-          <h3>Consultoria Estratégica de Vendas</h3>
-          <p>Análise profunda do seu processo comercial e desenvolvimento de estratégias personalizadas para otimizar resultados.</p>
-        </div>
-        <div class="service-card">
-          <h3>Desenvolvimento de Liderança Comercial</h3>
-          <p>Capacitação de gestores para liderar, motivar e extrair o melhor de suas equipes de vendas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+            <div class="mb-8">
+                <h2 class="font-montserrat text-2xl md:text-3xl mb-2">Pré-inscrições para <span class="highlight-orange">Agosto</span> Encerram em:</h2>
+                <div id="countdownTimer" class="text-4xl md:text-5xl font-bold font-montserrat text-red-400">
+                    <span id="days">00</span>d :
+                    <span id="hours">00</span>h :
+                    <span id="minutes">00</span>m :
+                    <span id="seconds">00</span>s
+                </div>
+            </div>
 
-  <section id="beneficios" class="container">
-    <span class="section-tag">Benefícios</span>
-    <h2 class="section-title">Por Que Escolher a Conecta Empresarial?</h2>
-    <p class="subtitle">Veja como nossos treinamentos podem impactar diretamente o crescimento do seu negócio.</p>
-    <div class="benefits">
-      <div class="benefit-card">
-        <div class="benefit-icon-container">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-            <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.66 1.905H6.44l4.5 4.5c.945.945 2.56.276 2.56-1.06V4.06zM18.584 5.106a.75.75 0 011.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 11-1.06-1.06 8.25 8.25 0 000-11.668.75.75 0 010-1.06z" />
-            <path d="M15.932 7.757a.75.75 0 011.061 0 6 6 0 010 8.486.75.75 0 01-1.06-1.061 4.5 4.5 0 000-6.364.75.75 0 010-1.06z" />
-          </svg>
-        </div>
-        <h3>Aumento de Receita</h3>
-        <p>Nossas metodologias comprovadas levam a um aumento significativo nas taxas de conversão e no ticket médio.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon-container">
-           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-            <path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.53 1.466 15.59 15.59 0 01-3.422 2.182.75.75 0 01-.256.061 4.5 4.5 0 01-1.74-.194.75.75 0 01-.5-.693v-.004c0-1.061.074-2.098.224-3.105.19-1.25.514-2.453.954-3.597.44-.114.9-.227 1.38-.338 1.21-.28 2.48-.43 3.78-.43 1.36 0 2.69.16 3.95.454.25.058.49.117.72.178.24.062.47.128.69.198.22.07.43.145.63.223.19.076.38.152.55.23.08.038.16.074.24.108.08.036.15.07.22.102a.75.75 0 01.16.75v.004a7.11 7.11 0 01-2.878 5.645 15.588 15.588 0 01-3.421 2.182.75.75 0 01-.257.06z" />
-          </svg>
-        </div>
-        <h3>Equipe Motivada</h3>
-        <p>Desenvolvemos habilidades e confiança, resultando em vendedores mais engajados e produtivos.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon-container">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-            <path fill-rule="evenodd" d="M12.963 2.286a.75.75 0 00-1.071-.136 9.742 9.742 0 00-3.539 6.177A.75.75 0 008.38 8.38a8.242 8.242 0 013.04-5.22.75.75 0 00.136-1.071zm1.071.136a.75.75 0 00-1.36 1.071 8.242 8.242 0 01-5.22 3.04.75.75 0 00-.136 1.071 9.742 9.742 0 006.177-3.539.75.75 0 00-1.071-1.36zM12 21a9 9 0 100-18 9 9 0 000 18zm0-2.25a6.75 6.75 0 100-13.5 6.75 6.75 0 000 13.5zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z" clip-rule="evenodd" />
-            <path d="M11.15 12.85a.75.75 0 001.06 1.06l3-3a.75.75 0 00-1.06-1.06l-3 3z" />
-            <path d="M8.845 12.146a.75.75 0 00-1.06 1.06l-.75.75a.75.75 0 101.06 1.06l.75-.75a.75.75 0 00-1.06-1.06z" />
-          </svg>
-        </div>
-        <h3>Resultados Mensuráveis</h3>
-        <p>Focamos em métricas claras e acompanhamento contínuo para garantir o retorno sobre o investimento.</p>
-      </div>
-    </div>
-  </section>
+            <div class="w-full max-w-md mx-auto mb-8">
+                <p class="text-sm text-gray-400 mb-1">Prazo se esgotando!</p>
+                <div class="progress-bar-container">
+                    <div id="progressBar" class="progress-bar" style="width: 0%;">0%</div>
+                </div>
+            </div>
 
-  <section id="programas" class="container">
-    <div class="programs-container">
-      <span class="section-tag">Nossos Programas</span>
-      <h2 class="section-title">Treinamentos Sob Medida para o Sucesso</h2>
-      <p class="subtitle">Explore nossos principais programas de treinamento, desenhados para diferentes necessidades e níveis de experiência.</p>
-      <div class="programs">
-        <div class="program-card">
-          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Duas pessoas discutindo um gráfico em um tablet">
-          <div class="program-content">
-            <h3>Vendas Consultivas de Alto Impacto</h3>
-            <p>Domine a arte de entender as necessidades do cliente e apresentar soluções que geram valor real.</p>
-          </div>
+            <button onclick="smoothScrollTo('pre-inscricao')" class="btn-primary font-montserrat font-bold py-4 px-10 rounded-lg text-xl shadow-lg hover:shadow-xl transform hover:scale-105">
+                QUERO GARANTIR MINHA VAGA PARA AGOSTO!
+            </button>
+
+            <p class="mt-8 text-gray-400 text-lg">
+                Turmas <span class="font-bold text-white">Presenciais</span> e <span class="font-bold text-white">Online</span> disponíveis.
+            </p>
         </div>
-        <div class="program-card">
-          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Apertos de mão em um ambiente de negócios">
-          <div class="program-content">
-            <h3>Negociação e Fechamento</h3>
-            <p>Aprenda técnicas avançadas para superar objeções e fechar mais negócios de forma eficaz.</p>
-          </div>
+    </section>
+
+    <section id="instrutor" class="py-16 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="font-montserrat text-3xl md:text-4xl font-bold text-center mb-12">
+                Conheça o seu Instrutor: <span class="highlight-red">Eduardo Lira</span>
+            </h2>
+            <div class="md:flex md:items-center md:space-x-12">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <img src="https://placehold.co/400x400/e53e3e/ffffff?text=Foto+Eduardo" alt="Foto de Eduardo Lira" class="rounded-full shadow-xl mx-auto w-48 h-48 md:w-64 md:h-64 object-cover">
+                </div>
+                <div class="md:w-2/3">
+                    <p class="text-lg text-gray-300 mb-4">
+                        Eduardo Lira é um especialista em desenvolvimento humano e performance, com mais de 15 anos de experiência transformando potenciais em resultados extraordinários. Sua paixão é despertar em cada indivíduo a mentalidade de dono, capacitando-os a alcançar novos patamares em suas carreiras e vidas.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-4">
+                        Com uma abordagem dinâmica e prática, Eduardo já impactou milhares de profissionais em diversas empresas, ajudando-os a construir uma trajetória de sucesso baseada na proatividade, responsabilidade e visão estratégica.
+                    </p>
+                    <p class="text-lg text-gray-300 font-semibold">
+                        "Acredito que todos têm um potencial ilimitado. Meu objetivo é fornecer as ferramentas para que você o desbloqueie."
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="program-card">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" alt="Pessoa usando laptop com gráficos e dados na tela">
-          <div class="program-content">
-            <h3>Prospecção Ativa e Inteligente</h3>
-            <p>Descubra como encontrar e qualificar leads de forma eficiente, enchendo seu funil de vendas.</p>
-          </div>
+    </section>
+
+    <section id="treinamento" class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="font-montserrat text-3xl md:text-4xl font-bold text-center mb-4">
+                O Treinamento <span class="highlight-orange">Mente de Dono</span>
+            </h2>
+            <p class="text-xl text-gray-300 text-center mb-12 max-w-3xl mx-auto">
+                Descubra como o treinamento "Mente de Dono" pode revolucionar sua forma de pensar e agir, impulsionando sua performance e resultados.
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="card p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
+                    <svg class="w-16 h-16 mb-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <h3 class="font-montserrat text-xl font-bold mb-2">Proatividade Extrema</h3>
+                    <p class="text-gray-400 text-sm">Assuma o controle, antecipe desafios e crie oportunidades em vez de esperar por elas.</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
+                    <svg class="w-16 h-16 mb-4 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <h3 class="font-montserrat text-xl font-bold mb-2">Visão Estratégica</h3>
+                    <p class="text-gray-400 text-sm">Entenda o todo, conecte os pontos e tome decisões alinhadas com os objetivos maiores.</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
+                    <svg class="w-16 h-16 mb-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    <h3 class="font-montserrat text-xl font-bold mb-2">Comunicação de Impacto</h3>
+                    <p class="text-gray-400 text-sm">Aprenda a comunicar suas ideias com clareza, persuasão e construindo relacionamentos.</p>
+                </div>
+                 <div class="card p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
+                    <svg class="w-16 h-16 mb-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h3 class="font-montserrat text-xl font-bold mb-2">Foco em Resultados</h3>
+                    <p class="text-gray-400 text-sm">Defina metas claras, supere obstáculos e entregue resultados consistentes e de alta qualidade.</p>
+                </div>
+                 <div class="card p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
+                    <svg class="w-16 h-16 mb-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 016-6h6M21 12h-6"></path></svg>
+                    <h3 class="font-montserrat text-xl font-bold mb-2">Liderança Pessoal</h3>
+                    <p class="text-gray-400 text-sm">Lidere a si mesmo, inspire outros e construa uma reputação de confiança e excelência.</p>
+                </div>
+                 <div class="card p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
+                    <svg class="w-16 h-16 mb-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path></svg>
+                    <h3 class="font-montserrat text-xl font-bold mb-2">Resiliência e Adaptabilidade</h3>
+                    <p class="text-gray-400 text-sm">Navegue por mudanças, supere adversidades e mantenha o foco em seus objetivos.</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <h3 class="font-montserrat text-2xl font-bold mb-4">Para quem é este treinamento?</h3>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                    Ideal para <span class="font-bold highlight-red">colaboradores de todas as áreas e níveis hierárquicos</span> que buscam alta performance, desejam desenvolver uma mentalidade proativa e de dono, e estão prontos para assumir o controle de sua trajetória profissional. Se você quer fazer a diferença e ser reconhecido por isso, este treinamento é para você.
+                </p>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="stats" class="stats-section">
-    <div class="container">
-      <h2 class="section-title" style="color: var(--white);">Resultados que Falam por Si</h2>
-      <p class="subtitle" style="color: rgba(255,255,255,0.8);">Números que comprovam o impacto dos nossos treinamentos.</p>
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number" data-target="37" data-suffix="%">+0%</div>
-          <div class="stat-label">Aumento Médio na Receita</div>
+    <section id="pre-inscricao" class="py-16 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-6 max-w-2xl text-center">
+            <h2 class="font-montserrat text-3xl md:text-4xl font-bold mb-4">
+                Garanta sua Vaga <span class="highlight-red">Exclusiva!</span>
+            </h2>
+            <p class="text-xl text-gray-300 mb-8">
+                As vagas para as turmas de Agosto são <span class="font-bold">limitadas</span>. Clique no botão abaixo para realizar sua pré-inscrição através do nosso formulário e seja o primeiro a receber informações sobre a abertura oficial das inscrições e condições especiais.
+            </p>
+
+            <a href="URL_DO_SEU_GOOGLE_FORM_AQUI" target="_blank" rel="noopener noreferrer" class="btn-secondary inline-block w-full sm:w-auto font-montserrat font-bold py-4 px-10 rounded-lg text-lg shadow-lg hover:shadow-xl transform hover:scale-105">
+                QUERO ME PRÉ-INSCREVER AGORA!
+            </a>
+            
+            <p class="text-sm text-gray-400 mt-8">
+                <span class="font-bold">O que esperar após a pré-inscrição?</span> Você entrará para nossa lista VIP e receberá em primeira mão todas as informações sobre o lançamento oficial do treinamento, incluindo datas, valores promocionais e como efetivar sua matrícula.
+            </p>
         </div>
-        <div class="stat-item">
-          <div class="stat-number" data-target="50" data-suffix="k+">0k+</div>
-          <div class="stat-label">Profissionais Treinados</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-target="98" data-suffix="%">0%</div>
-          <div class="stat-label">Índice de Satisfação</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-target="400" data-suffix="+">+0</div>
-          <div class="stat-label">Empresas Impactadas</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="metodologia" class="container">
-    <span class="section-tag">Nossa Metodologia</span>
-    <h2 class="section-title">Aprendizado Prático e Focado em Ação</h2>
-    <p class="subtitle">Nossa abordagem combina teoria sólida com aplicação prática imediata para garantir a retenção e a implementação do conhecimento.</p>
-    <div class="methodology">
-      <div class="methodology-card">
-        <h3>Diagnóstico Preciso</h3>
-        <p>Analisamos seus desafios e objetivos para personalizar o treinamento.</p>
-      </div>
-      <div class="methodology-card">
-        <h3>Conteúdo Relevante</h3>
-        <p>Focamos em técnicas e estratégias aplicáveis ao seu mercado e público.</p>
-      </div>
-      <div class="methodology-card">
-        <h3>Dinâmicas e Simulações</h3>
-        <p>Os participantes praticam as habilidades em cenários realistas.</p>
-      </div>
-      <div class="methodology-card">
-        <h3>Acompanhamento Pós-Treinamento</h3>
-        <p>Oferecemos suporte para garantir a aplicação e medir os resultados.</p>
-      </div>
-    </div>
-  </section>
+    <footer class="py-8 text-center bg-black">
+        <p class="text-gray-500">O treinamento Mente de Dono é um produto da Conecta Empresarial. &copy; <span id="currentYear"></span> Todos os direitos reservados.</p>
+    </footer>
 
-  <section id="depoimentos" class="container">
-    <span class="section-tag">Depoimentos</span>
-    <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
-    <p class="subtitle">Histórias de sucesso de empresas que confiaram na Conecta Empresarial.</p>
-    <div class="testimonials">
-      <div class="testimonial-card">
-        <p>"O treinamento da Conecta foi um divisor de águas para nossa equipe. Vimos um aumento de 45% nas vendas em apenas um trimestre!"</p>
-        <strong>- João Silva, Diretor Comercial | Tech Solutions</strong>
-      </div>
-      <div class="testimonial-card">
-        <p>"A abordagem prática e a energia do instrutor mantiveram todos engajados. As técnicas de negociação foram especialmente úteis."</p>
-        <strong>- Maria Oliveira, Gerente de Vendas | Inova Corp</strong>
-      </div>
-      <div class="testimonial-card">
-        <p>"Finalmente encontramos um treinamento que realmente entende os desafios do B2B complexo. Recomendo fortemente!"</p>
-        <strong>- Carlos Pereira, CEO | Alpha Industrial</strong>
-      </div>
-    </div>
-  </section>
+    <script>
+        // --- CONTADOR REGRESSIVO E BARRA DE PROGRESSO ---
+        function startCountdown() {
+            // Define a data final da contagem regressiva (31 de Julho de 2025, 23:59:59)
+            // ATENÇÃO: Meses em JavaScript são 0-indexados (Janeiro=0, ..., Julho=6, Agosto=7)
+            // Certifique-se que a data final (countDownDate) é posterior à data de início (startDate)
+            // e também posterior à data atual para que o contador funcione como esperado.
+            const countDownDate = new Date(2025, 6, 31, 23, 59, 59).getTime(); // Ex: 31 de Julho de 2025
+            
+            // Data de início da contagem para a barra de progresso (Ex: 1 de Maio de 2025)
+            // Ajuste esta data para o início real do período de pré-inscrição
+            const registrationStartDate = new Date(2025, 4, 1, 0, 0, 0).getTime(); 
+            
+            const totalDuration = countDownDate - registrationStartDate;
 
-  <section class="clients-section">
-    <div class="container">
-      <h2 class="section-title">Empresas que Confiam na Gente</h2>
-      <div class="clients-slider swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide client-logo"><img src="https://placehold.co/150x60/cccccc/999999?text=Cliente+A" alt="Logotipo Cliente A"></div>
-          <div class="swiper-slide client-logo"><img src="https://placehold.co/150x60/cccccc/999999?text=Cliente+B" alt="Logotipo Cliente B"></div>
-          <div class="swiper-slide client-logo"><img src="https://placehold.co/150x60/cccccc/999999?text=Cliente+C" alt="Logotipo Cliente C"></div>
-          <div class="swiper-slide client-logo"><img src="https://placehold.co/150x60/cccccc/999999?text=Cliente+D" alt="Logotipo Cliente D"></div>
-          <div class="swiper-slide client-logo"><img src="https://placehold.co/150x60/cccccc/999999?text=Cliente+E" alt="Logotipo Cliente E"></div>
-          <div class="swiper-slide client-logo"><img src="https://placehold.co/150x60/cccccc/999999?text=Cliente+F" alt="Logotipo Cliente F"></div>
-        </div>
-      </div>
-    </div>
-  </section>
+            const timerDisplay = {
+                days: document.getElementById("days"),
+                hours: document.getElementById("hours"),
+                minutes: document.getElementById("minutes"),
+                seconds: document.getElementById("seconds")
+            };
+            const progressBar = document.getElementById("progressBar");
 
-   <section class="ratings-section">
-     <div class="container">
-       <div class="rating-container">
-         <div class="star-rating">
-           <i class="fas fa-star"></i>
-           <i class="fas fa-star"></i>
-           <i class="fas fa-star"></i>
-           <i class="fas fa-star"></i>
-           <i class="fas fa-star-half-alt"></i> </div>
-         <div class="rating-text">Avaliação Média: 4.8 / 5.0</div>
-       </div>
-     </div>
-   </section>
-
-  <section id="contato" class="container">
-    <span class="section-tag">Fale Conosco</span>
-    <h2 class="section-title">Pronto para Transformar Sua Equipe?</h2>
-    <p class="subtitle">Entre em contato para saber mais sobre nossos treinamentos e como podemos ajudar sua empresa a alcançar novos patamares.</p>
-
-    <div class="urgency-section">
-      <h3 class="urgency-title"><i class="fas fa-exclamation-triangle"></i> ÚLTIMAS VAGAS DISPONÍVEIS!</h3>
-      <p style="margin-bottom: 1rem; font-weight: 600;">Nossas próximas turmas estão quase completas. Não perca a chance!</p>
-      <div class="progress-bar-container" aria-label="Progresso de preenchimento da turma">
-        <div class="progress-bar-fill" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-          85% Preenchido
-        </div>
-      </div>
-       <a class="btn pulse" href="https://api.whatsapp.com/send?phone=5511998195907&text=Olá!%20Vi%20que%20as%20turmas%20estão%20quase%20cheias.%20Quero%20garantir%20minha%20vaga!" target="_blank">
-         <i class="fas fa-lock"></i> GARANTA SUA VAGA AGORA!
-       </a>
-    </div>
-    <form id="contactForm" class="contact-form" novalidate> <div class="form-group">
-        <label for="name">Nome Completo:</label>
-        <input type="text" id="name" name="name" required placeholder="Seu nome completo">
-      </div>
-      <div class="form-group">
-        <label for="email">E-mail Corporativo:</label>
-        <input type="email" id="email" name="email" required placeholder="seuemail@suaempresa.com.br">
-      </div>
-      <div class="form-group">
-        <label for="phone">Telefone / WhatsApp:</label>
-        <input type="tel" id="phone" name="phone" required placeholder="(XX) XXXXX-XXXX">
-      </div>
-      <div class="form-group">
-        <label for="company">Empresa:</label>
-        <input type="text" id="company" name="company" placeholder="Nome da sua empresa">
-      </div>
-       <div class="form-group">
-        <label for="interest">Tenho interesse em:</label>
-        <select id="interest" name="interest" required> <option value="" disabled selected>Selecione uma opção...</option> <option value="Treinamento Vendas Consultivas">Treinamento Vendas Consultivas</option>
-            <option value="Treinamento Negociação">Treinamento Negociação e Fechamento</option>
-            <option value="Treinamento Prospecção">Treinamento Prospecção Ativa</option>
-            <option value="Consultoria Estratégica">Consultoria Estratégica</option>
-            <option value="Liderança Comercial">Desenvolvimento de Liderança</option>
-            <option value="Outro">Outro (descreva na mensagem)</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="message">Mensagem:</label>
-        <textarea id="message" name="message" required placeholder="Como podemos ajudar?"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary" style="width: 100%;">ENVIAR MENSAGEM</button>
-      <div id="formFeedback" style="margin-top: 1rem; padding: 1rem; border-radius: 8px; text-align: center; display: none;"></div>
-    </form>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <a href="#">
-          <img class="footer-logo" src="https://conectaempresarial.com.br/wp-content/uploads/2021/11/logotipo-conecta-empresarial-1024x239.png" alt="Conecta Empresarial">
-        </a>
-        <p>Transformando potencial em performance de vendas.</p>
-        <div class="social-links">
-          <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://api.whatsapp.com/send?phone=5511998195907" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        </div>
-        <div class="footer-links">
-          <a href="#quem-somos">Quem Somos</a>
-          <a href="#servicos">Serviços</a>
-          <a href="#programas">Programas</a>
-          <a href="#contato">Contato</a>
-          <a href="#">Política de Privacidade</a>
-        </div>
-        <p class="copyright">&copy; 2024 Conecta Empresarial. Todos os direitos reservados.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-
-      // --- Mobile Menu Toggle ---
-      const menuToggle = document.getElementById('menuToggle');
-      const navLinks = document.getElementById('navLinks');
-
-      if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-          const isActive = navLinks.classList.toggle('active');
-          menuToggle.setAttribute('aria-expanded', isActive);
-          const icon = menuToggle.querySelector('i');
-          if (isActive) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-            menuToggle.setAttribute('aria-label', 'Fechar menu');
-          } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-            menuToggle.setAttribute('aria-label', 'Abrir menu');
-          }
-        });
-
-        // Close menu when a link is clicked
-        navLinks.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-              navLinks.classList.remove('active');
-              menuToggle.setAttribute('aria-expanded', 'false');
-              const icon = menuToggle.querySelector('i');
-              icon.classList.remove('fa-times');
-              icon.classList.add('fa-bars');
-              menuToggle.setAttribute('aria-label', 'Abrir menu');
+            if (!timerDisplay.days || !timerDisplay.hours || !timerDisplay.minutes || !timerDisplay.seconds || !progressBar) {
+                console.error("Elementos do contador ou barra de progresso não encontrados.");
+                return;
             }
-          });
-        });
 
-        // Close menu if clicking outside of it
-        document.addEventListener('click', (event) => {
-            if (navLinks.classList.contains('active') && !navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
-                navLinks.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                const icon = menuToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                menuToggle.setAttribute('aria-label', 'Abrir menu');
+            const interval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+
+                // Cálculos de tempo
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Exibe o resultado
+                if (distance > 0) {
+                    timerDisplay.days.textContent = String(days).padStart(2, '0');
+                    timerDisplay.hours.textContent = String(hours).padStart(2, '0');
+                    timerDisplay.minutes.textContent = String(minutes).padStart(2, '0');
+                    timerDisplay.seconds.textContent = String(seconds).padStart(2, '0');
+                } else {
+                    timerDisplay.days.textContent = "00";
+                    timerDisplay.hours.textContent = "00";
+                    timerDisplay.minutes.textContent = "00";
+                    timerDisplay.seconds.textContent = "00";
+                }
+
+
+                // Atualiza a barra de progresso
+                if (totalDuration > 0) { // Evita divisão por zero se as datas não estiverem corretas
+                    const elapsedTime = now - registrationStartDate;
+                    let progressPercentage = (elapsedTime / totalDuration) * 100;
+                    if (progressPercentage > 100) progressPercentage = 100;
+                    if (progressPercentage < 0) progressPercentage = 0; 
+
+                    progressBar.style.width = progressPercentage + "%";
+                    progressBar.textContent = Math.round(progressPercentage) + "%";
+                } else {
+                     // Se totalDuration for zero ou negativo, a barra fica em 0% ou 100% dependendo do caso
+                    if (now >= countDownDate) {
+                        progressBar.style.width = "100%";
+                        progressBar.textContent = "100%";
+                    } else {
+                        progressBar.style.width = "0%";
+                        progressBar.textContent = "0%";
+                    }
+                }
+
+
+                // Se a contagem regressiva terminar
+                if (distance < 0) {
+                    clearInterval(interval);
+                    document.getElementById("countdownTimer").innerHTML = "PRÉ-INSCRIÇÕES ENCERRADAS";
+                    progressBar.style.width = "100%";
+                    progressBar.textContent = "100%";
+                    
+                    const heroCtaButton = document.querySelector('#hero button');
+                    if(heroCtaButton) {
+                        heroCtaButton.disabled = true;
+                        heroCtaButton.textContent = "INSCRIÇÕES ENCERRADAS";
+                        heroCtaButton.classList.remove('btn-primary');
+                        heroCtaButton.classList.add('bg-gray-500', 'cursor-not-allowed');
+                        heroCtaButton.onclick = null; // Remove o scroll suave
+                    }
+                    const formCtaButton = document.querySelector('#pre-inscricao a.btn-secondary');
+                     if(formCtaButton) {
+                        formCtaButton.textContent = "INSCRIÇÕES ENCERRADAS";
+                        formCtaButton.classList.remove('btn-secondary');
+                        formCtaButton.classList.add('bg-gray-500', 'cursor-not-allowed', 'pointer-events-none');
+                        formCtaButton.removeAttribute('href');
+                    }
+                }
+            }, 1000);
+        }
+
+        // --- ATUALIZAÇÃO DINÂMICA DO ANO NO RODAPÉ ---
+        function updateFooterYear() {
+            const yearElement = document.getElementById("currentYear");
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
             }
-        });
-      }
+        }
 
-
-      // --- Animate Stats on Scroll ---
-      function animateStats() {
-        const stats = document.querySelectorAll('.stat-number');
-        stats.forEach(stat => {
-          const target = +stat.dataset.target; // Get target number
-          const suffix = stat.dataset.suffix || ''; // Get suffix (like 'k+' or '%')
-          const prefix = stat.textContent.startsWith('+') ? '+' : ''; // Check for '+' prefix
-
-          // Prevent re-animating if already done
-          if (stat.dataset.animated) return;
-          stat.dataset.animated = true; // Mark as animated
-
-          let start = 0;
-          const duration = 1500; // Animation duration in ms
-
-          // Calculate step time, ensuring it's reasonable
-          let stepTime = Math.abs(Math.floor(duration / target));
-          stepTime = Math.max(stepTime, 10); // Minimum step time 10ms
-          stepTime = Math.min(stepTime, 50); // Maximum step time 50ms (prevents slow animation for small numbers)
-
-          // Set initial text correctly
-          stat.textContent = prefix + start + suffix;
-
-          const timer = setInterval(() => {
-            start += 1;
-            stat.textContent = prefix + start + suffix;
-            if (start >= target) { // Use >= to ensure target is reached
-              clearInterval(timer);
-              stat.textContent = prefix + target + suffix; // Ensure final value is exact
+        // --- SCROLL SUAVE ---
+        function smoothScrollTo(targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
             }
-          }, stepTime);
+        }
+
+        // --- INICIALIZAÇÃO DAS FUNÇÕES QUANDO O DOM ESTIVER PRONTO ---
+        document.addEventListener('DOMContentLoaded', function() {
+            startCountdown();
+            updateFooterYear();
+            // Não há mais formulário HTML para adicionar listener
         });
-      }
+    </script>
 
-      // Intersection Observer for Stats Animation
-      const statsSection = document.querySelector('#stats');
-      if (statsSection) {
-          const statsObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-              // Check if intersecting and not already animated
-              if (entry.isIntersecting && !entry.target.dataset.observerTriggered) {
-                animateStats();
-                entry.target.dataset.observerTriggered = true; // Mark that observer triggered animation
-                // Optional: unobserve after animating once if desired
-                // observer.unobserve(entry.target);
-              }
-            });
-          }, { threshold: 0.3 }); // Trigger when 30% visible
-
-          statsObserver.observe(statsSection);
-      }
-
-
-      // --- Form Submission Handling ---
-      const contactForm = document.getElementById('contactForm');
-      const formFeedback = document.getElementById('formFeedback'); // Get feedback element
-
-      if (contactForm && formFeedback) {
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault(); // Prevent default form submission
-
-          const submitBtn = this.querySelector('button[type="submit"]');
-          const originalText = submitBtn.textContent;
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Enviando...';
-          formFeedback.style.display = 'none'; // Hide previous feedback
-
-          // Simulate network delay
-          setTimeout(() => {
-            // --- Display success message ---
-            formFeedback.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
-            formFeedback.style.backgroundColor = '#d4edda'; // Green background
-            formFeedback.style.color = '#155724'; // Dark green text
-            formFeedback.style.display = 'block'; // Show feedback
-
-            contactForm.reset(); // Clear the form
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-
-            // Optional: Hide the success message after a few seconds
-            setTimeout(() => {
-              formFeedback.style.display = 'none';
-            }, 5000);
-            // --------------------------------
-
-          }, 1500); // 1.5 second delay simulation
-        });
-      }
-
-      // --- Initialize Swiper for Clients ---
-      try {
-          const swiper = new Swiper('.clients-slider', { // Target the specific class
-            slidesPerView: 2,
-            spaceBetween: 20,
-            loop: true,
-            autoplay: {
-              delay: 2500,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true, // Pausa ao passar o mouse
-            },
-            breakpoints: {
-              480: { slidesPerView: 3, spaceBetween: 25 },
-              768: { slidesPerView: 4, spaceBetween: 30 },
-              1024: { slidesPerView: 5, spaceBetween: 40 }
-            },
-            grabCursor: true, // Mostra cursor de "agarrar"
-          });
-      } catch (error) {
-          console.error("Swiper initialization failed:", error);
-          // Handle error, maybe hide the slider or show a message
-      }
-
-    }); // End DOMContentLoaded
-  </script>
 </body>
 </html>
