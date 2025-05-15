@@ -3,24 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Conecta Empresarial - Soluções em Treinamento, Recrutamento, Marketing Digital, Gestão de Pessoas e Estúdio de Podcast para conectar sua empresa ao sucesso.">
-    <title>Conecta Empresarial - Conectando sua empresa ao sucesso</title>
+    <title>Conecta Empresarial - Conectando Soluções que Geram Resultados</title>
+    <meta name="description" content="Conecta Empresarial: Soluções inovadoras em Treinamento, Recrutamento, Marketing Digital com IA, Gestão de Pessoas e Aluguel de Estúdio de Podcast em São Paulo. Transformamos potencial em performance.">
+    <meta name="keywords" content="consultoria empresarial, treinamento corporativo, recrutamento e seleção, marketing digital, gestão de pessoas, estúdio de podcast são paulo, conecta empresarial, assessoria empresarial, marketing com IA">
+    <meta name="author" content="Conecta Empresarial">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.conectaempresarial.com.br/">
+    <meta property="og:title" content="Conecta Empresarial - Conectando Soluções que Geram Resultados">
+    <meta property="og:description" content="Soluções inovadoras em Treinamento, Recrutamento, Marketing Digital com IA, Gestão de Pessoas e Aluguel de Estúdio de Podcast.">
+    <meta property="og:image" content="https://conectaempresarial.com.br/wp-content/uploads/2021/11/logotipo-conecta-empresarial-1024x239.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.conectaempresarial.com.br/">
+    <meta property="twitter:title" content="Conecta Empresarial - Conectando Soluções que Geram Resultados">
+    <meta property="twitter:description" content="Soluções inovadoras em Treinamento, Recrutamento, Marketing Digital com IA, Gestão de Pessoas e Aluguel de Estúdio de Podcast.">
+    <meta property="twitter:image" content="https://conectaempresarial.com.br/wp-content/uploads/2021/11/logotipo-conecta-empresarial-1024x239.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        :root {
+            --color-primary: #1E3A8A;
+            --color-secondary: #F97316;
+            
+            --color-bg-light-main: #ffffff;
+            --color-bg-light-section: #f3f4f6;
+            --color-bg-light-header-top: #1F2937;
+            --color-text-light-main: #1f2937;
+            --color-text-light-muted: #4b5563;
+            --color-text-light-on-dark-bg: #F3F4F6;
+            --color-text-light-on-primary-bg: #ffffff;
+            --color-card-light-bg: #f9fafb;
+            --color-modal-bg-light: #ffffff;
+            --color-modal-text-light: #1f2937;
+
+
+            --color-bg-dark-main: #111827;
+            --color-bg-dark-section: #1F2937;
+            --color-bg-dark-header-top: #0f172a;
+            --color-text-dark-main: #e5e7eb;
+            --color-text-dark-muted: #9ca3af;
+            --color-text-dark-on-light-bg: #1f2937;
+            --color-card-dark-bg: #374151;
+            --color-modal-bg-dark: #1f2937;
+            --color-modal-text-dark: #e5e7eb;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
             overflow-x: hidden;
+            background-color: var(--color-bg-light-main);
+            color: var(--color-text-light-main);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        .bg-primary { background-color: #1E3A8A; }
-        .text-primary { color: #1E3A8A; }
-        .bg-secondary { background-color: #F97316; }
-        .text-secondary { color: #F97316; }
-        .bg-base { background-color: #111827; }
-        .bg-base-light { background-color: #1F2937; }
-        .text-on-base { color: #F3F4F6; }
+
+        body.dark-mode {
+            background-color: var(--color-bg-dark-main);
+            color: var(--color-text-dark-main);
+        }
+
+        .text-primary { color: var(--color-primary); }
+        .bg-primary { background-color: var(--color-primary); }
+        .text-secondary { color: var(--color-secondary); }
+        .bg-secondary { background-color: var(--color-secondary); }
+
+        .top-bar {
+            background-color: var(--color-bg-light-header-top);
+            color: var(--color-text-light-on-dark-bg);
+        }
+        body.dark-mode .top-bar {
+            background-color: var(--color-bg-dark-header-top);
+            color: var(--color-text-dark-main);
+        }
+        
+        #main-nav {
+            background-color: var(--color-bg-light-main);
+            transition: background-color 0.3s ease-in-out;
+        }
+        body.dark-mode #main-nav {
+            background-color: var(--color-bg-dark-section);
+        }
+        #main-nav a, #mobile-menu a, #menu-toggle-button {
+            color: var(--color-text-light-main);
+        }
+        body.dark-mode #main-nav a, body.dark-mode #mobile-menu a, body.dark-mode #menu-toggle-button {
+            color: var(--color-text-dark-main);
+        }
+        #main-nav a:hover, #mobile-menu a:hover, #menu-toggle-button:hover {
+            color: var(--color-secondary);
+        }
+        
+        #main-header.sticky-header #main-nav {
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        body.dark-mode #main-header.sticky-header #main-nav {
+            background-color: var(--color-bg-dark-section);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+         #main-header.sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+        }
+        
+        #mobile-menu {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        body.dark-mode #mobile-menu {
+            background-color: rgba(31, 41, 55, 0.95);
+        }
+
+        .hero-section {
+            background-image: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('conecta_hero.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--color-text-light-on-dark-bg);
+        }
+        body.dark-mode .hero-section {
+             color: var(--color-text-dark-main);
+        }
+        .hero-section .text-secondary { color: var(--color-secondary); }
+        .hero-section .text-gray-200 { color: #d1d5db; }
+        body.dark-mode .hero-section .text-gray-200 { color: var(--color-text-dark-muted); }
+
+        .section-sobre-nos {
+            background-color: var(--color-bg-light-main);
+            color: var(--color-text-light-main);
+        }
+        body.dark-mode .section-sobre-nos {
+            background-color: var(--color-bg-dark-main);
+            color: var(--color-text-dark-main);
+        }
+        .section-sobre-nos .text-primary { color: var(--color-primary); }
+        body.dark-mode .section-sobre-nos .text-primary { color: var(--color-primary); }
+        .section-sobre-nos .text-gray-600 { color: var(--color-text-light-muted); }
+        body.dark-mode .section-sobre-nos .text-gray-600 { color: var(--color-text-dark-muted); }
+        .section-sobre-nos .text-gray-700 { color: var(--color-text-light-main); }
+        body.dark-mode .section-sobre-nos .text-gray-700 { color: var(--color-text-dark-main); }
+
+        .section-servicos {
+            background-color: var(--color-bg-light-main);
+            color: var(--color-text-light-main);
+        }
+        body.dark-mode .section-servicos {
+            background-color: var(--color-bg-dark-main);
+            color: var(--color-text-dark-main);
+        }
+        .section-servicos .text-primary { color: var(--color-primary); }
+        body.dark-mode .section-servicos .text-primary { color: var(--color-primary); }
+        .section-servicos .text-gray-600 { color: var(--color-text-light-muted); }
+        body.dark-mode .section-servicos .text-gray-600 { color: var(--color-text-dark-muted); }
+        .service-card { background-color: var(--color-card-light-bg); }
+        body.dark-mode .service-card { background-color: var(--color-card-dark-bg); }
+
+        .section-podcast {
+            background-color: var(--color-bg-dark-main);
+            color: var(--color-text-dark-main);
+        }
+        body.dark-mode .section-podcast {
+            background-color: var(--color-bg-dark-section);
+        }
+        .section-podcast .text-white { color: var(--color-text-dark-main); }
+        .section-podcast .text-gray-300 { color: var(--color-text-dark-muted); }
+        .section-podcast .text-gray-400 { color: #9ca3af; }
+        body.dark-mode .section-podcast .text-gray-400 { color: #6b7280; }
+
+        .section-depoimentos {
+            background-color: var(--color-bg-dark-section);
+            color: var(--color-text-dark-main);
+        }
+        body.dark-mode .section-depoimentos {
+            background-color: var(--color-bg-dark-main);
+        }
+        .testimonial-card { 
+            background-color: #374151; 
+            margin-right: 1.25rem; 
+            flex: 0 0 calc(100% / 3 - 0.84rem); 
+            max-width: 340px;
+        }
+        body.dark-mode .testimonial-card { background-color: #4b5563; }
+        .section-depoimentos .text-white { color: var(--color-text-dark-main); }
+        .section-depoimentos .text-gray-300 { color: var(--color-text-dark-muted); }
+
+        .section-contato {
+            background-color: var(--color-bg-light-main);
+            color: var(--color-text-light-main);
+        }
+        body.dark-mode .section-contato {
+            background-color: var(--color-bg-dark-main);
+            color: var(--color-text-dark-main);
+        }
+        .section-contato .text-primary { color: var(--color-primary); }
+        body.dark-mode .section-contato .text-primary { color: var(--color-primary); }
+        .section-contato .text-gray-600 { color: var(--color-text-light-muted); }
+        body.dark-mode .section-contato .text-gray-600 { color: var(--color-text-dark-muted); }
+        .section-contato .text-gray-700 { color: var(--color-text-light-main); }
+        body.dark-mode .section-contato .text-gray-700 { color: var(--color-text-dark-main); }
+
+        footer {
+            background-color: var(--color-bg-dark-main);
+            color: var(--color-text-dark-muted);
+        }
+        body.dark-mode footer {
+            background-color: var(--color-bg-dark-header-top);
+        }
+        footer .text-gray-400 { color: #9ca3af; }
+        body.dark-mode footer .text-gray-400 { color: #6b7280; }
+        footer .text-gray-500 { color: #6b7280; }
+        body.dark-mode footer .text-gray-500 { color: #4b5563; }
 
         .whatsapp-float {
             position: fixed;
@@ -40,121 +236,80 @@
             align-items: center;
             justify-content: center;
         }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
-        }
-
         .carousel-container {
             overflow: hidden;
             width: 100%;
             position: relative;
         }
-
-        .testimonial-carousel {
-            display: flex;
-            width: calc( (100% / 4 * 8) + (7 * 1rem) );
-            animation: scrollLoopTestimonials 40s linear infinite;
-        }
-        .testimonial-card {
-            flex: 0 0 auto;
-            width: calc(100% / 4 - 1rem);
-            max-width: 320px;
-            margin-right: 1rem;
-        }
-        @media (max-width: 1279px) {
-            .testimonial-card { width: calc(100% / 3 - 1rem); }
-            .testimonial-carousel { width: calc( (100% / 3 * 8) + (7 * 1rem) ); animation-duration: 35s; }
-        }
-        @media (max-width: 767px) {
-            .testimonial-card { width: calc(100% / 2 - 1rem); }
-            .testimonial-carousel { width: calc( (100% / 2 * 8) + (7 * 1rem) ); animation-duration: 30s; }
-        }
-        @media (max-width: 639px) {
-            .testimonial-card { width: calc(100% - 1rem); max-width: none; }
-            .testimonial-carousel { width: calc( (100% * 8) + (7 * 1rem) ); animation-duration: 25s; }
-        }
-        @keyframes scrollLoopTestimonials {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-1 * ( (100% / 8 * 4) + (3 * 1rem) ) ) ); }
-        }
-        .carousel-container:hover .testimonial-carousel { animation-play-state: paused; }
-        
-        .services-carousel-wrapper {
+        .services-carousel-wrapper, .testimonial-carousel-wrapper {
             position: relative;
+            padding-left: 1rem; 
+            padding-right: 1rem;
         }
-        .services-carousel {
+        .services-carousel, .testimonial-carousel {
             display: flex;
             overflow-x: hidden;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
         }
-        .services-carousel::-webkit-scrollbar { display: none; }
-
+        .services-carousel::-webkit-scrollbar, .testimonial-carousel::-webkit-scrollbar { display: none; }
         .service-card {
-            flex: 0 0 calc(100% / 3 - 1rem);
-            max-width: 340px;
-            min-height: 330px;
+            flex: 0 0 calc(100% / 3 - 1rem); 
+            max-width: 320px; 
+            min-height: 300px; 
             margin-right: 1.5rem;
             display: flex;
             flex-direction: column;
             scroll-snap-align: start;
         }
         .service-card:last-child { margin-right: 0; }
-
         .service-card .service-card-content {
             flex-grow: 1;
             overflow-wrap: break-word;
             word-wrap: break-word;
             hyphens: auto;
         }
-
         @media (max-width: 1023px) {
-            .service-card { flex-basis: calc(100% / 2 - 0.75rem); margin-right: 1.5rem; max-width: none; }
+            .service-card { flex-basis: calc(50% - 0.75rem); max-width: none; }
         }
-        @media (max-width: 639px) {
-            .service-card { flex-basis: calc(100% - 0.5rem); margin-right: 1rem; min-height: auto; }
+        @media (max-width: 767px) {
+            .service-card { flex-basis: 100%; margin-right: 0; min-height: auto; }
         }
         
+        @media (max-width: 1023px) { 
+            .testimonial-card { flex-basis: calc(50% - 0.625rem); max-width: none;}
+        }
+        @media (max-width: 767px) { 
+            .testimonial-card { flex-basis: 100%; margin-right: 0; max-width: none;}
+        }
+
         .carousel-button {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0,0,0,0.4);
+            background-color: #F97316;
             color: white;
             border: none;
-            padding: 0.75rem;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             cursor: pointer;
             z-index: 10;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
-        .carousel-button:hover { background-color: rgba(0,0,0,0.7); }
-        .carousel-button.prev { left: -10px; }
-        .carousel-button.next { right: -10px; }
-        @media (min-width: 640px) {
-            .carousel-button.prev { left: -25px; }
-            .carousel-button.next { right: -25px; }
+        .carousel-button i { font-size: 1.25rem; }
+        .carousel-button:hover { background-color: #EA580C; transform: translateY(-50%) scale(1.1); }
+        .carousel-button.prev { left: -22px; }
+        .carousel-button.next { right: -22px; }
+        @media (max-width: 639px) {
+            .carousel-button.prev { left: 8px; }
+            .carousel-button.next { right: 8px; }
         }
-
-        #main-nav {
-            transition: background-color 0.3s ease-in-out;
-        }
-        #main-header.sticky-header #main-nav {
-             background-color: #111827; /* Cor da Hero (bg-base) */
-             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-         #main-header.sticky-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-        }
-
         body.header-is-sticky #hero {
              padding-top: 100px;
         }
@@ -163,12 +318,28 @@
                 padding-top: 80px; 
             }
         }
+        .logo-img { 
+            height: 40px; 
+            width: auto;
+            object-fit: contain;
+        }
+        .container-custom-padding {
+            max-width: 1280px; 
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        @media (max-width: 767px) {
+            .container-custom-padding {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
 
-        .logo-img { height: 40px; width: auto; }
         .aspect-w-16 { position: relative; padding-bottom: 56.25%; }
         .aspect-h-9 { }
         .aspect-w-16 > * { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -178,96 +349,152 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: var(--color-modal-bg-light);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        body.dark-mode .modal-content {
+            background-color: var(--color-modal-bg-dark);
+            color: var(--color-modal-text-dark);
+        }
+        .modal-close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-text-light-muted);
+        }
+        body.dark-mode .modal-close-button {
+            color: var(--color-text-dark-muted);
+        }
+
     </style>
 </head>
-<body class="bg-base text-on-base">
+<body class="">
 
     <a href="https://wa.me/5511998195907?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Conecta%20Empresarial." target="_blank" class="whatsapp-float" aria-label="Fale conosco pelo WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <div id="main-header">
-        <div class="bg-base-light text-sm text-gray-300">
+        <div class="top-bar text-sm">
             <div class="container mx-auto px-6 py-2 flex justify-between items-center">
                 <div class="flex items-center">
                     <i class="fab fa-whatsapp text-secondary mr-2"></i>
                     <span>(11) 99819-5907</span>
                 </div>
-                <div class="flex space-x-4">
-                    <a href="#" aria-label="Instagram" class="hover:text-secondary"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="LinkedIn" class="hover:text-secondary"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="YouTube" class="hover:text-secondary"><i class="fab fa-youtube"></i></a>
-                    <a href="#" aria-label="Twitter" class="hover:text-secondary"><i class="fab fa-twitter"></i></a>
+                <div class="flex items-center space-x-4">
+                    <a href="https://www.instagram.com/conecta_empresarial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Conecta Empresarial" class="hover:text-secondary"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/conecta-empresarial-p%C3%A1gina-oficial/?originalSubdomain=br" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da Conecta Empresarial" class="hover:text-secondary"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/conectasolucoesemgestaoempresarial/?locale=pt_BR" target="_blank" rel="noopener noreferrer" aria-label="Facebook da Conecta Empresarial" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube da Conecta Empresarial" class="hover:text-secondary"><i class="fab fa-youtube"></i></a>
+                    <button id="theme-toggle" aria-label="Alternar tema" class="hover:text-secondary focus:outline-none">
+                        <i id="theme-toggle-icon" class="fas fa-moon"></i>
+                    </button>
                 </div>
             </div>
         </div>
 
-        <nav id="main-nav" class="w-full absolute z-30 bg-base">
+        <nav id="main-nav" class="w-full absolute z-30">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center">
                 <a href="#hero">
                     <img src="https://conectaempresarial.com.br/wp-content/uploads/2021/11/logotipo-conecta-empresarial-1024x239.png" alt="Logotipo Conecta Empresarial" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/200x50/1F2937/F97316?text=Conecta+Empresarial';">
                 </a>
                 <div class="hidden md:flex items-center space-x-3">
-                    <a href="#hero" class="text-gray-200 hover:text-secondary px-3 py-2 rounded-md text-sm font-medium">Início</a>
-                    <a href="#sobre-nos" class="text-gray-200 hover:text-secondary px-3 py-2 rounded-md text-sm font-medium">Sobre Nós</a>
-                    <a href="#servicos" class="text-gray-200 hover:text-secondary px-3 py-2 rounded-md text-sm font-medium">Soluções</a>
-                    <a href="#estudio-podcast" class="text-gray-200 hover:text-secondary px-3 py-2 rounded-md text-sm font-medium">Estúdio Podcast</a>
-                    <a href="#depoimentos" class="text-gray-200 hover:text-secondary px-3 py-2 rounded-md text-sm font-medium">Depoimentos</a>
-                    <a href="#contato" class="text-gray-200 hover:text-secondary px-3 py-2 rounded-md text-sm font-medium">Contato</a>
+                    <a href="#hero" class="px-3 py-2 rounded-md text-sm font-medium">Início</a>
+                    <a href="#sobre-nos" class="px-3 py-2 rounded-md text-sm font-medium">Sobre Nós</a>
+                    <a href="#servicos" class="px-3 py-2 rounded-md text-sm font-medium">Soluções</a>
+                    <a href="#estudio-podcast" class="px-3 py-2 rounded-md text-sm font-medium">Estúdio Podcast</a>
+                    <a href="#depoimentos" class="px-3 py-2 rounded-md text-sm font-medium">Depoimentos</a>
+                    <a href="#contato" class="px-3 py-2 rounded-md text-sm font-medium">Contato</a>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button id="menu-toggle-button" class="text-gray-200 hover:text-secondary focus:outline-none">
+                    <button id="menu-toggle-button" class="focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>
                 </div>
             </div>
-            <div id="mobile-menu" class="md:hidden hidden bg-base/95 backdrop-blur-sm">
-                <a href="#hero" class="block text-gray-200 hover:text-secondary px-4 py-3 text-sm">Início</a>
-                <a href="#sobre-nos" class="block text-gray-200 hover:text-secondary px-4 py-3 text-sm">Sobre Nós</a>
-                <a href="#servicos" class="block text-gray-200 hover:text-secondary px-4 py-3 text-sm">Soluções</a>
-                <a href="#estudio-podcast" class="block text-gray-200 hover:text-secondary px-4 py-3 text-sm">Estúdio Podcast</a>
-                <a href="#depoimentos" class="block text-gray-200 hover:text-secondary px-4 py-3 text-sm">Depoimentos</a>
-                <a href="#contato" class="block text-gray-200 hover:text-secondary px-4 py-3 text-sm">Contato</a>
+            <div id="mobile-menu" class="md:hidden hidden backdrop-blur-sm">
+                <a href="#hero" class="block px-4 py-3 text-sm">Início</a>
+                <a href="#sobre-nos" class="block px-4 py-3 text-sm">Sobre Nós</a>
+                <a href="#servicos" class="block px-4 py-3 text-sm">Soluções</a>
+                <a href="#estudio-podcast" class="block px-4 py-3 text-sm">Estúdio Podcast</a>
+                <a href="#depoimentos" class="block px-4 py-3 text-sm">Depoimentos</a>
+                <a href="#contato" class="block px-4 py-3 text-sm">Contato</a>
             </div>
         </nav>
     </div>
 
     <main>
-        <section id="hero" class="bg-base h-screen flex items-center justify-center text-center relative pt-20 md:pt-16">
-            <div class="z-10 p-6 reveal">
-                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
-                    Conectando sua empresa ao <span class="text-secondary">futuro do sucesso.</span>
+        <section id="hero" class="hero-section h-screen flex items-center relative pt-20 md:pt-16">
+            <div class="z-10 p-6 reveal container-custom-padding text-left">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
+                    Conectando soluções que geram <span class="text-secondary">resultados.</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-                    Transformamos potencial em performance através de soluções inovadoras e personalizadas em Treinamento, Recrutamento, Marketing Digital e Gestão de Pessoas.
+                <p class="text-lg md:text-xl mb-8 max-w-xl">
+                    Treinamento, Recrutamento e Marketing Digital.
                 </p>
                 <a href="#servicos" class="bg-secondary hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 mb-10 inline-block">
                     Descubra Nossas Soluções
                 </a>
-                <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                        <p class="text-2xl font-bold text-secondary">+400</p>
-                        <p class="text-gray-200 text-sm">empresas atendidas</p>
+                <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl">
+                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg reveal" style="transition-delay: 0.2s;">
+                        <p class="text-3xl font-bold text-secondary">+400</p>
+                        <p class="text-sm">empresas atendidas</p>
                     </div>
-                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                        <p class="text-2xl font-bold text-secondary">+15</p>
-                        <p class="text-gray-200 text-sm">anos de mercado</p>
+                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg reveal" style="transition-delay: 0.4s;">
+                        <p class="text-3xl font-bold text-secondary">+15</p>
+                        <p class="text-sm">anos de mercado</p>
                     </div>
-                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                        <p class="text-2xl font-bold text-secondary">98%</p>
-                        <p class="text-gray-200 text-sm">de satisfação comprovada</p>
+                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg reveal" style="transition-delay: 0.6s;">
+                        <p class="text-3xl font-bold text-secondary">98%</p>
+                        <p class="text-sm">de satisfação comprovada</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="sobre-nos" class="py-16 md:py-24 bg-white text-gray-800 reveal">
-            <div class="container mx-auto px-6">
+        <section id="sobre-nos" class="section-sobre-nos py-16 md:py-24 reveal">
+            <div class="container-custom-padding mx-auto">
                 <div class="text-center mb-12 md:mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-primary">Sobre a <span class="text-secondary">Conecta Empresarial</span></h2>
-                    <p class="text-lg text-gray-600 mt-2 max-w-3xl mx-auto">Conectando visão à realidade, impulsionando o crescimento sustentável do seu negócio.</p>
                 </div>
                 <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
                     <div class="w-full lg:w-1/2">
@@ -277,10 +504,10 @@
                     </div>
                     <div class="w-full lg:w-1/2 text-center lg:text-left">
                         <h3 class="text-2xl md:text-3xl font-semibold text-primary mb-4">Nossa Essência: <span class="text-secondary">Paixão por Resultados</span></h3>
-                        <p class="text-gray-700 mb-4 leading-relaxed">
+                        <p class="mb-4 leading-relaxed">
                             A Conecta Empresarial nasceu do desejo de transformar o potencial de empresas e pessoas em resultados extraordinários. Acreditamos que a conexão certa – entre estratégia, talento e mercado – é a chave para o crescimento sustentável e o sucesso duradouro.
                         </p>
-                        <p class="text-gray-700 mb-6 leading-relaxed">
+                        <p class="mb-6 leading-relaxed">
                             Com uma equipe de especialistas apaixonados e uma metodologia inovadora, testada e aprovada ao longo de mais de 15 anos de mercado, oferecemos soluções personalizadas que vão além do convencional. Estamos aqui para ser o seu parceiro estratégico, guiando sua empresa através dos desafios e celebrando cada conquista ao seu lado.
                         </p>
                          <a href="#contato" class="inline-block bg-secondary hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300">
@@ -291,67 +518,59 @@
             </div>
         </section>
 
-        <section id="servicos" class="py-16 md:py-24 bg-white text-gray-800 reveal">
-            <div class="container mx-auto px-6">
+        <section id="servicos" class="section-servicos py-16 md:py-24 reveal">
+            <div class="container-custom-padding mx-auto">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-primary">Nossas Soluções Estratégicas</h2>
-                    <p class="text-lg text-gray-600 mt-2">Impulsionamos o crescimento da sua empresa com expertise e personalização.</p>
+                    <p class="text-lg mt-2">Impulsionamos o crescimento da sua empresa com expertise e personalização.</p>
                 </div>
                 <div class="services-carousel-wrapper">
                     <div class="services-carousel pb-8">
-                        <div class="service-card bg-gray-50 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
-                            <div class="text-secondary text-5xl mb-4 inline-block">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><path d="M12 6v6l4 2"/><path d="M10 10.5h4m-2-2.5v5"/>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold text-primary mb-2">Consultoria Empresarial</h3>
-                            <p class="text-gray-600 text-sm service-card-content">Diagnóstico preciso, adaptação de metodologias e acompanhamento de metas para o crescimento de organizações de todos os portes.</p>
-                        </div>
-                        <div class="service-card bg-gray-50 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
-                            <div class="text-secondary text-5xl mb-4 inline-block">
-                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold text-primary mb-2">Mentoria de Negócios</h3>
-                            <p class="text-gray-600 text-sm service-card-content">Análise de perfil, alinhamento de objetivos e plano de desenvolvimento com mentores experientes para gestão de negócios.</p>
-                        </div>
-                        <div class="service-card bg-gray-50 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                        <div class="service-card p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
                             <div class="text-secondary text-5xl mb-4 inline-block">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline>
                                 </svg>
                             </div>
                             <h3 class="text-xl font-semibold text-primary mb-2">Treinamentos e Palestras</h3>
-                            <p class="text-gray-600 text-sm service-card-content">Mais de 30 temas (vendas, atendimento, produtividade, etc.) para capacitar mais de 20.000 profissionais com alto nível de satisfação.</p>
+                            <p class="text-sm service-card-content">Mais de 30 temas (vendas, atendimento, produtividade, etc.) para capacitar mais de 20.000 profissionais com alto nível de satisfação.</p>
                         </div>
-                         <div class="service-card bg-gray-50 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                        <div class="service-card p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                            <div class="text-secondary text-5xl mb-4 inline-block">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-primary mb-2">Mentoria de Negócios</h3>
+                            <p class="text-sm service-card-content">Análise de perfil, alinhamento de objetivos e plano de desenvolvimento com mentores experientes para gestão de negócios.</p>
+                        </div>
+                         <div class="service-card p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
                             <div class="text-secondary text-5xl mb-4 inline-block">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><path d="M11 8a3 3 0 0 0-3 3v0a3 3 0 0 0 3 3v0a3 3 0 0 0 3-3v0a3 3 0 0 0-3-3z"></path>
                                 </svg>
                             </div>
                             <h3 class="text-xl font-semibold text-primary mb-2">Recrutamento e Seleção</h3>
-                            <p class="text-gray-600 text-sm service-card-content">Processo eficiente com análise de currículos, vasto banco de dados, análise comportamental e capacitação, diminuindo o turnover.</p>
+                            <p class="text-sm service-card-content">Processo eficiente com análise de currículos, vasto banco de dados, análise comportamental e capacitação, diminuindo o turnover.</p>
                         </div>
-                        <div class="service-card bg-gray-50 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                        <div class="service-card p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
                             <div class="text-secondary text-5xl mb-4 inline-block">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><path d="M12 6v6l4 2"/><path d="M10 10.5h4m-2-2.5v5"/>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-semibold text-primary mb-2">Gestão de Redes Sociais</h3>
-                            <p class="text-gray-600 text-sm service-card-content">Estratégias de postagem, criativos personalizados e análise de comportamento para transformar sua marca em autoridade e aumentar vendas.</p>
+                            <h3 class="text-xl font-semibold text-primary mb-2">Assessoria Empresarial</h3>
+                            <p class="text-sm service-card-content">Diagnóstico preciso, adaptação de metodologias e acompanhamento de metas para o crescimento de organizações de todos os portes.</p>
                         </div>
-                        <div class="service-card bg-gray-50 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                        <div class="service-card p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
                             <div class="text-secondary text-5xl mb-4 inline-block">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line>
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H4.5A2.25 2.25 0 002.25 9v6.75a2.25 2.25 0 002.25 2.25z" />
+                                    <line x1="12" y1="12" x2="12" y2="18" /> <circle cx="12" cy="9" r="1.5" />
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-semibold text-primary mb-2">Desenvolvimento de Sites</h3>
-                            <p class="text-gray-600 text-sm service-card-content">Criação de sites modernos e profissionais para maior credibilidade, facilidade de acesso à informação e destaque no mercado.</p>
+                            <h3 class="text-xl font-semibold text-primary mb-2">Marketing Conecta IA</h3>
+                            <p class="text-sm service-card-content">Gestão de Redes Sociais: Estratégias de postagem, criativos e análise de comportamento. Desenvolvimento de Sites: Criação de sites modernos para credibilidade e destaque.</p>
                         </div>
                     </div>
                     <button id="prev-service" class="carousel-button prev" aria-label="Serviço Anterior">
@@ -364,8 +583,8 @@
             </div>
         </section>
 
-        <section id="estudio-podcast" class="py-16 md:py-24 bg-base text-on-base reveal">
-            <div class="container mx-auto px-6">
+        <section id="estudio-podcast" class="section-podcast py-16 md:py-24 reveal">
+            <div class="container-custom-padding mx-auto">
                 <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
                      <div class="w-full lg:w-1/2 order-2 lg:order-1">
                         <div class="aspect-w-16 aspect-h-9 rounded-lg shadow-2xl overflow-hidden bg-gray-700 flex items-center justify-center">
@@ -373,12 +592,12 @@
                         </div>
                     </div>
                     <div class="w-full lg:w-1/2 text-center lg:text-left order-1 lg:order-2">
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Estúdio <span class="text-secondary">Conecta Podcast</span></h2>
-                        <p class="text-xl text-gray-300 mb-6">Dê Voz à Sua Marca: Alugue Nosso Estúdio Profissional!</p>
-                        <p class="text-gray-400 mb-4 leading-relaxed">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-2">Estúdio <span class="text-secondary">Conecta Podcast</span></h2>
+                        <p class="text-xl mb-6">Dê Voz à Sua Marca: Alugue Nosso Estúdio Profissional!</p>
+                        <p class="mb-4 leading-relaxed">
                             Quer ampliar o alcance da sua mensagem, fortalecer sua marca ou aprimorar a comunicação interna? O Conecta Estúdio Podcast oferece a infraestrutura completa e o suporte técnico que você precisa para produzir conteúdo de áudio com qualidade profissional.
                         </p>
-                        <p class="text-gray-400 mb-8 leading-relaxed">
+                        <p class="mb-8 leading-relaxed">
                             Ideal para empreendedores, empresas e criadores de conteúdo que buscam gravar podcasts, audiobooks, narrações ou qualquer projeto de áudio. Nosso espaço é equipado com tecnologia de ponta e um ambiente acústico tratado para garantir a melhor sonoridade. Foque no seu conteúdo, nós cuidamos do resto!
                         </p>
                          <a href="#contato" class="inline-block bg-secondary hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300">
@@ -389,97 +608,59 @@
             </div>
         </section>
 
-        <section id="depoimentos" class="py-16 md:py-24 bg-base-light reveal">
-            <div class="container mx-auto px-6">
+        <section id="depoimentos" class="section-depoimentos py-16 md:py-24 reveal">
+            <div class="container-custom-padding mx-auto">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Quem Confia, <span class="text-secondary">Comprova</span></h2>
-                    <p class="text-lg text-gray-300 mt-2">Veja o que nossos clientes dizem sobre a Conecta Empresarial.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold">Quem Confia, <span class="text-secondary">Comprova</span></h2>
+                    <p class="text-lg mt-2">Veja o que nossos clientes dizem sobre a Conecta Empresarial.</p>
                 </div>
                 
-                <div class="carousel-container">
+                <div class="testimonial-carousel-wrapper">
                     <div class="testimonial-carousel pb-8">
-                        <div class="testimonial-card bg-gray-700 p-6 rounded-lg shadow-lg">
-                            <img src="https://placehold.co/80x80/F97316/FFFFFF?text=Cliente" alt="Foto do Cliente 1" class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-secondary" onerror="this.onerror=null; this.src='https://placehold.co/80x80/F97316/FFFFFF?text=Foto';">
-                            <p class="text-gray-300 italic mb-4">"A Conecta Empresarial transformou nossa equipe de vendas! O treinamento foi dinâmico e os resultados apareceram rapidamente."</p>
-                            <h4 class="font-semibold text-white">João Silva</h4>
-                            <p class="text-sm text-gray-400">Diretor Comercial, Empresa X</p>
+                        <div class="testimonial-card p-6 rounded-lg shadow-lg">
+                            <p class="italic mb-4">"A Conecta Empresarial transformou nossa equipe de vendas! O treinamento foi dinâmico e os resultados apareceram rapidamente."</p>
+                            <h4 class="font-semibold">João Silva</h4>
                             <div class="mt-2 text-secondary">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
                         </div>
-                        <div class="testimonial-card bg-gray-700 p-6 rounded-lg shadow-lg">
-                            <img src="https://placehold.co/80x80/1E3A8A/FFFFFF?text=Logo" alt="Logo Empresa Cliente 2" class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-primary" onerror="this.onerror=null; this.src='https://placehold.co/80x80/1E3A8A/FFFFFF?text=Logo';">
-                            <p class="text-gray-300 italic mb-4">"O processo de recrutamento foi ágil e assertivo. Encontramos o profissional que precisávamos em tempo recorde. Recomendo!"</p>
-                            <h4 class="font-semibold text-white">Maria Oliveira</h4>
-                            <p class="text-sm text-gray-400">Gerente de RH, Startup Inovadora</p>
+                        <div class="testimonial-card p-6 rounded-lg shadow-lg">
+                            <p class="italic mb-4">"O processo de recrutamento foi ágil e assertivo. Encontramos o profissional que precisávamos em tempo recorde. Recomendo!"</p>
+                            <h4 class="font-semibold">Maria Oliveira</h4>
                             <div class="mt-2 text-secondary">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                             </div>
                         </div>
-                        <div class="testimonial-card bg-gray-700 p-6 rounded-lg shadow-lg">
-                            <img src="https://placehold.co/80x80/F97316/FFFFFF?text=Cliente" alt="Foto do Cliente 3" class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-secondary" onerror="this.onerror=null; this.src='https://placehold.co/80x80/F97316/FFFFFF?text=Foto';">
-                            <p class="text-gray-300 italic mb-4">"Nossa presença digital melhorou significativamente após a consultoria de marketing da Conecta. Estamos alcançando novos clientes!"</p>
-                            <h4 class="font-semibold text-white">Carlos Pereira</h4>
-                            <p class="text-sm text-gray-400">CEO, Loja Virtual Y</p>
+                        <div class="testimonial-card p-6 rounded-lg shadow-lg">
+                            <p class="italic mb-4">"Nossa presença digital melhorou significativamente após a consultoria de marketing da Conecta. Estamos alcançando novos clientes!"</p>
+                            <h4 class="font-semibold">Carlos Pereira</h4>
                             <div class="mt-2 text-secondary">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                             </div>
                         </div>
-                        <div class="testimonial-card bg-gray-700 p-6 rounded-lg shadow-lg">
-                            <img src="https://placehold.co/80x80/1E3A8A/FFFFFF?text=Logo" alt="Logo Empresa Cliente 4" class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-primary" onerror="this.onerror=null; this.src='https://placehold.co/80x80/1E3A8A/FFFFFF?text=Logo';">
-                            <p class="text-gray-300 italic mb-4">"A consultoria em Gestão de Pessoas nos ajudou a reestruturar o RH e melhorar o clima organizacional. Excelente trabalho!"</p>
-                            <h4 class="font-semibold text-white">Ana Costa</h4>
-                            <p class="text-sm text-gray-400">Sócia-fundadora, Consultoria Z</p>
-                            <div class="mt-2 text-secondary">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-card bg-gray-700 p-6 rounded-lg shadow-lg">
-                            <img src="https://placehold.co/80x80/F97316/FFFFFF?text=Cliente" alt="Foto do Cliente 1" class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-secondary" onerror="this.onerror=null; this.src='https://placehold.co/80x80/F97316/FFFFFF?text=Foto';">
-                            <p class="text-gray-300 italic mb-4">"A Conecta Empresarial transformou nossa equipe de vendas! O treinamento foi dinâmico e os resultados apareceram rapidamente."</p>
-                            <h4 class="font-semibold text-white">João Silva</h4>
-                            <p class="text-sm text-gray-400">Diretor Comercial, Empresa X</p>
-                            <div class="mt-2 text-secondary">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-card bg-gray-700 p-6 rounded-lg shadow-lg">
-                            <img src="https://placehold.co/80x80/1E3A8A/FFFFFF?text=Logo" alt="Logo Empresa Cliente 2" class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-primary" onerror="this.onerror=null; this.src='https://placehold.co/80x80/1E3A8A/FFFFFF?text=Logo';">
-                            <p class="text-gray-300 italic mb-4">"O processo de recrutamento foi ágil e assertivo. Encontramos o profissional que precisávamos em tempo recorde. Recomendo!"</p>
-                            <h4 class="font-semibold text-white">Maria Oliveira</h4>
-                            <p class="text-sm text-gray-400">Gerente de RH, Startup Inovadora</p>
-                            <div class="mt-2 text-secondary">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-card bg-gray-700 p-6 rounded-lg shadow-lg">
-                            <img src="https://placehold.co/80x80/F97316/FFFFFF?text=Cliente" alt="Foto do Cliente 3" class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-secondary" onerror="this.onerror=null; this.src='https://placehold.co/80x80/F97316/FFFFFF?text=Foto';">
-                            <p class="text-gray-300 italic mb-4">"Nossa presença digital melhorou significativamente após a consultoria de marketing da Conecta. Estamos alcançando novos clientes!"</p>
-                            <h4 class="font-semibold text-white">Carlos Pereira</h4>
-                            <p class="text-sm text-gray-400">CEO, Loja Virtual Y</p>
-                            <div class="mt-2 text-secondary">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-card bg-gray-700 p-6 rounded-lg shadow-lg">
-                            <img src="https://placehold.co/80x80/1E3A8A/FFFFFF?text=Logo" alt="Logo Empresa Cliente 4" class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-primary" onerror="this.onerror=null; this.src='https://placehold.co/80x80/1E3A8A/FFFFFF?text=Logo';">
-                            <p class="text-gray-300 italic mb-4">"A consultoria em Gestão de Pessoas nos ajudou a reestruturar o RH e melhorar o clima organizacional. Excelente trabalho!"</p>
-                            <h4 class="font-semibold text-white">Ana Costa</h4>
-                            <p class="text-sm text-gray-400">Sócia-fundadora, Consultoria Z</p>
+                        <div class="testimonial-card p-6 rounded-lg shadow-lg">
+                            <p class="italic mb-4">"A consultoria em Gestão de Pessoas nos ajudou a reestruturar o RH e melhorar o clima organizacional. Excelente trabalho!"</p>
+                            <h4 class="font-semibold">Ana Costa</h4>
                             <div class="mt-2 text-secondary">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
+                    <button id="prev-testimonial" class="carousel-button prev" aria-label="Depoimento Anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-testimonial" class="carousel-button next" aria-label="Próximo Depoimento">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </section>
 
-        <section id="contato" class="py-16 md:py-24 bg-white text-gray-800 reveal">
-            <div class="container mx-auto px-6">
+        <section id="contato" class="section-contato py-16 md:py-24 reveal">
+            <div class="container-custom-padding mx-auto">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-primary">Fale Conosco</h2>
-                    <p class="text-lg text-gray-600 mt-2">Estamos prontos para conectar sua empresa ao sucesso. Entre em contato!</p>
+                    <p class="text-lg mt-2">Estamos prontos para conectar sua empresa ao sucesso. Entre em contato!</p>
                 </div>
                 <div class="flex flex-wrap justify-center -mx-4"> 
                     <div class="w-full lg:w-2/3 px-4"> 
@@ -497,7 +678,7 @@
                                 onerror="this.outerHTML = '<div class=\'bg-gray-200 rounded-lg w-full h-[350px] flex items-center justify-center\'><p class=\'text-center text-gray-600\'>Não foi possível carregar o mapa. <br>Tente acessar diretamente em: <a href=\'https://www.google.com/maps/place/Av.+Dr.+Guilherme+Dumont+Vilares,+839+-+Portal+do+Morumbi,+S%C3%A3o+Paulo+-+SP,+05640-001\' target=\'blank\' class=\'text-primary hover:underline\'>Ver no Google Maps</a></p></div>'">
                             </iframe>
                         </div>
-                        <div class="space-y-3 text-gray-700 text-center md:text-left">
+                        <div class="space-y-3 text-center md:text-left">
                             <p><strong class="text-primary">Endereço:</strong> Av. Dr. Guilherme Dumont Vilares, 839 - Portal do Morumbi, São Paulo - SP, 05640-001</p>
                             <p><strong class="text-primary">Telefone:</strong> (11) 99819-5907</p>
                             <p><strong class="text-primary">E-mail:</strong> contato@conectaempresarial.com.br</p>
@@ -514,28 +695,108 @@
         </section>
     </main>
 
-    <footer class="bg-base text-center py-8">
-        <p class="text-gray-400">© <span id="currentYear"></span> Conecta Empresarial. Todos os direitos reservados.</p>
-        <p class="text-gray-500 text-sm">Conectando empresas ao sucesso.</p>
+    <footer class="py-8 text-center">
+        <div class="container-custom-padding mx-auto">
+            <div class="mb-4">
+                <a href="#" id="open-terms-modal" class="hover:text-secondary transition-colors duration-300 mx-2">Termos de Uso</a>
+                <span class="mx-1">|</span>
+                <a href="#" id="open-privacy-modal" class="hover:text-secondary transition-colors duration-300 mx-2">Política de Privacidade</a>
+            </div>
+            <p class="">© <span id="currentYear"></span> Conecta Empresarial. Todos os direitos reservados.</p>
+            <p class="text-sm">Conectando empresas ao sucesso.</p>
+        </div>
     </footer>
+
+    <div id="terms-modal" class="modal-overlay fixed inset-0 hidden">
+        <div class="modal-content relative">
+            <button id="close-terms-modal" class="modal-close-button">×</button>
+            <h3 class="text-2xl font-bold mb-4 text-primary">Termos de Uso</h3>
+            <div class="space-y-4 text-sm">
+                <p>Bem-vindo ao site da Conecta Empresarial. Ao acessar e usar este site, você concorda em cumprir e estar vinculado aos seguintes termos e condições de uso, que juntamente com nossa política de privacidade regem o relacionamento da Conecta Empresarial com você em relação a este site.</p>
+                <p><strong>1. Uso do Conteúdo:</strong> O conteúdo das páginas deste site é para sua informação geral e uso apenas. Ele está sujeito a alterações sem aviso prévio.</p>
+                <p><strong>2. Propriedade Intelectual:</strong> Este site contém material que é de nossa propriedade ou licenciado para nós. Este material inclui, mas não está limitado a, design, layout, aparência, aparência e gráficos. A reprodução é proibida, exceto em conformidade com o aviso de direitos autorais, que faz parte destes termos e condições.</p>
+                <p><strong>3. Limitação de Responsabilidade:</strong> Nem nós nem terceiros fornecemos qualquer garantia quanto à precisão, pontualidade, desempenho, integridade ou adequação das informações e materiais encontrados ou oferecidos neste site para qualquer finalidade específica. Você reconhece que tais informações e materiais podem conter imprecisões ou erros e expressamente excluímos a responsabilidade por quaisquer imprecisões ou erros na máxima extensão permitida por lei.</p>
+                <p><strong>4. Links Externos:</strong> De tempos em tempos, este site também pode incluir links para outros sites. Esses links são fornecidos para sua conveniência para fornecer mais informações. Eles não significam que endossamos o(s) site(s). Não temos responsabilidade pelo conteúdo do(s) site(s) vinculado(s).</p>
+                <p>O uso deste site e qualquer disputa decorrente de tal uso do site estão sujeitos às leis do Brasil.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="privacy-modal" class="modal-overlay fixed inset-0 hidden">
+        <div class="modal-content relative">
+            <button id="close-privacy-modal" class="modal-close-button">×</button>
+            <h3 class="text-2xl font-bold mb-4 text-primary">Política de Privacidade</h3>
+            <div class="space-y-4 text-sm">
+                <p>Esta política de privacidade estabelece como a Conecta Empresarial usa e protege qualquer informação que você nos fornece quando usa este site.</p>
+                <p><strong>1. Coleta de Informações:</strong> Podemos coletar as seguintes informações: nome, informações de contato, incluindo endereço de e-mail, informações demográficas, como CEP, preferências e interesses, e outras informações relevantes para pesquisas e/ou ofertas a clientes.</p>
+                <p><strong>2. Uso das Informações:</strong> Usamos essas informações para entender suas necessidades e fornecer um serviço melhor, e em particular pelos seguintes motivos: manutenção de registros internos, podemos usar as informações para melhorar nossos produtos e serviços, podemos enviar periodicamente e-mails promocionais sobre novos produtos, ofertas especiais ou outras informações que achamos que você pode achar interessantes usando o endereço de e-mail que você forneceu.</p>
+                <p><strong>3. Segurança:</strong> Estamos empenhados em garantir que suas informações estejam seguras. A fim de evitar o acesso não autorizado ou divulgação, implementamos procedimentos físicos, eletrônicos e gerenciais adequados para proteger e proteger as informações que coletamos online.</p>
+                <p><strong>4. Cookies:</strong> Um cookie é um pequeno arquivo que pede permissão para ser colocado no disco rígido do seu computador. Uma vez que você concorda, o arquivo é adicionado e o cookie ajuda a analisar o tráfego da web ou permite que você saiba quando visita um site específico. Os cookies permitem que os aplicativos da web respondam a você como um indivíduo. O aplicativo da web pode adaptar suas operações às suas necessidades, gostos e desgostos, reunindo e lembrando informações sobre suas preferências.</p>
+                <p><strong>5. Controle de Suas Informações Pessoais:</strong> Você pode optar por restringir a coleta ou uso de suas informações pessoais. Se você já concordou conosco usando suas informações pessoais para fins de marketing direto, você pode mudar de ideia a qualquer momento, escrevendo ou enviando um e-mail para nós em [seu email de contato].</p>
+                <p>Não venderemos, distribuiremos ou alugaremos suas informações pessoais a terceiros, a menos que tenhamos sua permissão ou sejamos obrigados por lei a fazê-lo.</p>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         const menuToggleButton = document.getElementById('menu-toggle-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const mainHeader = document.getElementById('main-header');
-        
-        menuToggleButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleIcon = document.getElementById('theme-toggle-icon');
+        const body = document.body;
 
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+        function setInitialTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                body.classList.add('dark-mode');
+                if(themeToggleIcon) {
+                    themeToggleIcon.classList.remove('fa-moon');
+                    themeToggleIcon.classList.add('fa-sun');
+                }
+            } else {
+                body.classList.remove('dark-mode');
+                 if(themeToggleIcon) {
+                    themeToggleIcon.classList.remove('fa-sun');
+                    themeToggleIcon.classList.add('fa-moon');
+                }
+            }
+        }
+        setInitialTheme();
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    themeToggleIcon.classList.remove('fa-moon');
+                    themeToggleIcon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    themeToggleIcon.classList.remove('fa-sun');
+                    themeToggleIcon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light');
+                }
             });
-        });
+        }
+        
+        if(menuToggleButton && mobileMenu){
+            menuToggleButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
 
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+        
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
         
         const servicesCarousel = document.querySelector('.services-carousel');
         const prevServiceButton = document.getElementById('prev-service');
@@ -543,69 +804,132 @@
         const serviceCards = servicesCarousel ? servicesCarousel.querySelectorAll('.service-card') : [];
         let itemsPerServiceView = 3; 
 
-        function updateItemsPerView() {
-            if (window.innerWidth < 640) {
-                itemsPerServiceView = 1;
-            } else if (window.innerWidth < 1024) {
-                itemsPerServiceView = 2;
-            } else {
-                itemsPerServiceView = 3;
-            }
+        function updateItemsPerServiceView() {
+            if (window.innerWidth < 640) { itemsPerServiceView = 1; }
+            else if (window.innerWidth < 1024) { itemsPerServiceView = 2;}
+            else { itemsPerServiceView = 3; }
         }
         
         if (servicesCarousel && prevServiceButton && nextServiceButton && serviceCards.length > 0) {
-            function scrollServices(direction) {
-                const cardWidth = serviceCards[0].offsetWidth + parseFloat(getComputedStyle(serviceCards[0]).marginRight || 0);
-                const scrollAmount = cardWidth * itemsPerServiceView;
-                
-                if (direction === 'next') {
-                    servicesCarousel.scrollLeft += scrollAmount;
-                } else {
-                    servicesCarousel.scrollLeft -= scrollAmount;
-                }
+            function scrollCarousel(carousel, direction, cards, itemsPerView) {
+                if (!cards || cards.length === 0) return;
+                const cardWidth = cards[0].offsetWidth + parseFloat(getComputedStyle(cards[0]).marginRight || 0);
+                const scrollAmount = cardWidth * itemsPerView;
+                if (direction === 'next') { carousel.scrollLeft += scrollAmount; }
+                else { carousel.scrollLeft -= scrollAmount; }
             }
-
-            nextServiceButton.addEventListener('click', () => {
-                scrollServices('next');
-            });
-
-            prevServiceButton.addEventListener('click', () => {
-                 scrollServices('prev');
-            });
-            
-            window.addEventListener('resize', () => {
-                updateItemsPerView();
-            });
-            updateItemsPerView();
+            nextServiceButton.addEventListener('click', () => scrollCarousel(servicesCarousel, 'next', serviceCards, itemsPerServiceView));
+            prevServiceButton.addEventListener('click', () => scrollCarousel(servicesCarousel, 'prev', serviceCards, itemsPerServiceView));
+            window.addEventListener('resize', updateItemsPerServiceView);
+            updateItemsPerServiceView();
         }
+
+        const testimonialCarouselElement = document.querySelector('.testimonial-carousel');
+        const prevTestimonialButton = document.getElementById('prev-testimonial');
+        const nextTestimonialButton = document.getElementById('next-testimonial');
+        const testimonialCards = testimonialCarouselElement ? testimonialCarouselElement.querySelectorAll('.testimonial-card') : [];
+        let itemsPerTestimonialView = 3;
+
+        function updateItemsPerTestimonialView() {
+            if (window.innerWidth < 768) { itemsPerTestimonialView = 1; }
+            else if (window.innerWidth < 1280) { itemsPerTestimonialView = 2;}
+            else { itemsPerTestimonialView = 3; }
+        }
+
+        if (testimonialCarouselElement && prevTestimonialButton && nextTestimonialButton && testimonialCards.length > 0) {
+            function scrollTestimonialCarousel(direction) {
+                if (!testimonialCards || testimonialCards.length === 0) return;
+                const cardWidth = testimonialCards[0].offsetWidth + parseFloat(getComputedStyle(testimonialCards[0]).marginRight || 0);
+                const scrollAmount = cardWidth * itemsPerTestimonialView;
+                if (direction === 'next') { testimonialCarouselElement.scrollLeft += scrollAmount; }
+                else { testimonialCarouselElement.scrollLeft -= scrollAmount; }
+            }
+            nextTestimonialButton.addEventListener('click', () => scrollTestimonialCarousel('next'));
+            prevTestimonialButton.addEventListener('click', () => scrollTestimonialCarousel('prev'));
+            window.addEventListener('resize', updateItemsPerTestimonialView);
+            updateItemsPerTestimonialView();
+        }
+
 
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                } else {
-                    entry.target.classList.remove('visible'); 
-                }
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+                else { entry.target.classList.remove('visible'); }
             });
         }, { threshold: 0.1 });
+        revealElements.forEach(el => revealObserver.observe(el));
 
-        revealElements.forEach(el => {
-            revealObserver.observe(el);
-        });
-
-        const headerHeight = mainHeader ? mainHeader.querySelector('nav').offsetHeight + mainHeader.querySelector('.bg-base-light').offsetHeight : 0;
+        const headerNav = mainHeader ? mainHeader.querySelector('#main-nav') : null;
+        const headerTopBar = mainHeader ? mainHeader.querySelector('.top-bar') : null;
+        let headerTotalHeight = 0;
+        if(headerNav && headerTopBar){
+            headerTotalHeight = headerNav.offsetHeight + headerTopBar.offsetHeight;
+        }
 
         window.addEventListener('scroll', () => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > headerHeight) {
-                mainHeader.classList.add('sticky-header');
-                document.body.classList.add('header-is-sticky');
-            } else {
-                mainHeader.classList.remove('sticky-header');
-                document.body.classList.remove('header-is-sticky');
+            if (mainHeader) {
+                if (scrollTop > headerTotalHeight && headerTotalHeight > 0) {
+                    mainHeader.classList.add('sticky-header');
+                    document.body.classList.add('header-is-sticky');
+                } else {
+                    mainHeader.classList.remove('sticky-header');
+                    document.body.classList.remove('header-is-sticky');
+                }
             }
         });
+
+        const termsModal = document.getElementById('terms-modal');
+        const privacyModal = document.getElementById('privacy-modal');
+        const openTermsBtn = document.getElementById('open-terms-modal');
+        const openPrivacyBtn = document.getElementById('open-privacy-modal');
+        const closeTermsBtn = document.getElementById('close-terms-modal');
+        const closePrivacyBtn = document.getElementById('close-privacy-modal');
+
+        function openModal(modal) {
+            if (modal) {
+                modal.classList.remove('hidden');
+                setTimeout(() => modal.classList.add('active'), 10);
+            }
+        }
+
+        function closeModal(modal) {
+            if (modal) {
+                modal.classList.remove('active');
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            }
+        }
+
+        if (openTermsBtn && termsModal) {
+            openTermsBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(termsModal);
+            });
+        }
+        if (closeTermsBtn && termsModal) {
+            closeTermsBtn.addEventListener('click', () => closeModal(termsModal));
+        }
+       
+        if (openPrivacyBtn && privacyModal) {
+            openPrivacyBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(privacyModal);
+            });
+        }
+        if (closePrivacyBtn && privacyModal) {
+            closePrivacyBtn.addEventListener('click', () => closeModal(privacyModal));
+        }
+
+        window.addEventListener('click', (event) => {
+            if (termsModal && event.target === termsModal) {
+                closeModal(termsModal);
+            }
+            if (privacyModal && event.target === privacyModal) {
+                closeModal(privacyModal);
+            }
+        });
+
     </script>
 </body>
 </html>
