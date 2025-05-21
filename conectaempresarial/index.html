@@ -257,7 +257,7 @@
         .service-card {
             flex: 0 0 calc(100% / 3 - 1rem); 
             max-width: 320px; 
-            min-height: 300px; 
+            min-height: 340px; /* Aumentei um pouco para acomodar mais texto */
             margin-right: 1.5rem;
             display: flex;
             flex-direction: column;
@@ -271,7 +271,7 @@
             hyphens: auto;
         }
         @media (max-width: 1023px) {
-            .service-card { flex-basis: calc(50% - 0.75rem); max-width: none; }
+            .service-card { flex-basis: calc(50% - 0.75rem); max-width: none; min-height: 360px; }
         }
         @media (max-width: 767px) {
             .service-card { flex-basis: 100%; margin-right: 0; min-height: auto; }
@@ -508,10 +508,10 @@
                     <div class="w-full lg:w-1/2 text-center lg:text-left">
                         <h3 class="text-2xl md:text-3xl font-semibold text-primary mb-4">Nossa Essência: <span class="text-secondary">Paixão por Resultados</span></h3>
                         <p class="mb-4 leading-relaxed">
-                            A Conecta Empresarial nasceu do desejo de transformar o potencial de empresas e pessoas em resultados extraordinários. Acreditamos que a conexão certa – entre estratégia, talento e mercado – é a chave para o crescimento sustentável e o sucesso duradouro.
+                            A Conecta Empresarial, há 15 anos no mercado, atua fortemente nas áreas de assessoria focada em gestão de pessoas e gestão comercial. Engajamos equipes e estruturamos processos para que as empresas tenham mais resultado, com menos desperdício e mais produtividade.
                         </p>
                         <p class="mb-6 leading-relaxed">
-                            Com uma equipe de especialistas apaixonados e uma metodologia inovadora, testada e aprovada ao longo de mais de 15 anos de mercado, oferecemos soluções personalizadas que vão além do convencional. Estamos aqui para ser o seu parceiro estratégico, guiando sua empresa através dos desafios e celebrando cada conquista ao seu lado.
+                            Atuamos com treinamentos, mentorias e soluções sob medida, sempre com foco em comportamento, performance e resultado. Acreditamos que a conexão certa – entre estratégia, talento e mercado – é a chave para o crescimento sustentável e o sucesso duradouro.
                         </p>
                          <a href="#contato" class="inline-block bg-secondary hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300">
                             Fale com um Especialista
@@ -536,7 +536,7 @@
                                 </svg>
                             </div>
                             <h3 class="text-xl font-semibold text-primary mb-2">Treinamentos e Palestras</h3>
-                            <p class="text-sm service-card-content">Mais de 30 temas (vendas, atendimento, produtividade, etc.) para capacitar mais de 20.000 profissionais com alto nível de satisfação.</p>
+                            <p class="text-sm service-card-content">Para equipes em geral, líderes, vendedores, atendentes, representantes e gestores comerciais. Foco em produtividade e alta performance.</p>
                         </div>
                         <div class="service-card p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
                             <div class="text-secondary text-5xl mb-4 inline-block">
@@ -544,8 +544,8 @@
                                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-semibold text-primary mb-2">Mentoria de Negócios</h3>
-                            <p class="text-sm service-card-content">Análise de perfil, alinhamento de objetivos e plano de desenvolvimento com mentores experientes para gestão de negócios.</p>
+                            <h3 class="text-xl font-semibold text-primary mb-2">Mentoria Estratégica</h3>
+                            <p class="text-sm service-card-content">Para líderes e empresários, visando uma gestão mais estratégica e eficiente, e desenvolvimento de equipes.</p>
                         </div>
                          <div class="service-card p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
                             <div class="text-secondary text-5xl mb-4 inline-block">
@@ -559,11 +559,11 @@
                         <div class="service-card p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
                             <div class="text-secondary text-5xl mb-4 inline-block">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><path d="M12 6v6l4 2"/><path d="M10 10.5h4m-2-2.5v5"/>
+                                   <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /> <path d="M13 17H9m10 0h-2M3 17H1m10-8h10M3 9h2M3 5h18M3 13h10" />
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-semibold text-primary mb-2">Assessoria Empresarial</h3>
-                            <p class="text-sm service-card-content">Diagnóstico preciso, adaptação de metodologias e acompanhamento de metas para o crescimento de organizações de todos os portes.</p>
+                            <h3 class="text-xl font-semibold text-primary mb-2">Assessoria e Processos de RH</h3>
+                            <p class="text-sm service-card-content">Criação de políticas e processos de RH. Consultoria com foco em estruturação do departamento de vendas.</p>
                         </div>
                         <div class="service-card p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
                             <div class="text-secondary text-5xl mb-4 inline-block">
@@ -572,8 +572,8 @@
                                     <line x1="12" y1="12" x2="12" y2="18" /> <circle cx="12" cy="9" r="1.5" />
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-semibold text-primary mb-2">Marketing Conecta IA</h3>
-                            <p class="text-sm service-card-content">Gestão de Redes Sociais: Estratégias de postagem, criativos e análise de comportamento. Desenvolvimento de Sites: Criação de sites modernos para credibilidade e destaque.</p>
+                            <h3 class="text-xl font-semibold text-primary mb-2">Marketing Digital e Geração de Leads</h3>
+                            <p class="text-sm service-card-content">Gestão de Mídias Sociais, Criação de Sites modernos e estratégias para Geração de Leads, transformando sua marca em autoridade.</p>
                         </div>
                     </div>
                     <button id="prev-service" class="carousel-button prev" aria-label="Serviço Anterior">
