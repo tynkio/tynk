@@ -120,7 +120,7 @@
         }
 
         .hero-section {
-            background-image: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('conectaempresarial/conecta_hero.png');
+            background-image: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('conecta_hero.png');
             background-size: cover;
             background-position: center;
             color: var(--color-text-light-on-dark-bg);
@@ -257,7 +257,7 @@
         .service-card {
             flex: 0 0 calc(100% / 3 - 1rem); 
             max-width: 320px; 
-            min-height: 340px; /* Aumentei um pouco para acomodar mais texto */
+            min-height: 300px; 
             margin-right: 1.5rem;
             display: flex;
             flex-direction: column;
@@ -271,7 +271,7 @@
             hyphens: auto;
         }
         @media (max-width: 1023px) {
-            .service-card { flex-basis: calc(50% - 0.75rem); max-width: none; min-height: 360px; }
+            .service-card { flex-basis: calc(50% - 0.75rem); max-width: none; }
         }
         @media (max-width: 767px) {
             .service-card { flex-basis: 100%; margin-right: 0; min-height: auto; }
