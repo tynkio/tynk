@@ -24,6 +24,15 @@
         .video-placeholder {
             aspect-ratio: 9 / 16;
         }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
 <body class="bg-black text-gray-200">
@@ -60,54 +69,56 @@
             </div>
 
             <!-- Pricing Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="overflow-x-auto lg:overflow-visible no-scrollbar pb-4">
+                <div class="grid grid-flow-col auto-cols-[85%] md:auto-cols-[45%] lg:grid-flow-row lg:grid-cols-3 lg:auto-cols-auto gap-8 max-w-6xl mx-auto">
 
-                <!-- Pacote 1: Essencial -->
-                <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 flex flex-col">
-                    <h4 class="text-2xl font-bold text-white mb-2">Pacote Essencial</h4>
-                    <p class="text-4xl font-black text-white mb-4">R$ 1.200<span class="text-lg font-medium text-gray-400">/mês</span></p>
-                    <ul class="space-y-3 text-gray-300 mb-8 flex-grow">
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>4 posts mensais (fotos ou artes)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>2 Reels mensais (edição simples)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Planejamento e legendas básicas</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Agendamento e publicação</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Uso de fotos da cliente</li>
-                    </ul>
-                    <a href="#" class="w-full text-center bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors">Contratar Agora</a>
-                </div>
-
-                <!-- Pacote 2: Profissional (Highlighted) -->
-                <div class="bg-gray-900 p-8 rounded-2xl border-2 highlight-border relative overflow-hidden flex flex-col">
-                    <div class="absolute top-0 right-0 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs font-bold px-8 py-1 transform translate-x-8 rotate-45 translate-y-4">
-                        MAIS INDICADO
+                    <!-- Pacote 1: Essencial -->
+                    <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 flex flex-col">
+                        <h4 class="text-2xl font-bold text-white mb-2">Pacote Essencial</h4>
+                        <p class="text-4xl font-black text-white mb-4">R$ 1.200<span class="text-lg font-medium text-gray-400">/mês</span></p>
+                        <ul class="space-y-3 text-gray-300 mb-8 flex-grow">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>4 posts mensais (fotos ou artes)</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>2 Reels mensais (edição simples)</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Planejamento e legendas básicas</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Agendamento e publicação</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Uso de fotos da cliente</li>
+                        </ul>
+                        <a href="#" class="w-full text-center bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors">Contratar Agora</a>
                     </div>
-                    <h4 class="text-2xl font-bold text-white mb-2">Pacote Profissional</h4>
-                    <p class="text-4xl font-black text-white mb-4">R$ 1.800<span class="text-lg font-medium text-gray-400">/mês</span></p>
-                    <ul class="space-y-3 text-gray-300 mb-8 flex-grow">
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Sessão fotográfica inicial (50 fotos)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>8 posts mensais (fotos, carrosséis)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>4 Reels mensais (edição profissional)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Planejamento e legendas estratégicas</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Hashtags segmentadas</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Relatório mensal de desempenho</li>
-                    </ul>
-                    <a href="#" class="w-full text-center bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity">Contratar Agora</a>
-                </div>
 
-                <!-- Pacote 3: Premium -->
-                <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 flex flex-col">
-                    <h4 class="text-2xl font-bold text-white mb-2">Pacote Premium</h4>
-                    <p class="text-4xl font-black text-white mb-4">R$ 2.800<span class="text-lg font-medium text-gray-400">/mês</span></p>
-                    <ul class="space-y-3 text-gray-300 mb-8 flex-grow">
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>2 sessões fotográficas (80 fotos)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>12 posts mensais (mix completo)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>8 Reels mensais (edição avançada)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Stories semanais produzidos</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Gestão e monitoramento de interações</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Relatório quinzenal com insights</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Consultoria mensal de marca</li>
-                    </ul>
-                    <a href="#" class="w-full text-center bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors">Contratar Agora</a>
+                    <!-- Pacote 2: Profissional (Highlighted) -->
+                    <div class="bg-gray-900 p-8 rounded-2xl border-2 highlight-border relative overflow-hidden flex flex-col">
+                        <div class="absolute top-0 right-0 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs font-bold px-8 py-1 transform translate-x-8 rotate-45 translate-y-4">
+                            MAIS INDICADO
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-2">Pacote Profissional</h4>
+                        <p class="text-4xl font-black text-white mb-4">R$ 1.800<span class="text-lg font-medium text-gray-400">/mês</span></p>
+                        <ul class="space-y-3 text-gray-300 mb-8 flex-grow">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Sessão fotográfica inicial (50 fotos)</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>8 posts mensais (fotos, carrosséis)</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>4 Reels mensais (edição profissional)</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Planejamento e legendas estratégicas</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Hashtags segmentadas</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Relatório mensal de desempenho</li>
+                        </ul>
+                        <a href="#" class="w-full text-center bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity">Contratar Agora</a>
+                    </div>
+
+                    <!-- Pacote 3: Premium -->
+                    <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 flex flex-col">
+                        <h4 class="text-2xl font-bold text-white mb-2">Pacote Premium</h4>
+                        <p class="text-4xl font-black text-white mb-4">R$ 2.800<span class="text-lg font-medium text-gray-400">/mês</span></p>
+                        <ul class="space-y-3 text-gray-300 mb-8 flex-grow">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>2 sessões fotográficas (80 fotos)</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>12 posts mensais (mix completo)</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>8 Reels mensais (edição avançada)</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Stories semanais produzidos</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Gestão e monitoramento de interações</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Relatório quinzenal com insights</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-pink-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Consultoria mensal de marca</li>
+                        </ul>
+                        <a href="#" class="w-full text-center bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors">Contratar Agora</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -121,18 +132,20 @@
                 <p class="text-gray-400 mt-2">Resultados que falam por si.</p>
             </div>
             <!-- Portfolio Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Portfolio Item 1 -->
-                <div class="bg-gray-900 rounded-xl overflow-hidden">
-                    <img src="http://tynk.io/img1.png" alt="Print de um perfil do Instagram gerenciado" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/850x1350/111827/FFFFFF?text=Imagem+1';">
-                </div>
-                <!-- Portfolio Item 2 -->
-                <div class="bg-gray-900 rounded-xl overflow-hidden">
-                    <img src="http://tynk.io/img2.png" alt="Print de um perfil do Instagram gerenciado" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/850x1350/111827/FFFFFF?text=Imagem+2';">
-                </div>
-                <!-- Portfolio Item 3 -->
-                <div class="bg-gray-900 rounded-xl overflow-hidden">
-                    <img src="http://tynk.io/img3.png" alt="Print de um perfil do Instagram gerenciado" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/850x1350/111827/FFFFFF?text=Imagem+3';">
+            <div class="overflow-x-auto no-scrollbar pb-4">
+                <div class="grid grid-flow-col auto-cols-[80%] sm:auto-cols-[45%] lg:grid-flow-row lg:grid-cols-3 lg:auto-cols-auto gap-8">
+                    <!-- Portfolio Item 1 -->
+                    <div class="bg-gray-900 rounded-xl overflow-hidden">
+                        <img src="http://tynk.io/img1.png" alt="Print de um perfil do Instagram gerenciado" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/850x1350/111827/FFFFFF?text=Imagem+1';">
+                    </div>
+                    <!-- Portfolio Item 2 -->
+                    <div class="bg-gray-900 rounded-xl overflow-hidden">
+                        <img src="http://tynk.io/img2.png" alt="Print de um perfil do Instagram gerenciado" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/850x1350/111827/FFFFFF?text=Imagem+2';">
+                    </div>
+                    <!-- Portfolio Item 3 -->
+                    <div class="bg-gray-900 rounded-xl overflow-hidden">
+                        <img src="http://tynk.io/img3.png" alt="Print de um perfil do Instagram gerenciado" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/850x1350/111827/FFFFFF?text=Imagem+3';">
+                    </div>
                 </div>
             </div>
         </div>
