@@ -118,7 +118,7 @@
     <!-- Hero Section -->
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 md:py-32">
         <h2 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white mb-4">
-            Sua Marca Merece <span class="gradient-text" id="typing-container"><span class="typing-cursor"></span></span>
+            Sua Marca Merece <span class="gradient-text" id="typing-container"></span>
         </h2>
         <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-400 mb-8">
             Transformamos sua presença online com gestão de redes sociais estratégica e criativa. Escolha o plano ideal e comece a captar mais clientes.
@@ -292,43 +292,48 @@
         window.addEventListener('load', () => {
             setTimeout(() => {
                 loader.classList.add('hidden');
+                
+                // Start animations AFTER loader is hidden
+                // Animação do Hero
+                gsap.from("main h2, main p, main a", {
+                    opacity: 0,
+                    y: 40,
+                    duration: 1,
+                    stagger: 0.2,
+                    ease: "power3.out"
+                });
+
+                // --- Typing Animation Logic ---
+                const typingContainer = document.getElementById('typing-container');
+                if (typingContainer) {
+                    const textToAnimate = "Destaque Digital.";
+                    let charIndex = 0;
+                    
+                    const textSpan = document.createElement('span');
+                    const cursorSpan = document.createElement('span');
+                    cursorSpan.className = 'typing-cursor';
+                    typingContainer.innerHTML = ''; 
+                    typingContainer.appendChild(textSpan);
+                    typingContainer.appendChild(cursorSpan);
+
+                    function typeOnce() {
+                        if (charIndex < textToAnimate.length) {
+                            textSpan.textContent += textToAnimate.charAt(charIndex);
+                            charIndex++;
+                            setTimeout(typeOnce, 100); // Velocidade da digitação
+                        }
+                    }
+                    
+                    // Inicia um pouco depois da animação do Hero
+                    setTimeout(typeOnce, 700);
+                }
+
             }, 500); // Garante um tempo mínimo de exibição
         });
         
-        // --- GSAP Animations ---
+        // --- GSAP Scroll Animations ---
         document.addEventListener('DOMContentLoaded', () => {
             gsap.registerPlugin(ScrollTrigger);
-
-            // --- Typing Animation Logic ---
-            const typingContainer = document.getElementById('typing-container');
-            if (typingContainer) {
-                const textToAnimate = "Destaque Digital.";
-                let charIndex = 0;
-
-                function typeOnce() {
-                    if (charIndex < textToAnimate.length) {
-                        const currentText = textToAnimate.substring(0, charIndex + 1);
-                        typingContainer.innerHTML = `${currentText}<span class="typing-cursor"></span>`;
-                        charIndex++;
-                        setTimeout(typeOnce, 120); // Velocidade da digitação
-                    } else {
-                        // Ao terminar, remove o cursor
-                        typingContainer.innerHTML = textToAnimate;
-                    }
-                }
-                
-                // Inicia depois da animação do Hero
-                setTimeout(typeOnce, 1500);
-            }
-
-            // Animação do Hero
-            gsap.from("main h2, main p, main a", {
-                opacity: 0,
-                y: 40,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out"
-            });
 
             // Animação dos títulos de seção
             gsap.utils.toArray('section h3, section > div > div > p').forEach(elem => {
