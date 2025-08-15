@@ -37,9 +37,73 @@
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
         }
+        /* Loading Screen Styles */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.75s ease-out, visibility 0.75s ease-out;
+        }
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-logo {
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            color: white;
+        }
+        .bouncing-dot {
+            color: #ec4899; /* Cor rosa */
+            display: inline-block;
+            animation: bounce 1.5s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            25% {
+                transform: translateY(-20px) scale(1.1, 0.9);
+            }
+            50% {
+                transform: translateY(0) scale(1);
+            }
+            75% {
+                transform: translateY(-10px) scale(1.05, 0.95);
+            }
+        }
+        /* Typing Animation Styles */
+        .typing-cursor {
+            display: inline-block;
+            background-color: #ec4899;
+            width: 4px;
+            height: 1em;
+            margin-left: 4px;
+            animation: smooth-blink 1s infinite;
+            transform: translateY(15%);
+        }
+        @keyframes smooth-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
     </style>
 </head>
 <body class="bg-black text-gray-200">
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-logo">
+            tynk<span class="bouncing-dot">.</span>
+        </div>
+    </div>
 
     <!-- Header -->
     <header class="py-6 px-4 sm:px-6 lg:px-8">
@@ -54,7 +118,7 @@
     <!-- Hero Section -->
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 md:py-32">
         <h2 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white mb-4">
-            Sua Marca Merece <span class="gradient-text">Destaque Digital</span>.
+            Sua Marca Merece <span class="gradient-text" id="typing-container"><span class="typing-cursor"></span></span>
         </h2>
         <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-400 mb-8">
             Transformamos sua presença online com gestão de redes sociais estratégica e criativa. Escolha o plano ideal e comece a captar mais clientes.
@@ -74,7 +138,7 @@
 
             <!-- Pricing Cards Grid -->
             <div class="overflow-x-auto lg:overflow-visible no-scrollbar pb-4">
-                <div class="grid grid-flow-col auto-cols-[85%] md:auto-cols-[45%] lg:grid-flow-row lg:grid-cols-3 lg:auto-cols-auto gap-8 max-w-6xl mx-auto">
+                <div class="grid grid-flow-col auto-cols-[85%] md:auto-cols-[45%] lg:grid-flow-row lg:grid-cols-3 lg:auto-cols-auto gap-8 max-w-6xl mx-auto" id="pricing-grid">
 
                     <!-- Pacote 2: Profissional (Highlighted) -->
                     <div class="bg-gray-900 p-8 rounded-2xl border-2 highlight-border-pink relative overflow-hidden flex flex-col">
@@ -140,18 +204,18 @@
             </div>
             <!-- Portfolio Grid -->
             <div class="overflow-x-auto no-scrollbar pb-4">
-                <div class="grid grid-flow-col auto-cols-[80%] sm:auto-cols-[45%] lg:grid-flow-row lg:grid-cols-3 lg:auto-cols-auto gap-8">
+                <div class="grid grid-flow-col auto-cols-[80%] sm:auto-cols-[45%] lg:grid-flow-row lg:grid-cols-3 lg:auto-cols-auto gap-8" id="portfolio-grid">
                     <!-- Portfolio Item 1 -->
-                    <div class="bg-gray-900 rounded-xl overflow-hidden">
-                        <img src="http://tynk.io/img1.png" alt="Print de um perfil do Instagram gerenciado" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/850x1350/111827/FFFFFF?text=Imagem+1';">
+                    <div class="bg-gray-900 rounded-xl overflow-hidden interactive-media-container">
+                        <img src="http://tynk.io/img1.png" alt="Print de um perfil do Instagram gerenciado" class="w-full h-auto interactive-media" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://placehold.co/850x1350/111827/FFFFFF?text=Imagem+1';">
                     </div>
                     <!-- Portfolio Item 2 -->
-                    <div class="bg-gray-900 rounded-xl overflow-hidden">
-                        <img src="http://tynk.io/img2.png" alt="Print de um perfil do Instagram gerenciado" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/850x1350/111827/FFFFFF?text=Imagem+2';">
+                    <div class="bg-gray-900 rounded-xl overflow-hidden interactive-media-container">
+                        <img src="http://tynk.io/img2.png" alt="Print de um perfil do Instagram gerenciado" class="w-full h-auto interactive-media" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://placehold.co/850x1350/111827/FFFFFF?text=Imagem+2';">
                     </div>
                     <!-- Portfolio Item 3 -->
-                    <div class="bg-gray-900 rounded-xl overflow-hidden">
-                        <img src="http://tynk.io/img3.png" alt="Print de um perfil do Instagram gerenciado" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/850x1350/111827/FFFFFF?text=Imagem+3';">
+                    <div class="bg-gray-900 rounded-xl overflow-hidden interactive-media-container">
+                        <img src="http://tynk.io/img3.png" alt="Print de um perfil do Instagram gerenciado" class="w-full h-auto interactive-media" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://placehold.co/850x1350/111827/FFFFFF?text=Imagem+3';">
                     </div>
                 </div>
             </div>
@@ -169,42 +233,42 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="grid gap-4">
                     <!-- Video 1 -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden video-placeholder">
-                        <video src="http://tynk.io/video1.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+                    <div class="bg-gray-800 rounded-lg overflow-hidden video-placeholder interactive-media-container">
+                        <video src="http://tynk.io/video1.mp4" autoplay loop muted playsinline class="w-full h-full object-cover interactive-media"></video>
                     </div>
                     <!-- Studio Photo 1 (Square) -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden">
-                        <img src="http://tynk.io/img6.png" alt="Foto profissional de estúdio" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1080x1080/111827/FFFFFF?text=Foto+Estudio';">
+                    <div class="bg-gray-800 rounded-lg overflow-hidden interactive-media-container">
+                        <img src="http://tynk.io/img6.png" alt="Foto profissional de estúdio" class="w-full h-full object-cover interactive-media" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://placehold.co/1080x1080/111827/FFFFFF?text=Foto+Estudio';">
                     </div>
                 </div>
                 <div class="grid gap-4">
                     <!-- Studio Photo 2 (Tall) -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden">
-                        <img src="http://tynk.io/img4.png" alt="Foto profissional de estúdio" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1080x1512/111827/FFFFFF?text=Foto+Estudio';">
+                    <div class="bg-gray-800 rounded-lg overflow-hidden interactive-media-container">
+                        <img src="http://tynk.io/img4.png" alt="Foto profissional de estúdio" class="w-full h-full object-cover interactive-media" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://placehold.co/1080x1512/111827/FFFFFF?text=Foto+Estudio';">
                     </div>
                     <!-- Video 2 -->
-                     <div class="bg-gray-800 rounded-lg overflow-hidden video-placeholder">
-                        <video src="http://tynk.io/video2.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+                     <div class="bg-gray-800 rounded-lg overflow-hidden video-placeholder interactive-media-container">
+                        <video src="http://tynk.io/video2.mp4" autoplay loop muted playsinline class="w-full h-full object-cover interactive-media"></video>
                     </div>
                 </div>
                 <div class="grid gap-4">
                     <!-- Video 3 -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden video-placeholder">
-                        <video src="http://tynk.io/video3.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+                    <div class="bg-gray-800 rounded-lg overflow-hidden video-placeholder interactive-media-container">
+                        <video src="http://tynk.io/video3.mp4" autoplay loop muted playsinline class="w-full h-full object-cover interactive-media"></video>
                     </div>
                     <!-- Studio Photo 3 (Square) -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden">
-                        <img src="http://tynk.io/img7.png" alt="Foto profissional de estúdio" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1080x1080/111827/FFFFFF?text=Foto+Estudio';">
+                    <div class="bg-gray-800 rounded-lg overflow-hidden interactive-media-container">
+                        <img src="http://tynk.io/img7.png" alt="Foto profissional de estúdio" class="w-full h-full object-cover interactive-media" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://placehold.co/1080x1080/111827/FFFFFF?text=Foto+Estudio';">
                     </div>
                 </div>
                 <div class="grid gap-4">
                      <!-- Studio Photo 4 (Tall) -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden">
-                        <img src="http://tynk.io/img5.png" alt="Foto profissional de estúdio" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1080x1512/111827/FFFFFF?text=Foto+Estudio';">
+                    <div class="bg-gray-800 rounded-lg overflow-hidden interactive-media-container">
+                        <img src="http://tynk.io/img5.png" alt="Foto profissional de estúdio" class="w-full h-full object-cover interactive-media" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://placehold.co/1080x1512/111827/FFFFFF?text=Foto+Estudio';">
                     </div>
                     <!-- Video 4 -->
-                     <div class="bg-gray-800 rounded-lg overflow-hidden video-placeholder">
-                        <video src="http://tynk.io/video4.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+                     <div class="bg-gray-800 rounded-lg overflow-hidden video-placeholder interactive-media-container">
+                        <video src="http://tynk.io/video4.mp4" autoplay loop muted playsinline class="w-full h-full object-cover interactive-media"></video>
                     </div>
                 </div>
             </div>
@@ -219,5 +283,129 @@
         </div>
     </footer>
 
+    <!-- GSAP Scripts for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        // --- Loading Screen Logic ---
+        const loader = document.getElementById('loader');
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 500); // Garante um tempo mínimo de exibição
+        });
+        
+        // --- GSAP Animations ---
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // --- Typing Animation Logic ---
+            const typingContainer = document.getElementById('typing-container');
+            if (typingContainer) {
+                const textToAnimate = "Destaque Digital.";
+                let charIndex = 0;
+
+                function typeOnce() {
+                    if (charIndex < textToAnimate.length) {
+                        const currentText = textToAnimate.substring(0, charIndex + 1);
+                        typingContainer.innerHTML = `${currentText}<span class="typing-cursor"></span>`;
+                        charIndex++;
+                        setTimeout(typeOnce, 120); // Velocidade da digitação
+                    } else {
+                        // Ao terminar, remove o cursor
+                        typingContainer.innerHTML = textToAnimate;
+                    }
+                }
+                
+                // Inicia depois da animação do Hero
+                setTimeout(typeOnce, 1500);
+            }
+
+            // Animação do Hero
+            gsap.from("main h2, main p, main a", {
+                opacity: 0,
+                y: 40,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+
+            // Animação dos títulos de seção
+            gsap.utils.toArray('section h3, section > div > div > p').forEach(elem => {
+                gsap.from(elem, {
+                    opacity: 0,
+                    y: 40,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+
+            // Animação dos cards de preço
+            gsap.from("#pricing-grid > div", {
+                opacity: 0,
+                y: 50,
+                rotationZ: -3,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#pricing-grid",
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+             // Animação dos cards do portfolio
+            gsap.from("#portfolio-grid > div", {
+                opacity: 0,
+                y: 50,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#portfolio-grid",
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+            // Efeito de zoom suave na rolagem para mídias do portfólio
+            gsap.utils.toArray('#portfolio .interactive-media').forEach(media => {
+                gsap.fromTo(media,
+                    { scale: 0.9 },
+                    {
+                        scale: 1,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: media,
+                            start: "top bottom",
+                            end: "center center",
+                            scrub: 1.5,
+                        }
+                    }
+                );
+            });
+
+            // Efeito de zoom MAIS INTENSO para a seção VISUAL
+            gsap.utils.toArray('#visuals .interactive-media-container').forEach(container => {
+                 gsap.from(container, {
+                    opacity: 0,
+                    scale: 0.8,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: container,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse",
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
